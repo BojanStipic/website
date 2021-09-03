@@ -1,13 +1,16 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql, Link as GatsbyLink } from "gatsby";
+import { Box, Heading, Link } from "@chakra-ui/react";
 
 const IndexPage = ({ data: { site } }) => (
-  <main>
-    {site.siteMetadata.title}
-    <div>
-      <Link to="/blog">Blog</Link>
-    </div>
-  </main>
+  <Box as="main">
+    <Heading>{site.siteMetadata.title}</Heading>
+    <Box>
+      <Link as={GatsbyLink} to="/blog">
+        Blog
+      </Link>
+    </Box>
+  </Box>
 );
 
 export const query = graphql`
