@@ -1,16 +1,14 @@
-import React from "react"
-import {graphql} from "gatsby"
-import {MDXRenderer} from "gatsby-plugin-mdx"
+import React from "react";
+import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-const BlogPostPage = ({data: {mdx}}) => {
-  return (
-    <MDXRenderer>{mdx.body}</MDXRenderer>
-  )
-}
+const BlogPostPage = ({ data: { mdx } }) => {
+  return <MDXRenderer>{mdx.body}</MDXRenderer>;
+};
 
 export const query = graphql`
   query ($id: String) {
-    mdx(id: {eq: $id}) {
+    mdx(id: { eq: $id }) {
       frontmatter {
         title
         date
@@ -18,6 +16,6 @@ export const query = graphql`
       body
     }
   }
-`
+`;
 
-export default BlogPostPage
+export default BlogPostPage;

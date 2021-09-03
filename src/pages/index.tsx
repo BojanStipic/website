@@ -1,14 +1,14 @@
-import React from "react"
-import {graphql, Link} from "gatsby"
+import React from "react";
+import { graphql, Link } from "gatsby";
 
-const IndexPage = ({data: {site}}) => (
+const IndexPage = ({ data: { site } }) => (
   <main>
     {site.siteMetadata.title}
     <div>
       <Link to="/blog">Blog</Link>
     </div>
   </main>
-)
+);
 
 export const query = graphql`
   query {
@@ -18,6 +18,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

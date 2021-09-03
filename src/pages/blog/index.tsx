@@ -1,8 +1,8 @@
-import React from "react"
-import {graphql, Link} from "gatsby"
+import React from "react";
+import { graphql, Link } from "gatsby";
 
-const BlogPage = ({data: {allMdx}}) => (
-  allMdx.nodes.map(node => (
+const BlogPage = ({ data: { allMdx } }) =>
+  allMdx.nodes.map((node) => (
     <article key={node.id}>
       <h2>{node.frontmatter.title}</h2>
       <div>{node.frontmatter.date}</div>
@@ -11,12 +11,11 @@ const BlogPage = ({data: {allMdx}}) => (
         <Link to={`/blog/${node.slug}`}>Read</Link>
       </div>
     </article>
-  ))
-)
+  ));
 
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       totalCount
       nodes {
         id
@@ -29,6 +28,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default BlogPage
+export default BlogPage;
