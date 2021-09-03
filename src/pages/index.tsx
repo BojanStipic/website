@@ -1,22 +1,23 @@
 import React from "react"
-import {graphql, useStaticQuery} from "gatsby"
+import {graphql, Link} from "gatsby"
 
-const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
+const IndexPage = ({data: {site}}) => (
+  <main>
+    {site.siteMetadata.title}
+    <div>
+      <Link to="/blog">Blog</Link>
+    </div>
+  </main>
+)
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
       }
     }
-  `)
-
-  return (
-    <main>
-      {data.site.siteMetadata.title}
-    </main>
-  )
-}
+  }
+`
 
 export default IndexPage
