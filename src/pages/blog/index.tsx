@@ -1,17 +1,29 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+import { SimpleGrid } from "@chakra-ui/react";
 
-const BlogPage = ({ data: { allMdx } }) =>
-  allMdx.nodes.map((node) => (
-    <article key={node.id}>
-      <h2>{node.frontmatter.title}</h2>
-      <div>{node.frontmatter.date}</div>
-      <div>{node.excerpt}</div>
-      <div>
-        <Link to={`/blog/${node.slug}`}>Read</Link>
-      </div>
-    </article>
-  ));
+import { BlogPostCard, Layout } from "../../components";
+
+const BlogPage = ({ data: { allMdx } }) => (
+  <Layout>
+    <SimpleGrid columns={[1, 2, 3, 4]} spacing={8} m={8}>
+      {allMdx.nodes.map((post) => (
+        <BlogPostCard
+          key={post.id}
+          slug={post.slug}
+          title={post.frontmatter.title}
+          excerpt={post.excerpt}
+          image={getImage(post.frontmatter.image)}
+          imageAlt={post.frontmatter.imageAlt}
+          tags={post.frontmatter.tags}
+          author={post.frontmatter.author}
+          timeToRead={post.timeToRead}
+        />
+      ))}
+    </SimpleGrid>
+  </Layout>
+);
 
 export const query = graphql`
   query {
@@ -23,8 +35,17 @@ export const query = graphql`
         frontmatter {
           title
           date
+          image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          imageAlt
+          tags
+          author
         }
         excerpt
+        timeToRead
       }
     }
   }
