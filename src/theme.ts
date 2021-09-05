@@ -14,6 +14,7 @@ const theme = extendTheme(
   {
     config: {
       initialColorMode: "dark",
+      useSystemColorMode: true,
     },
     colors: {
       brand: defaultTheme.colors.red,
