@@ -5,16 +5,30 @@ module.exports = {
   },
   plugins: [
     "@chakra-ui/gatsby-plugin",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-mdx",
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "src",
-        path: "./src/",
+        name: "blog",
+        path: "./src/blog",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
       },
     },
   ],
