@@ -7,7 +7,14 @@ import {
   IconButton,
   useColorMode,
 } from "@chakra-ui/react";
-import { FaBars, FaTimes, FaBlog, FaSun, FaMoon } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaBlog,
+  FaFolder,
+  FaSun,
+  FaMoon,
+} from "react-icons/fa";
 
 import { Card, NavigationLink } from "./";
 
@@ -49,6 +56,9 @@ export const Header: VFC = () => {
           mt={{ base: 4, md: 0 }}
           spacing="4"
         >
+          <NavigationLink to="/projects" icon={FaFolder}>
+            Projects
+          </NavigationLink>
           <NavigationLink to="/blog" icon={FaBlog}>
             Blog
           </NavigationLink>
