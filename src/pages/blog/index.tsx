@@ -28,7 +28,6 @@ const BlogPage = ({ data: { allMdx } }) => (
 export const query = graphql`
   query {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
-      totalCount
       nodes {
         id
         slug
