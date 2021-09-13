@@ -1,7 +1,11 @@
 import React from "react";
 
-import { Layout } from "../components";
+import { Layout, AuthorProfile } from "../components";
 
-const IndexPage = () => <Layout>Home Page</Layout>;
+const IndexPage = () => (
+  <Layout>
+    <AuthorProfile />
+  </Layout>
+);
 
 export default IndexPage;

@@ -7,3 +7,4 @@ export * from "./BlogPostCard";
 export * from "./BlogPost";
 export * from "./MdxRenderer";
 export * from "./TableOfContents";
+export * from "./AuthorProfile";
