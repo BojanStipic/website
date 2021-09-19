@@ -6,7 +6,22 @@ module.exports = {
   plugins: [
     "@chakra-ui/gatsby-plugin",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              // container.md from chakra-ui
+              maxWidth: 768,
+              showCaptions: true,
+            },
+          },
+        ],
+      },
+    },
+    "gatsby-remark-images",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
