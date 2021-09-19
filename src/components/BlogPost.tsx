@@ -42,9 +42,11 @@ export const BlogPost: VFC<BlogPostProps> = ({
   const mutedText = useColorModeValue("gray.600", "gray.400");
 
   return (
-    <Container>
-      <Box>
-        <GatsbyImage image={getImage(image)} alt={imageAlt} />
+    <Container maxW="container.md">
+      <Box m={{ base: 0, sm: 8 }}>
+        <Flex justify="center">
+          <GatsbyImage image={getImage(image)} alt={imageAlt} />
+        </Flex>
         <Heading as="h1" size="3xl" mt="4">
           {title}
         </Heading>
