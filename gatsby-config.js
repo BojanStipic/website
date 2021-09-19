@@ -18,6 +18,12 @@ module.exports = {
               showCaptions: true,
             },
           },
+          {
+            resolve: "gatsby-remark-autolink-headers",
+            options: {
+              icon: false,
+            },
+          },
         ],
       },
     },

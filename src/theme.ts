@@ -62,6 +62,13 @@ const theme = extendTheme(
         },
       },
     },
+    styles: {
+      global: {
+        html: {
+          scrollBehavior: "smooth",
+        },
+      },
+    },
   },
   withDefaultColorScheme({ colorScheme: "brand" })
 );

@@ -1,6 +1,6 @@
 import React, { VFC } from "react";
 import { Link as GatsbyLink } from "gatsby";
-import { Link, ListItem, OrderedList } from "@chakra-ui/react";
+import { Box, Link, ListItem, OrderedList } from "@chakra-ui/react";
 
 import { Card } from ".";
 
@@ -23,14 +23,14 @@ export const TableOfContents: VFC<TableOfContentsProps> = ({ items }) => (
 const generateToc = (items: Array<TocItem>) => (
   <OrderedList>
     {items?.map((item) => (
-      <>
+      <Box key={item.url}>
         <ListItem>
           <Link as={GatsbyLink} to={item.url} fontSize="lg">
             {item.title}
           </Link>
         </ListItem>
         {generateToc(item.items)}
-      </>
+      </Box>
     ))}
   </OrderedList>
 );
