@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://bojanstipic.rs",
-    title: "Bojan Stipic's Website",
+    title: "Bojan Stipic",
   },
   plugins: [
     "@chakra-ui/gatsby-plugin",
