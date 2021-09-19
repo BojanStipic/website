@@ -16,6 +16,8 @@ import {
   Link,
 } from "@chakra-ui/react";
 
+import { CodeBlock, CodeBlockProps } from "./";
+
 const components = {
   p: Text,
   h1: (props: unknown) => <Heading as="h1" size="2xl" {...props} />,
@@ -32,7 +34,7 @@ const components = {
   tr: Tr,
   td: Td,
   th: Th,
-  code: Code,
+  code: (props: CodeBlockProps) => <CodeBlock {...props} />,
   em: (props: unknown) => <Text as="em" {...props} />,
   strong: (props: unknown) => <Text as="strong" {...props} />,
   delete: (props: unknown) => <Text as="del" {...props} />,
