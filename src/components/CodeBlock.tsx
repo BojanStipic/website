@@ -7,6 +7,7 @@ import Highlight, {
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
 import {
+  Box,
   Code,
   Button,
   useColorModeValue,
@@ -38,37 +39,37 @@ export const CodeBlock: VFC<CodeBlockProps> = ({ children, className }) => {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Code
-          className={className}
-          style={style}
-          my="4"
-          p="4"
-          borderRadius="lg"
-          fontSize="md"
-          overflowX="auto"
-          w="100%"
-          position="relative"
-          zIndex="0"
-        >
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-          <Button
-            onClick={onCopy}
-            position="absolute"
-            zIndex="1"
-            textTransform="uppercase"
-            size="xs"
-            top="4"
-            right="4"
+        <Box position="relative" my="4">
+          <Code
+            className={className}
+            style={style}
+            fontSize="md"
+            w="100%"
+            p="4"
+            borderRadius="lg"
+            overflowX="auto"
+            zIndex="0"
           >
-            {hasCopied ? "Copied" : "Copy"}
-          </Button>
-        </Code>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+            <Button
+              onClick={onCopy}
+              position="absolute"
+              zIndex="1"
+              textTransform="uppercase"
+              size="xs"
+              top="4"
+              right="4"
+            >
+              {hasCopied ? "Copied" : "Copy"}
+            </Button>
+          </Code>
+        </Box>
       )}
     </Highlight>
   );
