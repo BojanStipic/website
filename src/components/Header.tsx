@@ -35,7 +35,13 @@ export const Header: VFC = () => {
   return (
     <Card as="nav" variant="outline" p="4">
       <Flex align="center" justify="space-between" wrap="wrap">
-        <Heading as="h1" size="xl" fontFamily="logo">
+        <Heading
+          as="h1"
+          size="xl"
+          fontFamily="logo"
+          fontWeight="normal"
+          letterSpacing="wider"
+        >
           <GatsbyLink to="/">{site.siteMetadata.title}</GatsbyLink>
         </Heading>
 
