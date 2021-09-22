@@ -1,8 +1,8 @@
 import React, { VFC } from "react";
 import { Link as GatsbyLink } from "gatsby";
-import { Box, Link, ListItem, OrderedList } from "@chakra-ui/react";
+import { Box, Divider, Link, ListItem, OrderedList } from "@chakra-ui/react";
 
-import { Card } from ".";
+import { Card } from "./";
 
 export type TableOfContentsProps = {
   items: Array<TocItem>;
@@ -15,7 +15,7 @@ export type TocItem = {
 };
 
 export const TableOfContents: VFC<TableOfContentsProps> = ({ items }) => (
-  <Card p="4" m="8" variant="outline" boxShadow="xl" fontWeight="bold">
+  <Card p={4} my={8} variant="outline" boxShadow="xl" fontWeight="bold">
     {generateToc(items)}
   </Card>
 );
@@ -29,6 +29,7 @@ const generateToc = (items: Array<TocItem>) => (
             {item.title}
           </Link>
         </ListItem>
+        <Divider />
         {generateToc(item.items)}
       </Box>
     ))}

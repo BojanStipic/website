@@ -3,6 +3,8 @@ import {
   theme as defaultTheme,
   withDefaultColorScheme,
 } from "@chakra-ui/react";
+import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+
 import "@fontsource/alfa-slab-one";
 import "@fontsource/fira-sans/100.css";
 import "@fontsource/fira-sans/100-italic.css";
@@ -63,11 +65,14 @@ const theme = extendTheme(
       },
     },
     styles: {
-      global: {
+      global: (props: StyleFunctionProps) => ({
         html: {
           scrollBehavior: "smooth",
         },
-      },
+        body: {
+          bg: mode("gray.100", "gray.800")(props),
+        },
+      }),
     },
   },
   withDefaultColorScheme({ colorScheme: "brand" })

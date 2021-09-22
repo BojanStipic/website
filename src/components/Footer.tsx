@@ -5,7 +5,7 @@ import { Card } from "./";
 
 export const Footer: VFC = () => {
   return (
-    <Card as="footer" variant="outline" p="4">
+    <Card as="footer" variant="outline" p={4}>
       <Flex fontSize="sm" fontWeight="light">
         Copyright © 2021 Bojan Stipic
       </Flex>

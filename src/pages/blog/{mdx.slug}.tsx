@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
+import { Container } from "@chakra-ui/react";
 
 import { Layout, BlogPost } from "../../components";
 
@@ -15,18 +16,20 @@ const BlogPostPage = ({
   },
 }) => (
   <Layout>
-    <BlogPost
-      title={title}
-      date={date}
-      image={getImage(image)}
-      imageAlt={imageAlt}
-      tags={tags}
-      author={author}
-      tableOfContents={tableOfContents}
-      timeToRead={timeToRead}
-    >
-      {body}
-    </BlogPost>
+    <Container maxW="container.md">
+      <BlogPost
+        title={title}
+        date={date}
+        image={getImage(image)}
+        imageAlt={imageAlt}
+        tags={tags}
+        author={author}
+        tableOfContents={tableOfContents}
+        timeToRead={timeToRead}
+      >
+        {body}
+      </BlogPost>
+    </Container>
   </Layout>
 );
 

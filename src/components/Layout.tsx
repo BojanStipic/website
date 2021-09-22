@@ -1,5 +1,5 @@
 import React, { VFC, ReactNode } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
 import { Header, Footer } from "./";
 
@@ -8,11 +8,11 @@ export type LayoutProps = {
 };
 
 export const Layout: VFC<LayoutProps> = ({ children }) => (
-  <Flex minH="100vh" direction="column">
+  <Stack minH="100vh" spacing={8}>
     <Header />
-    <Box as="main" flex="1" mt="4">
+    <Box as="main" flex={1}>
       {children}
     </Box>
     <Footer />
-  </Flex>
+  </Stack>
 );

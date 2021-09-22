@@ -1,27 +1,33 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
-import { SimpleGrid } from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 
-import { BlogPostCard, Layout } from "../../components";
+import { Layout, BlogPostCard } from "../../components";
 
-const BlogPage = ({ data: { allMdx } }) => (
+const BlogPage = ({
+  data: {
+    allMdx: { nodes: posts },
+  },
+}) => (
   <Layout>
-    <SimpleGrid columns={[1, 2, 3, 4]} spacing={8} m={8}>
-      {allMdx.nodes.map((post) => (
-        <BlogPostCard
-          key={post.id}
-          slug={post.slug}
-          title={post.frontmatter.title}
-          excerpt={post.excerpt}
-          image={getImage(post.frontmatter.image)}
-          imageAlt={post.frontmatter.imageAlt}
-          tags={post.frontmatter.tags}
-          author={post.frontmatter.author}
-          timeToRead={post.timeToRead}
-        />
-      ))}
-    </SimpleGrid>
+    <Container maxW="container.xl">
+      <SimpleGrid columns={[1, 2, 3, 4]} spacing={8}>
+        {posts.map((post) => (
+          <BlogPostCard
+            key={post.id}
+            slug={post.slug}
+            title={post.frontmatter.title}
+            excerpt={post.excerpt}
+            image={getImage(post.frontmatter.image)}
+            imageAlt={post.frontmatter.imageAlt}
+            tags={post.frontmatter.tags}
+            author={post.frontmatter.author}
+            timeToRead={post.timeToRead}
+          />
+        ))}
+      </SimpleGrid>
+    </Container>
   </Layout>
 );
 

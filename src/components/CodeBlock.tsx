@@ -1,11 +1,4 @@
 import React, { VFC } from "react";
-import Highlight, {
-  defaultProps,
-  Language,
-  PrismTheme,
-} from "prism-react-renderer";
-import nightOwl from "prism-react-renderer/themes/nightOwl";
-import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
 import {
   Box,
   Code,
@@ -13,6 +6,13 @@ import {
   useColorModeValue,
   useClipboard,
 } from "@chakra-ui/react";
+import Highlight, {
+  defaultProps,
+  Language,
+  PrismTheme,
+} from "prism-react-renderer";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
 
 // Required to add support for additional languages
 // https://github.com/FormidableLabs/prism-react-renderer#faq
@@ -39,16 +39,16 @@ export const CodeBlock: VFC<CodeBlockProps> = ({ children, className }) => {
       theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Box position="relative" my="4">
+        <Box position="relative" my={4}>
           <Code
             className={className}
             style={style}
             fontSize="md"
-            w="100%"
-            p="4"
+            w="full"
+            p={4}
             borderRadius="lg"
             overflowX="auto"
-            zIndex="0"
+            zIndex={0}
           >
             {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
@@ -60,11 +60,11 @@ export const CodeBlock: VFC<CodeBlockProps> = ({ children, className }) => {
             <Button
               onClick={onCopy}
               position="absolute"
-              zIndex="1"
+              zIndex={1}
               textTransform="uppercase"
               size="xs"
-              top="4"
-              right="4"
+              top={4}
+              right={4}
             >
               {hasCopied ? "Copied" : "Copy"}
             </Button>

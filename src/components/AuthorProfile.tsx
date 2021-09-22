@@ -1,10 +1,19 @@
 import React, { VFC } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { VStack, Text, ButtonGroup, Button, Link } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+  VStack,
+  Text,
+  ButtonGroup,
+  Button,
+  Link,
+  Icon,
+} from "@chakra-ui/react";
+import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
+
+import { Card } from "./";
 
 export const AuthorProfile: VFC = () => (
-  <VStack>
+  <Card as={VStack} p={8} borderRadius="xl">
     <StaticImage
       src="../assets/profile.jpg"
       alt="Bojan Stipic's profile picture"
@@ -20,6 +29,13 @@ export const AuthorProfile: VFC = () => (
     </Text>
     <Text casing="uppercase" fontWeight="bold">
       Software Engineer
+    </Text>
+    <Text>
+      <Icon as={FaMapMarkerAlt} fontSize="xl" />
+      <Text as="span" fontWeight="bold">
+        Novi Sad
+      </Text>
+      , Serbia
     </Text>
     <ButtonGroup variant="outline">
       <Button
@@ -39,5 +55,9 @@ export const AuthorProfile: VFC = () => (
         Linkedin
       </Button>
     </ButtonGroup>
-  </VStack>
+    <Text textAlign="center">
+      I am a software engineer interested in full stack web development, systems
+      programming, programming language design and compilers.
+    </Text>
+  </Card>
 );

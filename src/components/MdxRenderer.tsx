@@ -3,7 +3,9 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import {
   Text,
-  Heading,
+  TextProps,
+  Heading as ChakraHeading,
+  HeadingProps,
   UnorderedList,
   OrderedList,
   ListItem,
@@ -14,18 +16,32 @@ import {
   Code,
   Divider,
   Link,
+  CodeProps,
 } from "@chakra-ui/react";
 
 import { CodeBlock, CodeBlockProps } from "./";
+import { useAccentColor } from "../hooks";
+
+const Heading: VFC<HeadingProps> = ({ ...rest }) => (
+  <ChakraHeading
+    my={4}
+    textDecorationLine="underline"
+    textDecorationColor={useAccentColor()}
+    textDecorationThickness="8px"
+    textUnderlineOffset="10px"
+    mb="4"
+    {...rest}
+  />
+);
 
 const components = {
-  p: Text,
-  h1: (props: unknown) => <Heading as="h1" size="2xl" {...props} />,
-  h2: (props: unknown) => <Heading as="h2" size="xl" {...props} />,
-  h3: (props: unknown) => <Heading as="h3" size="lg" {...props} />,
-  h4: (props: unknown) => <Heading as="h4" size="md" {...props} />,
-  h5: (props: unknown) => <Heading as="h5" size="sm" {...props} />,
-  h6: (props: unknown) => <Heading as="h6" size="xs" {...props} />,
+  p: (props: TextProps) => <Text my={4} {...props} />,
+  h1: (props: HeadingProps) => <Heading as="h1" size="2xl" {...props} />,
+  h2: (props: HeadingProps) => <Heading as="h2" size="xl" {...props} />,
+  h3: (props: HeadingProps) => <Heading as="h3" size="lg" {...props} />,
+  h4: (props: HeadingProps) => <Heading as="h4" size="md" {...props} />,
+  h5: (props: HeadingProps) => <Heading as="h5" size="sm" {...props} />,
+  h6: (props: HeadingProps) => <Heading as="h6" size="xs" {...props} />,
   blockquote: Text, // TODO
   ul: UnorderedList,
   ol: OrderedList,
@@ -35,10 +51,10 @@ const components = {
   td: Td,
   th: Th,
   code: (props: CodeBlockProps) => <CodeBlock {...props} />,
-  em: (props: unknown) => <Text as="em" {...props} />,
-  strong: (props: unknown) => <Text as="strong" {...props} />,
-  delete: (props: unknown) => <Text as="del" {...props} />,
-  inlineCode: (props: unknown) => <Code as="span" {...props} />,
+  em: (props: TextProps) => <Text as="em" {...props} />,
+  strong: (props: TextProps) => <Text as="strong" {...props} />,
+  delete: (props: TextProps) => <Text as="del" {...props} />,
+  inlineCode: (props: CodeProps) => <Code {...props} />,
   hr: Divider,
   a: Link,
 };

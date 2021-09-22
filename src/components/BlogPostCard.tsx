@@ -11,11 +11,13 @@ import {
   Stack,
   Tag,
   Text,
-  useColorModeValue,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { FaClock, FaUserGraduate } from "react-icons/fa";
 
 import { Card } from "./";
+import { useMutedColor } from "../hooks";
 
 export type BlogPostCardProps = {
   slug: string;
@@ -38,18 +40,22 @@ export const BlogPostCard: VFC<BlogPostCardProps> = ({
   author,
   timeToRead,
 }) => {
-  const mutedText = useColorModeValue("gray.600", "gray.400");
+  const mutedText = useMutedColor();
 
   return (
-    <LinkBox as={Flex}>
+    <LinkBox>
       <Card as="article" borderRadius="lg">
         <GatsbyImage image={image} alt={imageAlt} />
         <Stack p={4} spacing={4}>
-          <HStack spacing={2}>
+          <Wrap spacing={2}>
             {tags.map((tag) => (
-              <Tag key={tag}>{tag.toUpperCase()}</Tag>
+              <WrapItem key={tag}>
+                <Tag as={Text} casing="uppercase">
+                  {tag}
+                </Tag>
+              </WrapItem>
             ))}
-          </HStack>
+          </Wrap>
           <Heading as="h2" size="md">
             <LinkOverlay as={GatsbyLink} to={slug}>
               {title}
@@ -58,12 +64,12 @@ export const BlogPostCard: VFC<BlogPostCardProps> = ({
           <Text color={mutedText} noOfLines={2}>
             {excerpt}
           </Text>
-          <Flex justify="space-between">
-            <Text color={mutedText} fontSize="sm">
+          <Flex justify="space-between" color={mutedText} fontSize="sm">
+            <Text>
               <Icon as={FaUserGraduate} mr={1} />
               By {author}
             </Text>
-            <Text color={mutedText} fontSize="sm">
+            <Text>
               <Icon as={FaClock} mr={1} />
               {timeToRead} min read
             </Text>

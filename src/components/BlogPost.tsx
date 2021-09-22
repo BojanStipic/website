@@ -1,20 +1,20 @@
 import React, { VFC } from "react";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
-  Box,
-  Container,
-  Divider,
-  Flex,
   Heading,
   HStack,
   Icon,
+  SimpleGrid,
+  Stack,
   Tag,
   Text,
-  useColorModeValue,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
-import { FaClock, FaUserGraduate } from "react-icons/fa";
+import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 
 import { MdxRenderer, TableOfContents, TableOfContentsProps } from "./";
+import { useMutedColor } from "../hooks";
 
 export type BlogPostProps = {
   title: string;
@@ -39,40 +39,47 @@ export const BlogPost: VFC<BlogPostProps> = ({
   tableOfContents,
   children,
 }) => {
-  const mutedText = useColorModeValue("gray.600", "gray.400");
+  const mutedText = useMutedColor();
 
   return (
-    <Container maxW="container.md">
-      <Box m={{ base: 0, sm: 8 }}>
-        <Flex justify="center">
-          <GatsbyImage image={getImage(image)} alt={imageAlt} />
-        </Flex>
-        <Heading as="h1" size="3xl" mt="4">
-          {title}
-        </Heading>
-        <HStack spacing={2} my="2">
-          {tags.map((tag) => (
-            <Tag key={tag}>{tag.toUpperCase()}</Tag>
-          ))}
-        </HStack>
-        <Flex justify="space-between">
-          <Text color={mutedText} fontSize="sm">
-            <Icon as={FaUserGraduate} mr={1} />
-            By {author} on {date}
-          </Text>
-          <Text color={mutedText} fontSize="sm">
-            <Icon as={FaClock} mr={1} />
-            {timeToRead} min read
-          </Text>
-        </Flex>
-      </Box>
+    <>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+        <GatsbyImage image={getImage(image)} alt={imageAlt} />
+        <Stack spacing={2} align={{ base: "center", md: "normal" }}>
+          <Heading as="h1" size="xl" mt={4}>
+            {title}
+          </Heading>
+          <Wrap spacing={2}>
+            {tags.map((tag) => (
+              <WrapItem key={tag}>
+                <Tag as={Text} casing="uppercase">
+                  {tag}
+                </Tag>
+              </WrapItem>
+            ))}
+          </Wrap>
+          <HStack spacing={4} color={mutedText} fontSize="sm">
+            <Text>
+              <Icon as={FaUserGraduate} mr={1} />
+              By {author}
+            </Text>
+            <Text>
+              <Icon as={FaCalendarAlt} mr={1} />
+              {date}
+            </Text>
+            <Text>
+              <Icon as={FaClock} mr={1} />
+              {timeToRead} min read
+            </Text>
+          </HStack>
+        </Stack>
+      </SimpleGrid>
 
       {tableOfContents.items?.length && (
         <TableOfContents items={tableOfContents.items} />
       )}
 
-      <Divider my="8" />
       <MdxRenderer>{children}</MdxRenderer>
-    </Container>
+    </>
   );
 };

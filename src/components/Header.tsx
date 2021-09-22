@@ -33,7 +33,7 @@ export const Header: VFC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Card as="nav" variant="outline" p="4">
+    <Card as="nav" variant="outline" p={4}>
       <Flex align="center" justify="space-between" wrap="wrap">
         <Heading
           as="h1"
@@ -57,10 +57,10 @@ export const Header: VFC = () => {
         <Stack
           display={{ base: showMenu ? "flex" : "none", md: "flex" }}
           direction={{ base: "column", md: "row" }}
-          w={{ base: "100%", md: "auto" }}
+          w={{ base: "full", md: "auto" }}
           align="center"
           mt={{ base: 4, md: 0 }}
-          spacing="4"
+          spacing={4}
         >
           <NavigationLink to="/projects" icon={FaFolder}>
             Projects

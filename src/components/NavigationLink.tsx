@@ -26,7 +26,7 @@ export const NavigationLink: VFC<NavigationLinkProps> = ({
       colorScheme={isCurrent ? "brand" : "gray"}
       getProps={handleCurrentChange}
     >
-      <Icon as={icon} mr="2" fontSize="2xl" />
+      <Icon as={icon} mr={2} fontSize="2xl" />
       {children}
     </Button>
   );
