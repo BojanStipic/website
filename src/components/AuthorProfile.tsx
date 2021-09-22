@@ -6,8 +6,8 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export const AuthorProfile: VFC = () => (
   <VStack>
     <StaticImage
-      src="../images/profile.jpg"
-      alt="Bojan Stipic's Profile Picture"
+      src="../assets/profile.jpg"
+      alt="Bojan Stipic's profile picture"
       width={200}
       loading="eager"
       style={{ borderRadius: "var(--chakra-radii-full)" }}
