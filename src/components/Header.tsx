@@ -14,6 +14,7 @@ import {
   FaFolder,
   FaSun,
   FaMoon,
+  FaUser,
 } from "react-icons/fa";
 
 import { Card, NavigationLink } from "./";
@@ -62,6 +63,9 @@ export const Header: VFC = () => {
           mt={{ base: 4, md: 0 }}
           spacing={4}
         >
+          <NavigationLink to="/about" icon={FaUser}>
+            About
+          </NavigationLink>
           <NavigationLink to="/projects" icon={FaFolder}>
             Projects
           </NavigationLink>
