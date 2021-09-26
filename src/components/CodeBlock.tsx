@@ -50,7 +50,7 @@ export const CodeBlock: VFC<CodeBlockProps> = ({ children, className }) => {
             overflowX="auto"
             zIndex={0}
           >
-            {tokens.map((line, i) => (
+            {tokens.slice(0, -1).map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
