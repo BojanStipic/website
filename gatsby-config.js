@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     "@chakra-ui/gatsby-plugin",
     "gatsby-plugin-react-helmet",
+    "gatsby-transformer-toml",
     {
       resolve: "gatsby-plugin-mdx",
       options: {

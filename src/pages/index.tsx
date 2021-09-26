@@ -14,6 +14,7 @@ import {
 const IndexPage = ({
   data: {
     allMdx: { nodes: posts },
+    projectsToml: { projects },
   },
 }) => (
   <Layout>
@@ -21,23 +22,18 @@ const IndexPage = ({
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
         <AuthorProfile />
         <Section title="Top Projects:">
-          <ProjectCard
-            title="spring-skeleton"
-            visibility="public"
-            description="Spring Boot skeleton to kick-start your new application."
-            tags={[
-              "spring",
-              "spring-boot",
-              "spring-security",
-              "skeleton",
-              "boilerplate",
-              "starter",
-              "postgres",
-            ]}
-            language="Java"
-            stars={1}
-            license="GNU Affero General Public License v3.0"
-          />
+          {projects.slice(0, 3).map((project) => (
+            <ProjectCard
+              key={project.title}
+              title={project.title}
+              url={project.url}
+              visibility={project.visibility}
+              description={project.description}
+              tags={project.tags}
+              language={project.language}
+              license={project.license}
+            />
+          ))}
         </Section>
       </SimpleGrid>
 
@@ -82,6 +78,17 @@ export const query = graphql`
         }
         excerpt
         timeToRead
+      }
+    }
+    projectsToml {
+      projects {
+        title
+        url
+        visibility
+        description
+        tags
+        language
+        license
       }
     }
   }

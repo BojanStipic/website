@@ -11,28 +11,28 @@ import {
   Wrap,
   Stack,
 } from "@chakra-ui/react";
-import { FaBalanceScale, FaCode, FaRegStar } from "react-icons/fa";
+import { FaBalanceScale, FaCode } from "react-icons/fa";
 
 import { Card } from "../components";
 import { useMutedColor } from "../hooks";
 
 export type ProjectCardProps = {
   title: string;
+  url: string;
   visibility: "public" | "private";
   description: string;
   tags: Array<string>;
   language: string;
-  stars: number;
   license: string;
 };
 
 export const ProjectCard: VFC<ProjectCardProps> = ({
   title,
+  url,
   visibility,
   description,
   tags,
   language,
-  stars,
   license,
 }) => {
   const mutedText = useMutedColor();
@@ -40,10 +40,7 @@ export const ProjectCard: VFC<ProjectCardProps> = ({
   return (
     <Card as={Stack} p={4} borderRadius="xl">
       <Heading as="h2" size="md">
-        <Link
-          href="https://github.com/BojanStipic/spring-skeleton"
-          isExternal={true}
-        >
+        <Link href={url} isExternal={true}>
           {title}
         </Link>
         <Badge ml={2}>{visibility}</Badge>
@@ -52,7 +49,7 @@ export const ProjectCard: VFC<ProjectCardProps> = ({
       <Wrap spacing={2}>
         {tags.map((tag) => (
           <WrapItem key={tag}>
-            <Tag>{tag}</Tag>
+            <Tag size="sm">{tag}</Tag>
           </WrapItem>
         ))}
       </Wrap>
@@ -60,10 +57,6 @@ export const ProjectCard: VFC<ProjectCardProps> = ({
         <Text>
           <Icon as={FaCode} mr={1} />
           {language}
-        </Text>
-        <Text>
-          <Icon as={FaRegStar} mr={1} />
-          {stars}
         </Text>
         <Text>
           <Icon as={FaBalanceScale} mr={1} />

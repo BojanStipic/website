@@ -9,7 +9,7 @@ export type SectionProps = StackProps & {
 };
 
 export const Section: VFC<SectionProps> = ({ title, children, ...rest }) => (
-  <Stack direction="column" align="start" {...rest}>
+  <Stack {...rest}>
     <Heading
       textDecorationLine="underline"
       textDecorationColor={useAccentColor()}
