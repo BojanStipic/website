@@ -57,7 +57,7 @@ export const BlogPostCard: VFC<BlogPostCardProps> = ({
             ))}
           </Wrap>
           <Heading as="h2" size="md">
-            <LinkOverlay as={GatsbyLink} to={slug}>
+            <LinkOverlay as={GatsbyLink} to={`/blog/${slug}`}>
               {title}
             </LinkOverlay>
           </Heading>
