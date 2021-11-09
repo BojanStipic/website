@@ -29,7 +29,7 @@
     "framer-motion": "^5.2.1",
     "gatsby": "^4.1.2",
     "gatsby-plugin-image": "^2.1.0",
-    "gatsby-plugin-mdx": "^3.1.0",
+    "gatsby-plugin-mdx": "^3.1.1",
     "gatsby-plugin-react-helmet": "^5.1.0",
     "gatsby-plugin-sharp": "^4.1.0",
     "gatsby-remark-autolink-headers": "^5.1.1",
