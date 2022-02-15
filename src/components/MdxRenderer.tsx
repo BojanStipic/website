@@ -24,12 +24,11 @@ import { useAccentColor } from "../hooks";
 
 const Heading: VFC<HeadingProps> = ({ ...rest }) => (
   <ChakraHeading
-    my={4}
+    my={8}
     textDecorationLine="underline"
     textDecorationColor={useAccentColor()}
     textDecorationThickness="8px"
-    textUnderlineOffset="10px"
-    mb="4"
+    textUnderlineOffset="12px"
     {...rest}
   />
 );

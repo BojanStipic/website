@@ -46,7 +46,12 @@ export const BlogPost: VFC<BlogPostProps> = ({
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
         <GatsbyImage image={getImage(image)} alt={imageAlt} />
         <Stack spacing={2} align={{ base: "center", md: "normal" }}>
-          <Heading as="h1" size="xl" mt={4}>
+          <Heading
+            as="h1"
+            size="xl"
+            mt={4}
+            textAlign={{ base: "center", md: "inherit" }}
+          >
             {title}
           </Heading>
           <Wrap spacing={2}>
