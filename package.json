@@ -49,6 +49,9 @@
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1"
   },
+  "overrides": {
+    "@babel/core": "7.17.2"
+  },
   "lint-staged": {
     "*": [
       "prettier --write --ignore-unknown"
