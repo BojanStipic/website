@@ -1,6 +1,7 @@
 import React, { VFC } from "react";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
+  Box,
   Heading,
   HStack,
   Icon,
@@ -84,7 +85,9 @@ export const BlogPost: VFC<BlogPostProps> = ({
         <TableOfContents items={tableOfContents.items} />
       )}
 
-      <MdxRenderer>{children}</MdxRenderer>
+      <Box fontSize="lg">
+        <MdxRenderer>{children}</MdxRenderer>
+      </Box>
     </>
   );
 };
