@@ -42,7 +42,6 @@ import "@fontsource/source-code-pro/900-italic.css";
 const theme = extendTheme(
   {
     config: {
-      initialColorMode: "dark",
       useSystemColorMode: true,
     },
     colors: {
@@ -70,7 +69,7 @@ const theme = extendTheme(
           scrollBehavior: "smooth",
         },
         body: {
-          bg: mode("gray.100", "gray.800")(props),
+          bg: mode("gray.50", "gray.800")(props),
         },
       }),
     },

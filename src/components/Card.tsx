@@ -23,5 +23,5 @@ export const Card: VFC<CardProps> = ({ variant = "ghost", ...props }) => {
     }
   };
 
-  return <Box bg={bg} {...variantProps()} {...props} />;
+  return <Box bg={bg} boxShadow="base" {...variantProps()} {...props} />;
 };

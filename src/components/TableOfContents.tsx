@@ -15,7 +15,15 @@ export type TocItem = {
 };
 
 export const TableOfContents: VFC<TableOfContentsProps> = ({ items }) => (
-  <Card p={4} my={8} variant="outline" boxShadow="xl" fontWeight="bold">
+  <Card
+    p={4}
+    my={8}
+    variant="outline"
+    borderRadius="xl"
+    fontWeight="bold"
+    fontSize="lg"
+    lineHeight="taller"
+  >
     {generateToc(items)}
   </Card>
 );
