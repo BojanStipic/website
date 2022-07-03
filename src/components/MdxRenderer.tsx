@@ -16,6 +16,7 @@ import {
   Code,
   Divider,
   Link,
+  LinkProps,
   CodeProps,
 } from "@chakra-ui/react";
 
@@ -29,6 +30,7 @@ const Heading: VFC<HeadingProps> = ({ ...rest }) => (
     textDecorationColor={useAccentColor()}
     textDecorationThickness="8px"
     textUnderlineOffset="12px"
+    lineHeight="taller"
     {...rest}
   />
 );
@@ -55,7 +57,9 @@ const components = {
   delete: (props: TextProps) => <Text as="del" {...props} />,
   inlineCode: (props: CodeProps) => <Code {...props} />,
   hr: Divider,
-  a: Link,
+  a: (props: LinkProps) => (
+    <Link textDecorationLine="underline" color={useAccentColor()} {...props} />
+  ),
 };
 
 export type MdxRendererProps = {

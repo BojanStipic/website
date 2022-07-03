@@ -47,6 +47,7 @@ export const CodeBlock: VFC<CodeBlockProps> = ({ children, className }) => {
             w="full"
             p={4}
             borderRadius="lg"
+            boxShadow="base"
             overflowX="auto"
             zIndex={0}
           >
