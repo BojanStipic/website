@@ -7,7 +7,7 @@ export const Footer: VFC = () => {
   return (
     <Card as="footer" variant="outline" p={4}>
       <Flex fontSize="sm" fontWeight="light">
-        Copyright © 2021 Bojan Stipic
+        Copyright © 2022 Bojan Stipic
       </Flex>
     </Card>
   );

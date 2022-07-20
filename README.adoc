@@ -39,8 +39,12 @@ yarn run build
 
 == License
 
+This program is distributed under the terms of AGPL-3.0-or-later license,
+except for blog posts that are under the `src/blog` directory.
+Blog post license is specified at the end of each blog post.
+
 ....
-Copyright (C) 2021 Bojan Stipic
+Copyright (C) 2022 Bojan Stipic
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
