@@ -107,6 +107,17 @@ language = 'Asciidoctor'
 license = 'CC BY-ND 4.0'
 
 [[projects]]
+title = 'micko-rs'
+url = 'https://github.com/BojanStipic/micko-rs'
+visibility = 'public'
+description = 'miniC compiler implemented in Rust'
+tags = [
+    'compiler',
+]
+language = 'Rust'
+license = 'GNU General Public License v3.0'
+
+[[projects]]
 title = 'micko-peg'
 url = 'https://github.com/BojanStipic/micko-peg'
 visibility = 'public'
