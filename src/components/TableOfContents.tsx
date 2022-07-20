@@ -29,7 +29,7 @@ export const TableOfContents: VFC<TableOfContentsProps> = ({ items }) => (
 );
 
 const generateToc = (items: Array<TocItem>) => (
-  <OrderedList>
+  <OrderedList styleType="none">
     {items?.map((item) => (
       <Box key={item.url}>
         <ListItem>
