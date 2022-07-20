@@ -16,7 +16,7 @@ module.exports = {
             options: {
               // container.md from chakra-ui
               maxWidth: 768,
-              showCaptions: true,
+              linkImagesToOriginal: false,
             },
           },
           {
