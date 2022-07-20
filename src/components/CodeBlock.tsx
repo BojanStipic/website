@@ -19,6 +19,7 @@ import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
 import Prism from "prism-react-renderer/prism";
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 require("prismjs/components/prism-rust");
+require("prismjs/components/prism-toml");
 require("prismjs/components/prism-java");
 
 export type CodeBlockProps = {
