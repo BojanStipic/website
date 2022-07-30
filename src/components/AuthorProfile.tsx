@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import {
   VStack,
@@ -12,7 +12,7 @@ import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 
 import { Card } from "./";
 
-export const AuthorProfile: VFC = () => (
+export const AuthorProfile: FC = () => (
   <Card as={VStack} p={8} borderRadius="xl">
     <StaticImage
       src="../assets/profile.jpg"

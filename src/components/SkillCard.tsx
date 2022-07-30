@@ -1,9 +1,9 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { Heading } from "@chakra-ui/react";
 
 import { Card } from "./";
 
-export const SkillCard: VFC = () => (
+export const SkillCard: FC = () => (
   <Card p={8} borderRadius="xl">
     <Heading size="sm">Backend Engineering</Heading>
     Java / Spring / PostgreSQL / Cassandra / Kafka / Node.js / Express

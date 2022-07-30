@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import {
   Link,
   Text,
@@ -26,7 +26,7 @@ export type ProjectCardProps = {
   license: string;
 };
 
-export const ProjectCard: VFC<ProjectCardProps> = ({
+export const ProjectCard: FC<ProjectCardProps> = ({
   title,
   url,
   visibility,

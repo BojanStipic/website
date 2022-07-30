@@ -1,4 +1,4 @@
-import React, { ReactNode, VFC } from "react";
+import React, { ReactNode, FC } from "react";
 import { Heading, Stack, StackProps } from "@chakra-ui/react";
 
 import { useAccentColor } from "../hooks";
@@ -8,7 +8,7 @@ export type SectionProps = StackProps & {
   children: ReactNode;
 };
 
-export const Section: VFC<SectionProps> = ({ title, children, ...rest }) => (
+export const Section: FC<SectionProps> = ({ title, children, ...rest }) => (
   <Stack {...rest}>
     <Heading
       textDecorationLine="underline"

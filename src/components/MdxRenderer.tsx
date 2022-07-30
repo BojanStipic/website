@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import {
@@ -23,7 +23,7 @@ import {
 import { CodeBlock, CodeBlockProps } from "./";
 import { useAccentColor } from "../hooks";
 
-const Heading: VFC<HeadingProps> = ({ ...rest }) => (
+const Heading: FC<HeadingProps> = ({ ...rest }) => (
   <ChakraHeading
     my={8}
     textDecorationLine="underline"
@@ -66,7 +66,7 @@ export type MdxRendererProps = {
   children: string;
 };
 
-export const MdxRenderer: VFC<MdxRendererProps> = ({ children }) => (
+export const MdxRenderer: FC<MdxRendererProps> = ({ children }) => (
   <MDXProvider components={components}>
     <MDXRenderer>{children}</MDXRenderer>
   </MDXProvider>

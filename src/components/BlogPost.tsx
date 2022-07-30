@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
   Box,
@@ -29,7 +29,7 @@ export type BlogPostProps = {
   children: string;
 };
 
-export const BlogPost: VFC<BlogPostProps> = ({
+export const BlogPost: FC<BlogPostProps> = ({
   title,
   date,
   image,

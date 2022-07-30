@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import {
   Box,
   Code,
@@ -27,7 +27,7 @@ export type CodeBlockProps = {
   className: string;
 };
 
-export const CodeBlock: VFC<CodeBlockProps> = ({ children, className }) => {
+export const CodeBlock: FC<CodeBlockProps> = ({ children, className }) => {
   const language = className.replace(/language-/, "") as Language;
   const theme = useColorModeValue(nightOwlLight, nightOwl) as PrismTheme;
   const { hasCopied, onCopy } = useClipboard(children);

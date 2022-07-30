@@ -1,4 +1,4 @@
-import React, { VFC, useState } from "react";
+import React, { FC, useState } from "react";
 import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
 import {
   Flex,
@@ -19,7 +19,7 @@ import {
 
 import { Card, NavigationLink } from "./";
 
-export const Header: VFC = () => {
+export const Header: FC = () => {
   const { site } = useStaticQuery(graphql`
     query {
       site {

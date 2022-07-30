@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { Link as GatsbyLink } from "gatsby";
 import { Box, Divider, Link, ListItem, OrderedList } from "@chakra-ui/react";
 
@@ -14,7 +14,7 @@ export type TocItem = {
   items?: Array<TocItem>;
 };
 
-export const TableOfContents: VFC<TableOfContentsProps> = ({ items }) => (
+export const TableOfContents: FC<TableOfContentsProps> = ({ items }) => (
   <Card
     p={4}
     my={8}

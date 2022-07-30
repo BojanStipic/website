@@ -1,10 +1,9 @@
-import React, { VFC } from "react";
+import React, { FC } from "react";
 import { Link as GatsbyLink } from "gatsby";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
   Flex,
   Heading,
-  HStack,
   Icon,
   LinkBox,
   LinkOverlay,
@@ -30,7 +29,7 @@ export type BlogPostCardProps = {
   timeToRead: string;
 };
 
-export const BlogPostCard: VFC<BlogPostCardProps> = ({
+export const BlogPostCard: FC<BlogPostCardProps> = ({
   slug,
   image,
   imageAlt,

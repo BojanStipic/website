@@ -1,4 +1,4 @@
-import React, { VFC, ElementType, ReactNode, useState } from "react";
+import React, { FC, ElementType, ReactNode, useState } from "react";
 import { Link as GatsbyLink } from "gatsby";
 import { Icon, Button } from "@chakra-ui/react";
 
@@ -8,7 +8,7 @@ export type NavigationLinkProps = {
   children: ReactNode;
 };
 
-export const NavigationLink: VFC<NavigationLinkProps> = ({
+export const NavigationLink: FC<NavigationLinkProps> = ({
   to,
   icon,
   children,
