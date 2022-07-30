@@ -42,7 +42,7 @@ import "@fontsource/source-code-pro/900-italic.css";
 const theme = extendTheme(
   {
     config: {
-      useSystemColorMode: true,
+      initialColorMode: "system",
     },
     colors: {
       brand: defaultTheme.colors.red,
