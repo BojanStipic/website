@@ -9,7 +9,7 @@ export type SectionProps = StackProps & {
 };
 
 export const Section: FC<SectionProps> = ({ title, children, ...rest }) => (
-  <Stack {...rest}>
+  <Stack as="section" {...rest}>
     <Heading
       textDecorationLine="underline"
       textDecorationColor={useAccentColor()}

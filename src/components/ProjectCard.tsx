@@ -38,31 +38,36 @@ export const ProjectCard: FC<ProjectCardProps> = ({
   const mutedText = useMutedColor();
 
   return (
-    <Card as={Stack} p={4} borderRadius="xl">
-      <Heading as="h2" size="md">
-        <Link href={url} isExternal={true}>
-          {title}
-        </Link>
-        <Badge ml={2}>{visibility}</Badge>
-      </Heading>
-      <Text color={mutedText}>{description}</Text>
-      <Wrap spacing={2}>
-        {tags.map((tag) => (
-          <WrapItem key={tag}>
-            <Tag size="sm">{tag}</Tag>
-          </WrapItem>
-        ))}
-      </Wrap>
-      <HStack spacing={4} color={mutedText} fontSize="sm">
-        <Text>
-          <Icon as={FaCode} mr={1} />
-          {language}
-        </Text>
-        <Text>
-          <Icon as={FaBalanceScale} mr={1} />
-          {license}
-        </Text>
-      </HStack>
+    <Card as="article" p={4} borderRadius="xl">
+      <Stack>
+        <Heading as="h2" size="md">
+          <Link href={url} isExternal={true}>
+            {title}
+          </Link>
+          <Badge ml={2}>{visibility}</Badge>
+        </Heading>
+
+        <Text color={mutedText}>{description}</Text>
+
+        <Wrap spacing={2}>
+          {tags.map((tag) => (
+            <WrapItem key={tag}>
+              <Tag size="sm">{tag}</Tag>
+            </WrapItem>
+          ))}
+        </Wrap>
+
+        <HStack spacing={4} color={mutedText} fontSize="sm">
+          <Text display="flex" alignItems="center">
+            <Icon as={FaCode} mr={1} />
+            {language}
+          </Text>
+          <Text display="flex" alignItems="center">
+            <Icon as={FaBalanceScale} mr={1} />
+            {license}
+          </Text>
+        </HStack>
+      </Stack>
     </Card>
   );
 };

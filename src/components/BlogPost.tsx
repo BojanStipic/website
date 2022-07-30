@@ -43,8 +43,8 @@ export const BlogPost: FC<BlogPostProps> = ({
   const mutedText = useMutedColor();
 
   return (
-    <>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={4}>
+    <Box as="article">
+      <SimpleGrid as="header" columns={{ base: 1, md: 2 }} spacing={4}>
         <GatsbyImage image={getImage(image)} alt={imageAlt} />
         <Stack spacing={2} align={{ base: "center", md: "normal" }}>
           <Heading
@@ -88,6 +88,6 @@ export const BlogPost: FC<BlogPostProps> = ({
       <Box fontSize="lg">
         <MdxRenderer>{children}</MdxRenderer>
       </Box>
-    </>
+    </Box>
   );
 };

@@ -16,6 +16,7 @@ export type TocItem = {
 
 export const TableOfContents: FC<TableOfContentsProps> = ({ items }) => (
   <Card
+    as="nav"
     p={4}
     my={8}
     variant="outline"

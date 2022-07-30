@@ -11,7 +11,7 @@ const ProjectsPage = ({
 }) => (
   <Layout>
     <Container maxW="container.sm">
-      <Stack spacing={8}>
+      <Stack as="section" spacing={8}>
         {projects.map((project) => (
           <ProjectCard
             key={project.title}

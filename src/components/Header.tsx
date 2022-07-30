@@ -34,7 +34,7 @@ export const Header: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Card as="nav" variant="outline" p={4}>
+    <Card as="header" variant="outline" p={4}>
       <Flex align="center" justify="space-between" wrap="wrap">
         <Heading
           as="h1"
@@ -56,6 +56,7 @@ export const Header: FC = () => {
         />
 
         <Stack
+          as="nav"
           display={{ base: showMenu ? "flex" : "none", md: "flex" }}
           direction={{ base: "column", md: "row" }}
           w={{ base: "full", md: "auto" }}
