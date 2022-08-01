@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { getImage, getSrc } from "gatsby-plugin-image";
 import { Container } from "@chakra-ui/react";
 
 import { Layout, BlogPost } from "../../components";
@@ -52,7 +52,32 @@ export const query = graphql`
       timeToRead
       body
     }
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
   }
 `;
+
+export const Head = ({
+  location,
+  data: {
+    mdx: {
+      frontmatter: { title, image },
+    },
+    site: {
+      siteMetadata: { siteUrl },
+    },
+  },
+}) => (
+  <>
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={`${siteUrl}${location.pathname}`} />
+    <meta property="og:image" content={`${siteUrl}${getSrc(image)}`} />
+  </>
+);
 
 export default BlogPostPage;
