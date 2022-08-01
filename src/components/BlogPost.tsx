@@ -14,7 +14,12 @@ import {
 } from "@chakra-ui/react";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 
-import { MdxRenderer, TableOfContents, TableOfContentsProps } from "./";
+import {
+  Comments,
+  MdxRenderer,
+  TableOfContents,
+  TableOfContentsProps,
+} from "./";
 import { useMutedColor } from "../hooks";
 
 export type BlogPostProps = {
@@ -88,6 +93,8 @@ export const BlogPost: FC<BlogPostProps> = ({
       <Box fontSize="lg">
         <MdxRenderer>{children}</MdxRenderer>
       </Box>
+
+      <Comments title={title} />
     </Box>
   );
 };
