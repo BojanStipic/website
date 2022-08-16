@@ -1825,10 +1825,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/alfa-slab-one/-/alfa-slab-one-4.5.7.tgz#81ac9d351c4320b5bb6a210acb99da17e9210c8d"
   integrity sha512-OsBIlM1mWqy8kd+Hbv8tSMw+PTjvbDs+hE2YCvUY9n7OJlRjyplSAFv0Kd4GSnxG7/LDp147oD+QEw8byn43HQ==
 
-"@fontsource/fira-sans@^4.5.8":
-  version "4.5.8"
-  resolved "https://registry.yarnpkg.com/@fontsource/fira-sans/-/fira-sans-4.5.8.tgz#1f6a4ee480385f8ffa6e6be3cb270f3e950db602"
-  integrity sha512-b3oQXwVNszC8jL+DJfZ4gvEaBc29eDjL5rRi6oaEm2+Mpl9ORk4gmdGNwkFXzR0SqFhUZscLXFPsopr9tSSPBA==
+"@fontsource/fira-sans@^4.5.9":
+  version "4.5.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/fira-sans/-/fira-sans-4.5.9.tgz#b2e8e68c4ff566cc366504d87a75d33723f367d6"
+  integrity sha512-wGh4mUHjjWzMwJMCo3z4GOYe9a2QKgvg1bge0gIg8Je6LKNID+/EFmcXuUDyk1KbUKHpWJIquVM9kFFyJyRY2A==
 
 "@fontsource/source-code-pro@^4.5.11":
   version "4.5.11"
