@@ -1820,10 +1820,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/alfa-slab-one@^4.5.7":
-  version "4.5.7"
-  resolved "https://registry.yarnpkg.com/@fontsource/alfa-slab-one/-/alfa-slab-one-4.5.7.tgz#81ac9d351c4320b5bb6a210acb99da17e9210c8d"
-  integrity sha512-OsBIlM1mWqy8kd+Hbv8tSMw+PTjvbDs+hE2YCvUY9n7OJlRjyplSAFv0Kd4GSnxG7/LDp147oD+QEw8byn43HQ==
+"@fontsource/alfa-slab-one@^4.5.8":
+  version "4.5.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/alfa-slab-one/-/alfa-slab-one-4.5.8.tgz#3bd9ef4524d4aa6e8191a2b538753ce5dec9829c"
+  integrity sha512-EJ9RVs4DM5WM/Q3ha3P4vRZTa/Ud1JAOSX5hgM199VL9zePxsvVdWRdeeePbasACOFonYlgmmtulDVlicpsIjQ==
 
 "@fontsource/fira-sans@^4.5.9":
   version "4.5.9"
