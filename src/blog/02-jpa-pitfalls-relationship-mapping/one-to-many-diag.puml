@@ -1,0 +1,18 @@
+@startuml
+skinparam linetype ortho
+
+entity Post {
+    *id: bigint
+    --
+    *content: text
+}
+
+entity Comment {
+    *id: bigint
+    --
+    *content: text
+    *post_id: bigint <<FK>>
+}
+
+Post ||..o{ Comment
+@enduml

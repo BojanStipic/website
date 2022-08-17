@@ -43,7 +43,7 @@ export const BlogPostCard: FC<BlogPostCardProps> = ({
 
   return (
     <LinkBox>
-      <Card as="article" borderRadius="lg">
+      <Card as="article" borderRadius="lg" h="full">
         <GatsbyImage image={image} alt={imageAlt} />
         <Stack p={4} spacing={4}>
           <Wrap spacing={2}>
