@@ -9,7 +9,7 @@ tags: ["Java", "JPA"]
 
 import { Divider } from "@chakra-ui/react";
 
-In this article we are going to discuss different fetching types,
+In this article we are going to discuss different JPA fetching types,
 their pros and cons, and see which one should you prefer.
 
 This article is part of JPA Pitfalls series.
@@ -107,7 +107,7 @@ class Comment {
 
 Now if we fetch a comment, it is only going to fetch the comment itself,
 and the `post` field will be empty.
-Only if we try to access that field, JPA provider will go ahead and fetch it
+Only if we try to access that field, will the JPA provider go ahead and fetch it
 from the database in a separate query.
 This is possible because JPA provider creates a proxy class around our entity
 class at runtime, and augments our getter method.
@@ -122,7 +122,7 @@ than a single query.
 It would be great if we could choose the fetching strategy per query at runtime.
 Fortunately, that is indeed possible!
 
-To make our fetch eager, even though our entity declares lazy loading,
+To make an eager fetch, even though our entity declares lazy loading,
 all we have to do is add `@EntityGraph` annotation to our query method:
 
 ```java
