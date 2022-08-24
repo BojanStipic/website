@@ -1,0 +1,351 @@
+---
+title: "JPA Pitfalls: Generating IDs"
+date: "2022-08-24"
+image: "./jpa-logo.png"
+imageAlt: "Java + JPA"
+author: "Bojan Stipic"
+tags: ["Java", "JPA"]
+---
+
+import { Divider } from "@chakra-ui/react";
+
+In this article we are going to discuss about different JPA strategies
+for generating IDs.
+
+This article is part of JPA Pitfalls series.
+JPA makes it really easy to do things the wrong way, and makes it really
+unintuitive to do things right.
+In this blog post series I will go over some common JPA pitfalls and
+show how to avoid them.
+
+Articles that are part of this series:
+
+- [Relationship mapping](/blog/02-jpa-pitfalls-relationship-mapping/)
+- [Eager/Lazy fetching](/blog/03-jpa-pitfalls-eager-lazy-fetching/)
+- [Generating IDs](/blog/04-jpa-pitfalls-generating-ids/) (this article)
+- JPA and Lombok (TBD)
+
+## 1. Introduction
+
+JPA specification requires all entities to have an ID.
+ID is defined by annotating a field with `@Id` or `@EmbeddedId` annotations.
+
+By default, ID must be assigned manually when inserting a new record.
+This is usually fine when an entity has a natural identifier.
+For example, all published books are assigned an ISBN,
+so if we were to make a book repository,
+we could use that as an ID and assign it manually to each book.
+It is important to note however that ID should be a compact data type,
+as it can have negative memory and performance implications otherwise,
+so we should be careful about using complex natural IDs.
+
+For everything else, our JPA provider can automatically generate surrogate IDs
+for us when inserting new entities.
+To do this, we have to add a `@GeneratedValue` annotation:
+
+```java
+@Id
+@GeneratedValue
+private Long id;
+```
+
+As usual, JPA is trying to abstract all of the complex logic from us,
+so we don't have to worry about implementation details.
+Unfortunately, if we don't care about implementation details we can end up
+with a less performant implementation.
+This is something that is commonly known as a "leaky abstraction",
+and JPA is full of it.
+
+In reality, there are many different ways to generate IDs,
+and we have to understand all of them in order to choose the best one depending
+on the circumstances.
+ID generation strategies that JPA providers support are:
+
+- `GenerationType.SEQUENCE`
+- `GenerationType.IDENTITY`
+- `GenerationType.TABLE`
+- `GenerationType.AUTO`
+
+In order to specify our preferred strategy, we can pass the `GenerationType` as a
+`strategy` attribute of `@GeneratedValue` annotation.
+For example:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+```
+
+In the following sections, we are going to go down the rabbit hole and see what these
+different strategies imply, and see which one should you prefer.
+If you don't care about the details, and just want a sensible default
+that is the best for most use-cases, you can skip to the [Conclusion](#7-conclusion) directly.
+
+## 2. Sequence strategy
+
+This strategy uses database sequences under the hood.
+A database sequence is a special user-defined object that yields a sequence
+of integers.
+
+In Postgres, you can create a sequence with the following syntax:
+
+```sql
+create sequence _name_ start with _x_ increment by _y_
+```
+
+Where:
+
+- `_name` is a unique name of the sequence.
+- `_x_` is an initial value produced by the sequence, specified as an integer.
+- `_y_` is an integer value added to the current sequence value to create
+  the next value.
+
+After a sequence is created, we can use the functions `nextval`, `currval`, and `setval`
+to operate on that sequence.
+For example, in order to get the next value in the sequence:
+
+```sql
+select nextval('sequence_name');
+```
+
+So now that we understand what a database sequence is, let's get back to JPA.
+Assuming that Hibernate is our JPA provider of choice,
+and we use the `GenerationType.SEQUENCE` strategy,
+Hibernate will by default use a sequence named `hibernate_sequence`.
+And if we use auto-ddl-generation feature of JPA, it will also create that sequence for us like this:
+
+```sql
+create sequence hibernate_sequence start with 1 increment by 1;
+```
+
+The default behavior above is not ideal for two reasons:
+
+1. Hibernate uses a single sequence to generate IDs for _all_ tables.
+
+This is bad for concurrency.
+Additionally, it is possible to run out of values eventually,
+because a sequence is internally stored as a fixed size integer.
+
+2. Hibernate creates a sequence that is incremented only by 1.
+
+This disables the Hibernate's sequence ID pool generation optimization,
+which has negative performance implications.
+For each insert, hibernate will have to generate an additional select query in order
+to fetch the next ID from the sequence.
+
+We can override the bad default by creating a custom sequence manually:
+
+```sql
+create sequence user_id_seq start with 1 increment by 50;
+```
+
+We can then tell Hibernate to use that custom sequence instead:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_seq")
+private Long id;
+```
+
+This is better because:
+
+1. We can use a different sequence for each table.
+2. We can define a sequence that generates values in increments of `50`,
+   which enables Hibernate's ID pool.
+   Hibernate will now run a single select query to fetch the next sequence value,
+   and will then increment the values internally for the next `50` insert statements.
+   Once Hibernate runs out of IDs in the pool, it will then fetch the next sequence value from the database.
+   This way, we significantly reduce the number of select statements that have to be sent,
+   which improves performance dramatically.
+
+## 3. Identity strategy
+
+Relational databases support special types that are automatically incremented upon insertion.
+
+In Postgres, we can use `smallserial`, `serial` or `bigserial`:
+
+```sql
+create table t (id bigserial primary key);
+```
+
+These types are not compliant with the SQL standard, because Postgres added support for
+them before the standard introduced auto-incremented types.
+However, they are now standardised and you can use the following syntax instead:
+
+```sql
+create table t (id bigint primary key generated always as identity);
+```
+
+In Postgres, serial types are nothing special -- they are just a syntax sugar and use the
+sequence type under the hood.
+So the above definition is equivalent to specifying:
+
+```sql
+create sequence t_id_seq;
+create table t (id bigint not null default nextval('t_id_seq'));
+alter sequence t_id_seq owned by t.id;
+```
+
+In order to use serial types with JPA, we can specify that we want to use identity strategy:
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+```
+
+Hibernate can now create insert statements without specifying ID column
+explicitly, and the ID will be automatically generated by the database.
+
+"Nice!" -- you might say. That seems much better than creating sequences manually and then
+having to fetch sequence values with additional queries before inserting.
+Unfortunately, there is a catch.
+Turns out, this is not nice at all when used with JPA.
+
+JPA provider needs to be aware of the generated ID because we might
+later want to do an update on the newly saved entity.
+So, even though it created a single insert statement,
+and our database generated the ID automatically,
+the JPA provider still needs to fetch that ID afterwords in order to know what the generated value is.
+This means that it would effectively have to execute this:
+
+```sql
+insert into t (c1, c2, c3) values (?, ?, ?);
+select currval('t_id_seq');
+```
+
+In reality, this can be made slightly more efficient, because modern databases support
+the following statement:
+
+```sql
+insert into t (c1, c2, c3) values (?, ?, ?) returning *;
+```
+
+Where the `returning` clause causes insert to return inserted values similarly to the
+subsequent select statement.
+This is better because we reduced the number of necessary queries,
+but there is still one major problem --
+**using identity strategy disables JPA batch insert execution**.
+With batch inserts, it is not possible to reliably associate generated IDs
+with the JPA entities afterwords,
+so JPA providers opt to disable batch inserts altogether when using identity strategy.
+
+## 4. Table strategy
+
+This strategy uses a separate table that emulates a sequence.
+When an application needs an ID, the JPA provider locks the table row,
+updates the stored value, and returns it to the application.
+This strategy has the worst performance compared to the previously discussed
+strategies and should be avoided if possible.
+It should be used only if the underlying database does not support sequences.
+Since most popular databases support sequences,
+I am not going to get into details about this strategy,
+but you can read about it in the official
+[Hibernate documentation](https://docs.jboss.org/hibernate/orm/current/userguide/html_single/Hibernate_User_Guide.html#identifiers-generators-table)
+if you would like to learn more.
+
+## 5. Auto strategy
+
+`GenerationType.AUTO` is the default strategy used by the JPA provider,
+so we don't have to specify it explicitly if we want to use it.
+
+JPA specification does not state what the auto strategy actually is,
+so it is left to the JPA provider to decide which of the above strategies to use.
+If Hibernate is our JPA provider of choice, then it will try to use the sequence
+strategy if possible, but if the sequence is not supported by the underlying database,
+it will fallback to the table strategy.
+
+## 6. Hibernate UUID Generator
+
+So far we discussed only about database generated IDs.
+It is also possible to generate IDs on the client side (in our application) using UUIDs.
+
+UUID value is a very large 128bit number, so the probability of collision is extremely low,
+and it can be considered unique for all practical purposes.
+Because of these characteristics, we can have multiple instances of our app
+all generating UUIDs independently without having to call the common database.
+UUIDs as such are great for distributed systems.
+
+JPA specification does not support defining custom generators,
+but Hibernate itself has an extension that allows us to do that via the
+`org.hibernate.annotations.GenericGenerator`.
+On top of that, Hibernate also provides an implementation for UUID generator,
+so we don't have to write it ourselves.
+
+We can use the Hibernate provided UUID generator like this:
+
+```java
+@Id
+@GeneratedValue(generator = "uuid2")
+@GenericGenerator(name = "uuid2", strategy = "uuid2")
+private UUID id;
+```
+
+Or even better, since Hibernate is able to inspect the type of our field,
+and is able to infer that we want to use the UUID generator when the field is of type `java.lang.UUID`,
+we can just write it like this instead:
+
+```java
+@Id
+@GeneratedValue
+private UUID id;
+```
+
+Using UUIDs has many benefits:
+
+- We don't need to query the database to get the next value.
+- Since UUIDs are generated by Hibernate, it is aware of them and is able to use
+  JPA batch insert execution.
+
+On the other side, UUID is not without its drawbacks:
+
+- Some relational databases (notably MySQL) by default store data clustered by the primary key.
+  This means that inserts have to be ordered in order to avoid a page miss upon insertion.
+  But UUIDs are random by nature, so they will always cause a page miss,
+  which is extremely bad for performance.
+- UUIDs are 128bit, which is double the size of a `bigint`, or four times
+  the size of an `integer`.
+  Since databases create a B-tree index for the primary key, this can cause
+  the index to get bloated and less likely to fit into memory which would cause
+  more frequent memory swapping which is bad for performance.
+
+## 7. Conclusion
+
+As we have seen, ID generation is a very complex topic and there is much to consider
+when choosing the best generation strategy for our particular use-case.
+
+To summarise, here is a cheatsheet for choosing the best strategy (from worst to best):
+
+1. Never use `GenerationType.TABLE` or `GenerationType.AUTO` because they are
+   bad for performance while not providing any useful benefits.
+2. Using UUIDs for the primary key sounds amazing in theory, but it can have
+   serious performance problems because of the way databases are implemented internally,
+   so UUIDs should generally be avoided.
+3. `GenerationType.IDENTITY` disables JPA batch insert execution, so it does not have
+   the optimal performance.
+   However, it may be fine if you are not doing lots of inserts,
+   so it can be considered for simplicity reasons.
+4. `GenerationType.SEQUENCE` enables JPA batch execution, but Hibernate has
+   terrible defaults when creating a database sequence, so it should be avoided if not configured correctly.
+5. If you care about having the best performance, then you should use
+   `GenerationType.SEQUENCE`, but create a custom sequence per table
+   with the proper configuration.
+   A sequence with an increment of `50` can be a good starting point,
+   but it depends on how frequent your app is doing inserts, so it should be tweaked as needed.
+
+<Divider my={8} />
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+  <img
+    alt="Creative Commons License"
+    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
+  />
+</a>
+This work is licensed under a<a
+  rel="license"
+  href="http://creativecommons.org/licenses/by-sa/4.0/"
+>
+  Creative Commons Attribution-ShareAlike 4.0 International License
+</a>.
+
+<Divider my={8} />
