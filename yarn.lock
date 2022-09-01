@@ -1813,10 +1813,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/fira-sans/-/fira-sans-4.5.9.tgz#b2e8e68c4ff566cc366504d87a75d33723f367d6"
   integrity sha512-wGh4mUHjjWzMwJMCo3z4GOYe9a2QKgvg1bge0gIg8Je6LKNID+/EFmcXuUDyk1KbUKHpWJIquVM9kFFyJyRY2A==
 
-"@fontsource/source-code-pro@^4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/source-code-pro/-/source-code-pro-4.5.11.tgz#1a4aaf8d8631ad0acd54f26d4e69a6f80ba81c3d"
-  integrity sha512-SzVV/w+Es+I9JMEzH9ePTaFhgxYKnRBtxrJ8q67yHmSMkHRD5OpPlQR+kMCOt2AaCDcKFjDlyNk/uyRB8dA8hA==
+"@fontsource/source-code-pro@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-code-pro/-/source-code-pro-4.5.12.tgz#4ca4dffb485f3f2768dd13157cb09a9b134a9cd1"
+  integrity sha512-6r1dykX7SH1Orm7xUh4sA8pjM1uNPKo9fV+y9/wxS+y/fwN+sMf6b1jHDUTmfEtw1OxlTaHGrr2I7dGeNqxdPA==
 
 "@gatsbyjs/parcel-namer-relative-to-cwd@1.7.0":
   version "1.7.0"
