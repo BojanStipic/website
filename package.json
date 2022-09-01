@@ -19,7 +19,7 @@
     "@chakra-ui/gatsby-plugin": "^2.0.4",
     "@chakra-ui/react": "^1.8.8",
     "@chakra-ui/theme-tools": "^2.0.5",
-    "@emotion/react": "^11.10.0",
+    "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@fontsource/alfa-slab-one": "^4.5.8",
     "@fontsource/fira-sans": "^4.5.9",
