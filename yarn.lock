@@ -6892,10 +6892,10 @@ gatsby-transformer-sharp@^4.21.0:
     semver "^7.3.7"
     sharp "^0.30.7"
 
-gatsby-transformer-toml@^4.21.0:
-  version "4.21.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-toml/-/gatsby-transformer-toml-4.21.0.tgz#fef87abb95032d6d15bac28a37524ef7cb2537d0"
-  integrity sha512-laihRVklqBdz/UjhlZPGkUrKhcOYksssqSULmDP7wVbAvoI69Iq8i/rpBjv79f3Ae5Yjl7SB0b3zWG2ncfYNUg==
+gatsby-transformer-toml@^4.22.0:
+  version "4.22.0"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-toml/-/gatsby-transformer-toml-4.22.0.tgz#99a4eed772acae0beb977cc27a4f09145b061ae3"
+  integrity sha512-49RCFXEt3951CiH3d06ItdsFYHHYDaVdnddjANjiDfUvhzV2e7w7qsRtVJIXrs+UAZnwZQwN0sNiYTQi5+jmeQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
     lodash "^4.17.21"
