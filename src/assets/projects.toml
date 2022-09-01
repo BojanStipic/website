@@ -167,3 +167,14 @@ tags = [
 ]
 language = 'Config files'
 license = 'GNU General Public License v3.0'
+
+[[projects]]
+title = 'arch-install'
+url = 'https://github.com/BojanStipic/arch-install'
+visibility = 'public'
+description = 'Arch Linux installation script for my personal needs'
+tags = [
+    'archlinux',
+]
+language = 'Bash script'
+license = 'GNU General Public License v3.0'
