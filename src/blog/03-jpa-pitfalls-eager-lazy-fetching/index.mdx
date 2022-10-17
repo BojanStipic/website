@@ -8,11 +8,14 @@ tags: ["Java", "JPA"]
 ---
 
 import { Divider } from "@chakra-ui/react";
+import { Card } from "../../components";
 
 In this article we are going to discuss different JPA fetching types,
-their pros and cons, and see which one should you prefer.
+their pros and cons, and see which one you should prefer.
 
-This article is part of JPA Pitfalls series.
+<Card as="aside" p={8} my={8} borderRadius="xl">
+
+This article is part of the JPA Pitfalls series.
 JPA makes it really easy to do things the wrong way, and makes it really
 unintuitive to do things right.
 In this blog post series I will go over some common JPA pitfalls and
@@ -23,7 +26,8 @@ Articles that are part of this series:
 - [Relationship mapping](/blog/02-jpa-pitfalls-relationship-mapping/)
 - [Eager/Lazy fetching](/blog/03-jpa-pitfalls-eager-lazy-fetching/) (this article)
 - [Generating IDs](/blog/04-jpa-pitfalls-generating-ids/)
-- JPA and Lombok (TBD)
+
+</Card>
 
 ## 1. Introduction
 
@@ -78,7 +82,7 @@ Since [you should mostly be using `@ManyToOne` associations](/blog/02-jpa-pitfal
 and it defaults to eager fetching, it is essential to understand what
 that fetching strategy entails.
 
-If we call `CommentRepository::findById` method from Spring Data repository,
+If we call the `CommentRepository::findById` method from the Spring Data repository,
 it is going to fetch a comment with the specified ID, but it is also going to do a join
 and fetch the associated post as well.
 
@@ -109,7 +113,7 @@ Now if we fetch a comment, it is only going to fetch the comment itself,
 and the `post` field will be empty.
 Only if we try to access that field, will the JPA provider go ahead and fetch it
 from the database in a separate query.
-This is possible because JPA provider creates a proxy class around our entity
+This is possible because the JPA provider creates a proxy class around our entity
 class at runtime, and augments our getter method.
 
 ## 4. Mixing Lazy and Eager Fetching Together
@@ -146,7 +150,7 @@ If our entity declares eager fetching, then it is not possible to change it late
 
 1. Eager fetching is a terrible default.
 2. All entities should always declare lazy fetching for all associations.
-3. If we _do_ need to fetch associated entity as well, we can switch to eager fetching
+3. If we _do_ need to fetch associated entities as well, we can switch to eager fetching
    at runtime using `@EntityGraph`.
 
 Follow the rules above and you are going to avoid many unnecessary queries and
