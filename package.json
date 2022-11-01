@@ -20,7 +20,7 @@
     "@chakra-ui/react": "^1.8.9",
     "@chakra-ui/theme-tools": "^2.0.5",
     "@emotion/react": "^11.10.4",
-    "@emotion/styled": "^11.10.4",
+    "@emotion/styled": "^11.10.5",
     "@fontsource/alfa-slab-one": "^4.5.9",
     "@fontsource/fira-sans": "^4.5.10",
     "@fontsource/source-code-pro": "^4.5.12",
