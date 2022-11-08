@@ -70,15 +70,15 @@ export const BlogPost: FC<BlogPostProps> = ({
             ))}
           </Wrap>
           <HStack spacing={4} color={mutedText} fontSize="sm">
-            <Text>
+            <Text display="flex" alignItems="center">
               <Icon as={FaUserGraduate} mr={1} />
               By {author}
             </Text>
-            <Text>
+            <Text display="flex" alignItems="center">
               <Icon as={FaCalendarAlt} mr={1} />
               {date}
             </Text>
-            <Text>
+            <Text display="flex" alignItems="center">
               <Icon as={FaClock} mr={1} />
               {timeToRead} min read
             </Text>

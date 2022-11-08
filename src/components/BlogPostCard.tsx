@@ -64,11 +64,11 @@ export const BlogPostCard: FC<BlogPostCardProps> = ({
             {excerpt}
           </Text>
           <Flex justify="space-between" color={mutedText} fontSize="sm">
-            <Text>
+            <Text display="flex" alignItems="center">
               <Icon as={FaUserGraduate} mr={1} />
               By {author}
             </Text>
-            <Text>
+            <Text display="flex" alignItems="center">
               <Icon as={FaClock} mr={1} />
               {timeToRead} min read
             </Text>
