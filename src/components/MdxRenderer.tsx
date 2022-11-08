@@ -20,7 +20,7 @@ import {
   CodeProps,
 } from "@chakra-ui/react";
 
-import { CodeBlock, CodeBlockProps } from "./";
+import { CodeBlock, CodeBlockProps, Blockquote, BlockquoteProps } from "./";
 import { useAccentColor } from "../hooks";
 
 const Heading: FC<HeadingProps> = ({ ...rest }) => (
@@ -43,7 +43,7 @@ const components = {
   h4: (props: HeadingProps) => <Heading as="h4" size="md" {...props} />,
   h5: (props: HeadingProps) => <Heading as="h5" size="sm" {...props} />,
   h6: (props: HeadingProps) => <Heading as="h6" size="xs" {...props} />,
-  blockquote: Text, // TODO
+  blockquote: (props: BlockquoteProps) => <Blockquote {...props} />,
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
