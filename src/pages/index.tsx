@@ -42,14 +42,14 @@ const IndexPage = ({
           {posts.map((post) => (
             <BlogPostCard
               key={post.id}
-              slug={post.slug}
+              slug={post.fields.slug}
               title={post.frontmatter.title}
               excerpt={post.excerpt}
               image={getImage(post.frontmatter.image)}
               imageAlt={post.frontmatter.imageAlt}
               tags={post.frontmatter.tags}
               author={post.frontmatter.author}
-              timeToRead={post.timeToRead}
+              timeToRead={post.fields.timeToRead.text}
             />
           ))}
         </SimpleGrid>
@@ -59,11 +59,10 @@ const IndexPage = ({
 );
 
 export const query = graphql`
-  query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 3) {
+  {
+    allMdx(sort: { frontmatter: { date: DESC } }, limit: 3) {
       nodes {
         id
-        slug
         frontmatter {
           title
           date
@@ -77,7 +76,12 @@ export const query = graphql`
           author
         }
         excerpt
-        timeToRead
+        fields {
+          slug
+          timeToRead {
+            text
+          }
+        }
       }
     }
     projectsToml {

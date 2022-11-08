@@ -70,7 +70,7 @@ export const BlogPostCard: FC<BlogPostCardProps> = ({
             </Text>
             <Text display="flex" alignItems="center">
               <Icon as={FaClock} mr={1} />
-              {timeToRead} min read
+              {timeToRead}
             </Text>
           </Flex>
         </Stack>

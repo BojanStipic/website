@@ -80,7 +80,7 @@ export const BlogPost: FC<BlogPostProps> = ({
             </Text>
             <Text display="flex" alignItems="center">
               <Icon as={FaClock} mr={1} />
-              {timeToRead} min read
+              {timeToRead}
             </Text>
           </HStack>
         </Stack>

@@ -9,6 +9,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        mdxOptions: {
+          remarkPlugins: [require("remark-gfm")],
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images",
@@ -27,7 +30,6 @@ module.exports = {
         ],
       },
     },
-    "gatsby-remark-images",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",

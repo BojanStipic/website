@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import {
   Text,
@@ -51,11 +50,15 @@ const components = {
   tr: Tr,
   td: Td,
   th: Th,
-  code: (props: CodeBlockProps) => <CodeBlock {...props} />,
+  code: (props: CodeBlockProps | CodeProps) =>
+    /language-/.test(props.className ?? "") ? (
+      <CodeBlock {...(props as CodeBlockProps)} />
+    ) : (
+      <Code {...(props as CodeProps)} />
+    ),
   em: (props: TextProps) => <Text as="em" {...props} />,
   strong: (props: TextProps) => <Text as="strong" {...props} />,
   delete: (props: TextProps) => <Text as="del" {...props} />,
-  inlineCode: (props: CodeProps) => <Code {...props} />,
   hr: Divider,
   a: (props: LinkProps) => (
     <Link textDecorationLine="underline" color={useAccentColor()} {...props} />
@@ -67,7 +70,5 @@ export type MdxRendererProps = {
 };
 
 export const MdxRenderer: FC<MdxRendererProps> = ({ children }) => (
-  <MDXProvider components={components}>
-    <MDXRenderer>{children}</MDXRenderer>
-  </MDXProvider>
+  <MDXProvider components={components}>{children}</MDXProvider>
 );

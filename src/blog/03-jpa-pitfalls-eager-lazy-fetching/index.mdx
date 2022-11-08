@@ -8,24 +8,23 @@ tags: ["Java", "JPA"]
 ---
 
 import { Divider } from "@chakra-ui/react";
-import { Card } from "../../components";
+import { Card, CCBYSALicenseNotice } from "../../components";
 
 In this article we are going to discuss different JPA fetching types,
 their pros and cons, and see which one you should prefer.
 
 <Card as="aside" p={8} my={8} borderRadius="xl">
+    This article is part of the JPA Pitfalls series.
+    JPA makes it really easy to do things the wrong way, and makes it really
+    unintuitive to do things right.
+    In this blog post series I will go over some common JPA pitfalls and
+    show how to avoid them.
 
-This article is part of the JPA Pitfalls series.
-JPA makes it really easy to do things the wrong way, and makes it really
-unintuitive to do things right.
-In this blog post series I will go over some common JPA pitfalls and
-show how to avoid them.
+    Articles that are part of this series:
 
-Articles that are part of this series:
-
-- [Relationship mapping](/blog/02-jpa-pitfalls-relationship-mapping/)
-- [Eager/Lazy fetching](/blog/03-jpa-pitfalls-eager-lazy-fetching/) (this article)
-- [Generating IDs](/blog/04-jpa-pitfalls-generating-ids/)
+    - [Relationship mapping](/blog/jpa-pitfalls-relationship-mapping/)
+    - [Eager/Lazy fetching](/blog/jpa-pitfalls-eager-lazy-fetching/) (this article)
+    - [Generating IDs](/blog/jpa-pitfalls-generating-i-ds/)
 
 </Card>
 
@@ -157,18 +156,5 @@ Follow the rules above and you are going to avoid many unnecessary queries and
 unnecessary data fetching.
 
 <Divider my={8} />
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
-  <img
-    alt="Creative Commons License"
-    src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"
-  />
-</a>
-This work is licensed under a<a
-  rel="license"
-  href="http://creativecommons.org/licenses/by-sa/4.0/"
->
-  Creative Commons Attribution-ShareAlike 4.0 International License
-</a>.
-
+<CCBYSALicenseNotice />
 <Divider my={8} />

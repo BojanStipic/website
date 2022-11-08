@@ -10,10 +10,10 @@ const BlogPostPage = ({
     mdx: {
       frontmatter: { title, date, image, imageAlt, tags, author },
       tableOfContents,
-      timeToRead,
-      body,
+      fields: { timeToRead },
     },
   },
+  children,
 }) => (
   <Layout>
     <Container maxW="container.md">
@@ -25,9 +25,9 @@ const BlogPostPage = ({
         tags={tags}
         author={author}
         tableOfContents={tableOfContents}
-        timeToRead={timeToRead}
+        timeToRead={timeToRead.text}
       >
-        {body}
+        {children}
       </BlogPost>
     </Container>
   </Layout>
@@ -49,8 +49,11 @@ export const query = graphql`
         author
       }
       tableOfContents
-      timeToRead
-      body
+      fields {
+        timeToRead {
+          text
+        }
+      }
     }
     site {
       siteMetadata {
