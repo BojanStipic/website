@@ -7,8 +7,9 @@ author: "Bojan Stipic"
 tags: ["Java", "JPA"]
 ---
 
-import { Divider } from "@chakra-ui/react";
+import { Container, Divider } from "@chakra-ui/react";
 import { Card, CCBYSALicenseNotice } from "../../components";
+import ErDiag from "./er-diag.svg";
 
 In this article we are going to discuss different JPA fetching types,
 their pros and cons, and see which one you should prefer.
@@ -32,7 +33,9 @@ their pros and cons, and see which one you should prefer.
 
 Assuming we have the following database schema:
 
-![Example database schema](./er-diag.png)
+<Container maxWidth="2xs" centerContent>
+  <ErDiag />
+</Container>
 
 And assuming that we have the following corresponding JPA entities:
 

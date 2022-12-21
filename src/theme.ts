@@ -4,6 +4,7 @@ import {
   withDefaultColorScheme,
 } from "@chakra-ui/react";
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { mermaidStyles } from "./mermaidStyles";
 
 import "@fontsource/alfa-slab-one";
 import "@fontsource/fira-sans/100.css";
@@ -71,6 +72,7 @@ const theme = extendTheme(
         body: {
           bg: mode("gray.50", "gray.800")(props),
         },
+        ...mermaidStyles(props),
       }),
     },
   },

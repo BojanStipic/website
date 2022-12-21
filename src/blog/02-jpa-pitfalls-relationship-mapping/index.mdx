@@ -7,8 +7,10 @@ author: "Bojan Stipic"
 tags: ["Java", "JPA"]
 ---
 
-import { Divider } from "@chakra-ui/react";
+import { Container, Divider } from "@chakra-ui/react";
 import { Card, CCBYSALicenseNotice } from "../../components";
+import OneToManyDiag from "./one-to-many-diag.svg";
+import ManyToManyDiag from "./many-to-many-diag.svg";
 
 In this article we are going to discuss some common JPA relationship mapping pitfalls.
 
@@ -31,7 +33,9 @@ In this article we are going to discuss some common JPA relationship mapping pit
 
 Assuming we have the following database schema:
 
-![One to many relationship schema](./one-to-many-diag.png)
+<Container maxWidth="2xs" centerContent>
+  <OneToManyDiag />
+</Container>
 
 We could create the following JPA entities:
 
@@ -116,7 +120,9 @@ Page<Comment> findByPost_id(Long postId, Pageable pageable);
 
 Assuming we have the following database schema:
 
-![Many to many relationship schema](./many-to-many-diag.png)
+<Container centerContent>
+  <ManyToManyDiag />
+</Container>
 
 We could map it to the following JPA entities:
 
