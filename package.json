@@ -30,7 +30,7 @@
     "@sindresorhus/slugify": "^1.1.2",
     "framer-motion": "^7.6.5",
     "gatsby": "^5.3.3",
-    "gatsby-plugin-image": "^3.2.0",
+    "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-mdx": "^5.3.1",
     "gatsby-plugin-sharp": "^5.2.0",
     "gatsby-remark-autolink-headers": "^6.3.1",
