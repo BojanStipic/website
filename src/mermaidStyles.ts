@@ -1,4 +1,4 @@
-import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { StyleFunctionProps, mode } from "@chakra-ui/theme-tools";
 
 export const mermaidStyles = (props: StyleFunctionProps) => ({
   ...erDiagramStyles(props),
@@ -21,18 +21,16 @@ const erDiagramStyles = (props: StyleFunctionProps) => ({
   .er.relationshipLine, \
   .er.entityBox, \
   .er.attributeBoxOdd, \
-  .er.attributeBoxEven":
-    {
-      stroke: `${mode("gray.500", "gray.300")(props)} !important`,
-    },
+  .er.attributeBoxEven": {
+    stroke: `${mode("gray.500", "gray.300")(props)} !important`,
+  },
   ".er.entityBox, \
   #ZERO_OR_ONE_START circle, \
   #ZERO_OR_ONE_END circle, \
   #ZERO_OR_MORE_START circle, \
-  #ZERO_OR_MORE_END circle":
-    {
-      fill: `${mode("brand.500", "brand.300")(props)} !important`,
-    },
+  #ZERO_OR_MORE_END circle": {
+    fill: `${mode("brand.500", "brand.300")(props)} !important`,
+  },
   ".er.er.entityBox + .er.entityLabel": {
     fill: `${mode("gray.100", "gray.800")(props)} !important`,
   },

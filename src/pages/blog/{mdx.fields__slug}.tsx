@@ -1,9 +1,9 @@
-import React from "react";
+import { Container } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import { getImage, getSrc } from "gatsby-plugin-image";
-import { Container } from "@chakra-ui/react";
+import React from "react";
 
-import { Layout, BlogPost } from "../../components";
+import { BlogPost, Layout } from "../../components";
 
 const BlogPostPage = ({
   data: {

@@ -1,5 +1,5 @@
-import React, { ReactNode, FC } from "react";
 import { Heading, Stack, StackProps } from "@chakra-ui/react";
+import React, { FC, ReactNode } from "react";
 
 import { useAccentColor } from "../hooks";
 

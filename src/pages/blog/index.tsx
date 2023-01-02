@@ -1,9 +1,9 @@
-import React from "react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import React from "react";
 
-import { Layout, BlogPostCard } from "../../components";
+import { BlogPostCard, Layout } from "../../components";
 
 const BlogPage = ({
   data: {

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
 import { Link, Text, useColorModeValue } from "@chakra-ui/react";
 import Giscus from "@giscus/react";
+import React, { FC } from "react";
 
 import { Card } from ".";
 import { useAccentColor } from "../hooks";

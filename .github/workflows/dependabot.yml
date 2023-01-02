@@ -1,29 +1,29 @@
-name: 'Dependabot actions'
+name: "Dependabot actions"
 
 on:
   pull_request:
-    branches: [ 'master' ]
+    branches: ["master"]
 
 jobs:
   approve:
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     permissions:
-      pull-requests: 'write'
+      pull-requests: "write"
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - uses: 'dependabot/fetch-metadata@v1.3.5'
+      - uses: "dependabot/fetch-metadata@v1.3.5"
       - run: 'gh pr review --approve "$PR_URL"'
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   merge:
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     permissions:
-      contents: 'write'
+      contents: "write"
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - uses: 'dependabot/fetch-metadata@v1.3.5'
+      - uses: "dependabot/fetch-metadata@v1.3.5"
       - run: 'gh pr merge --auto --merge "$PR_URL"'
         if: ${{ steps.metadata.outputs.update-type != 'version-update:semver-major' }}
         env:

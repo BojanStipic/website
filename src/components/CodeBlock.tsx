@@ -1,22 +1,22 @@
-import React, { FC } from "react";
 import {
   Box,
-  Code,
   Button,
-  useColorModeValue,
+  Code,
   useClipboard,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Highlight, {
-  defaultProps,
   Language,
   PrismTheme,
+  defaultProps,
 } from "prism-react-renderer";
-import nightOwl from "prism-react-renderer/themes/nightOwl";
-import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
-
 // Required to add support for additional languages
 // https://github.com/FormidableLabs/prism-react-renderer#faq
 import Prism from "prism-react-renderer/prism";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
+import React, { FC } from "react";
+
 (typeof global !== "undefined" ? global : window).Prism = Prism;
 require("prismjs/components/prism-rust");
 require("prismjs/components/prism-toml");

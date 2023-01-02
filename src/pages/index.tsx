@@ -1,13 +1,13 @@
-import React from "react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import React from "react";
 
 import {
-  Layout,
   AuthorProfile,
-  ProjectCard,
   BlogPostCard,
+  Layout,
+  ProjectCard,
   Section,
 } from "../components";
 

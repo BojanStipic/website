@@ -1,16 +1,16 @@
-import React, { FC } from "react";
 import {
-  Link,
-  Text,
-  Heading,
-  HStack,
-  Tag,
-  Icon,
   Badge,
-  WrapItem,
-  Wrap,
+  HStack,
+  Heading,
+  Icon,
+  Link,
   Stack,
+  Tag,
+  Text,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
+import React, { FC } from "react";
 import { FaBalanceScale, FaCode } from "react-icons/fa";
 
 import { Card } from "../components";

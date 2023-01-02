@@ -1,19 +1,19 @@
-import React, { FC, useState } from "react";
-import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
 import {
   Flex,
-  Stack,
   Heading,
   IconButton,
+  Stack,
   useColorMode,
 } from "@chakra-ui/react";
+import { Link as GatsbyLink, graphql, useStaticQuery } from "gatsby";
+import React, { FC, useState } from "react";
 import {
   FaBars,
-  FaTimes,
   FaBlog,
   FaFolder,
-  FaSun,
   FaMoon,
+  FaSun,
+  FaTimes,
   FaUser,
 } from "react-icons/fa";
 

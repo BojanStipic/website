@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import { Link as GatsbyLink } from "gatsby";
 import { Box, Divider, Link, ListItem, OrderedList } from "@chakra-ui/react";
+import { Link as GatsbyLink } from "gatsby";
+import React, { FC } from "react";
 
 import { Card } from "./";
 

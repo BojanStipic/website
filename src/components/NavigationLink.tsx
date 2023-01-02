@@ -1,6 +1,6 @@
-import React, { FC, ElementType, ReactNode, useState } from "react";
+import { Button, Icon } from "@chakra-ui/react";
 import { Link as GatsbyLink } from "gatsby";
-import { Icon, Button } from "@chakra-ui/react";
+import React, { ElementType, FC, ReactNode, useState } from "react";
 
 export type NavigationLinkProps = {
   to: string;

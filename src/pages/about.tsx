@@ -1,14 +1,14 @@
-import React from "react";
 import { Container, SimpleGrid } from "@chakra-ui/react";
+import { graphql } from "gatsby";
+import React from "react";
 
 import {
-  Layout,
   AuthorProfile,
-  SkillCard,
-  Section,
+  Layout,
   ProjectCard,
+  Section,
+  SkillCard,
 } from "../components";
-import { graphql } from "gatsby";
 
 const AboutPage = ({
   data: {

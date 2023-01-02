@@ -1,13 +1,13 @@
-import React, { FC } from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import {
-  VStack,
-  Text,
-  ButtonGroup,
   Button,
-  Link,
+  ButtonGroup,
   Icon,
+  Link,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
+import { StaticImage } from "gatsby-plugin-image";
+import React, { FC } from "react";
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 
 import { Card } from "./";

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import { Box, Link, Text } from "@chakra-ui/react";
 import { StaticImage } from "gatsby-plugin-image";
-import { Box, Text, Link } from "@chakra-ui/react";
+import React, { FC } from "react";
 
 import { useAccentColor } from "../hooks";
 

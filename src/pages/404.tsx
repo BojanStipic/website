@@ -1,6 +1,6 @@
-import React from "react";
+import { Container, Heading, Link, Text, VStack } from "@chakra-ui/react";
 import { Link as GatsbyLink } from "gatsby";
-import { Container, VStack, Heading, Text, Link } from "@chakra-ui/react";
+import React from "react";
 
 import { Layout } from "../components";
 

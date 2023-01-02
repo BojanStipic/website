@@ -1,6 +1,3 @@
-import React, { FC } from "react";
-import { Link as GatsbyLink } from "gatsby";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
   Flex,
   Heading,
@@ -13,10 +10,13 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
+import { Link as GatsbyLink } from "gatsby";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import React, { FC } from "react";
 import { FaClock, FaUserGraduate } from "react-icons/fa";
 
-import { Card } from "./";
 import { useMutedColor } from "../hooks";
+import { Card } from "./";
 
 export type BlogPostCardProps = {
   slug: string;

@@ -1,9 +1,7 @@
-import React, { FC } from "react";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
   Box,
-  Heading,
   HStack,
+  Heading,
   Icon,
   SimpleGrid,
   Stack,
@@ -12,15 +10,17 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
+import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
+import React, { FC } from "react";
 import { FaCalendarAlt, FaClock, FaUserGraduate } from "react-icons/fa";
 
+import { useMutedColor } from "../hooks";
 import {
   Comments,
   MdxRenderer,
   TableOfContents,
   TableOfContentsProps,
 } from "./";
-import { useMutedColor } from "../hooks";
 
 export type BlogPostProps = {
   title: string;

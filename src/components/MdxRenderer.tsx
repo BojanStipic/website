@@ -1,26 +1,26 @@
-import React, { FC } from "react";
-import { MDXProvider } from "@mdx-js/react";
 import {
-  Text,
-  TextProps,
   Heading as ChakraHeading,
-  HeadingProps,
-  UnorderedList,
-  OrderedList,
-  ListItem,
-  Table,
-  Tr,
-  Td,
-  Th,
   Code,
+  CodeProps,
   Divider,
+  HeadingProps,
   Link,
   LinkProps,
-  CodeProps,
+  ListItem,
+  OrderedList,
+  Table,
+  Td,
+  Text,
+  TextProps,
+  Th,
+  Tr,
+  UnorderedList,
 } from "@chakra-ui/react";
+import { MDXProvider } from "@mdx-js/react";
+import React, { FC } from "react";
 
-import { CodeBlock, CodeBlockProps, Blockquote, BlockquoteProps } from "./";
 import { useAccentColor } from "../hooks";
+import { Blockquote, BlockquoteProps, CodeBlock, CodeBlockProps } from "./";
 
 const Heading: FC<HeadingProps> = ({ ...rest }) => (
   <ChakraHeading

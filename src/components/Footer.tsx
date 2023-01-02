@@ -1,8 +1,8 @@
+import { Link, Text } from "@chakra-ui/react";
 import React, { FC } from "react";
-import { Text, Link } from "@chakra-ui/react";
 
-import { Card } from "./";
 import { useAccentColor } from "../hooks";
+import { Card } from "./";
 
 export const Footer: FC = () => {
   const linkColor = useAccentColor();

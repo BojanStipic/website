@@ -1,5 +1,5 @@
-import React, { FC } from "react";
 import { Box, BoxProps, useColorModeValue } from "@chakra-ui/react";
+import React, { FC } from "react";
 
 export type BlockquoteProps = BoxProps & {};
 
