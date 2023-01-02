@@ -11,6 +11,22 @@ language = 'TypeScript'
 license = 'GNU Affero General Public License v3.0'
 
 [[projects]]
+title = 'react-skeleton'
+url = 'https://github.com/BojanStipic/react-skeleton'
+visibility = 'public'
+description = 'React skeleton to kick-start your new application.'
+tags = [
+    'react',
+    'vite',
+    'template',
+    'boilerplate',
+    'skeleton',
+    'starter',
+]
+language = 'TypeScript'
+license = 'GNU Affero General Public License v3.0'
+
+[[projects]]
 title = 'spring-skeleton'
 url = 'https://github.com/BojanStipic/spring-skeleton'
 visibility = 'public'
@@ -18,11 +34,10 @@ description = 'Spring Boot skeleton to kick-start your new application.'
 tags = [
     'spring',
     'spring-boot',
-    'spring-security',
-    'skeleton',
+    'template',
     'boilerplate',
+    'skeleton',
     'starter',
-    'postgres',
 ]
 language = 'Java'
 license = 'GNU Affero General Public License v3.0'
