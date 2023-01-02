@@ -6,6 +6,7 @@ export default {
     title: "Bojan Stipic",
   },
   plugins: [
+    "gatsby-plugin-sitemap",
     "@chakra-ui/gatsby-plugin",
     "gatsby-transformer-toml",
     {
