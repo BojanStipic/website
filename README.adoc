@@ -26,15 +26,15 @@ toc::[]
 === Run locally
 
 ```bash
-yarn install
-yarn start
+npm ci
+npm start
 ```
 
 === Build for deployment
 
 ```bash
-yarn install
-yarn run build
+npm ci
+npm run build
 ```
 
 == License
