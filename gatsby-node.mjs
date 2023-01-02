@@ -1,7 +1,7 @@
-const slugify = require("@sindresorhus/slugify");
-const readingTime = require("reading-time");
+import slugify from "@sindresorhus/slugify";
+import readingTime from "reading-time";
 
-exports.onCreateNode = ({ node, actions }) => {
+export const onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "Mdx") {
     createNodeField({

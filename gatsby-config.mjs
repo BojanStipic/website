@@ -1,4 +1,6 @@
-module.exports = {
+import remarkGfm from "remark-gfm";
+
+export default {
   siteMetadata: {
     siteUrl: "https://bojanstipic.rs",
     title: "Bojan Stipic",
@@ -10,7 +12,7 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         mdxOptions: {
-          remarkPlugins: [require("remark-gfm")],
+          remarkPlugins: [remarkGfm],
         },
         gatsbyRemarkPlugins: [
           {
