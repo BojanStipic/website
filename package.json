@@ -23,7 +23,7 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource/alfa-slab-one": "^4.5.9",
-    "@fontsource/fira-sans": "^4.5.10",
+    "@fontsource/fira-sans": "^5.0.2",
     "@fontsource/source-code-pro": "^4.5.14",
     "@giscus/react": "^2.2.8",
     "@mdx-js/mdx": "^2.3.0",
