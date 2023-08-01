@@ -795,7 +795,7 @@ export function length(s) {
   const [ptr0, len0] = passStringToWasm0(
     s,
     wasm.__wbindgen_malloc,
-    wasm.__wbindgen_realloc
+    wasm.__wbindgen_realloc,
   );
 
   const ret = wasm.length(ptr0, len0);

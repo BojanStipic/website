@@ -10,7 +10,8 @@ export const Footer: FC = () => {
   return (
     <Card as="footer" variant="outline" p={4}>
       <Text fontSize="sm" fontWeight="light" textAlign="center">
-        Copyright © 2021-2023 Bojan Stipic | Website source code is available on{" "}
+        Copyright © 2021-2023 Bojan Stipic | Website source code is available
+        on{" "}
         <Link
           href="https://github.com/BojanStipic/website"
           isExternal={true}
