@@ -34,7 +34,7 @@ export const Comments: FC<CommentsProps> = ({ title }) => {
         a{" "}
         <Link
           href={`https://github.com/BojanStipic/website/discussions/categories/post-comments?discussions_q=${encodeURIComponent(
-            title
+            title,
           )}`}
           isExternal={true}
           color={useAccentColor()}

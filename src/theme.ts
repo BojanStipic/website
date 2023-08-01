@@ -76,7 +76,7 @@ const theme = extendTheme(
       }),
     },
   },
-  withDefaultColorScheme({ colorScheme: "brand" })
+  withDefaultColorScheme({ colorScheme: "brand" }),
 );
 
 export default theme;
