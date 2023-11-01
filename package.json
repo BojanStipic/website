@@ -22,24 +22,24 @@
     "@chakra-ui/theme-tools": "^2.1.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/alfa-slab-one": "^5.0.13",
-    "@fontsource/fira-sans": "^5.0.13",
-    "@fontsource/source-code-pro": "^5.0.8",
+    "@fontsource/alfa-slab-one": "^5.0.17",
+    "@fontsource/fira-sans": "^5.0.17",
+    "@fontsource/source-code-pro": "^5.0.15",
     "@giscus/react": "^2.3.0",
     "@mdx-js/mdx": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@sindresorhus/slugify": "^2.2.1",
     "framer-motion": "^10.16.4",
-    "gatsby": "^5.12.5",
-    "gatsby-plugin-image": "^3.12.0",
-    "gatsby-plugin-mdx": "^5.12.0",
+    "gatsby": "^5.12.9",
+    "gatsby-plugin-image": "^3.12.3",
+    "gatsby-plugin-mdx": "^5.12.3",
     "gatsby-plugin-react-svg": "^3.3.0",
-    "gatsby-plugin-sharp": "^5.12.0",
-    "gatsby-plugin-sitemap": "^6.12.0",
-    "gatsby-remark-autolink-headers": "^6.12.0",
-    "gatsby-remark-images": "^7.12.0",
-    "gatsby-source-filesystem": "^5.12.0",
-    "gatsby-transformer-sharp": "^5.12.0",
+    "gatsby-plugin-sharp": "^5.12.3",
+    "gatsby-plugin-sitemap": "^6.12.3",
+    "gatsby-remark-autolink-headers": "^6.12.3",
+    "gatsby-remark-images": "^7.12.3",
+    "gatsby-source-filesystem": "^5.12.1",
+    "gatsby-transformer-sharp": "^5.12.3",
     "gatsby-transformer-toml": "^5.12.0",
     "prism-react-renderer": "^1.3.5",
     "prismjs": "^1.29.0",
@@ -50,13 +50,13 @@
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3"
   },
   "overrides": {
-    "@babel/core": "7.23.0"
+    "@babel/core": "7.23.2"
   },
   "lint-staged": {
     "*": [
