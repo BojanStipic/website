@@ -20,7 +20,7 @@ const BlogPostPage = ({
       <BlogPost
         title={title}
         date={date}
-        image={getImage(image)}
+        image={getImage(image)!}
         imageAlt={imageAlt}
         tags={tags}
         author={author}

@@ -50,7 +50,7 @@ export const BlogPost: FC<BlogPostProps> = ({
   return (
     <Box as="article">
       <SimpleGrid as="header" columns={{ base: 1, md: 2 }} spacing={4}>
-        <GatsbyImage image={getImage(image)} alt={imageAlt} />
+        <GatsbyImage image={getImage(image)!} alt={imageAlt} />
         <Stack spacing={2} align={{ base: "center", md: "normal" }}>
           <Heading
             as="h1"

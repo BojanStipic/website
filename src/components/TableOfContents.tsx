@@ -39,7 +39,7 @@ const generateToc = (items: Array<TocItem>) => (
           </Link>
         </ListItem>
         <Divider />
-        {generateToc(item.items)}
+        {generateToc(item.items ?? [])}
       </Box>
     ))}
   </OrderedList>
