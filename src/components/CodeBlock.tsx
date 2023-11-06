@@ -5,20 +5,10 @@ import {
   useClipboard,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Highlight, {
-  Language,
-  PrismTheme,
-  defaultProps,
-} from "prism-react-renderer";
-// Required to add support for additional languages
-// https://github.com/FormidableLabs/prism-react-renderer#faq
-import Prism from "prism-react-renderer/prism";
-import nightOwl from "prism-react-renderer/themes/nightOwl";
-import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
+import { Highlight, Language, Prism, themes } from "prism-react-renderer";
 import React, { FC } from "react";
 
 (typeof global !== "undefined" ? global : window).Prism = Prism;
-require("prismjs/components/prism-rust");
 require("prismjs/components/prism-toml");
 require("prismjs/components/prism-java");
 
@@ -29,16 +19,11 @@ export type CodeBlockProps = {
 
 export const CodeBlock: FC<CodeBlockProps> = ({ children, className }) => {
   const language = className.replace(/language-/, "") as Language;
-  const theme = useColorModeValue(nightOwlLight, nightOwl) as PrismTheme;
+  const theme = useColorModeValue(themes.nightOwlLight, themes.nightOwl);
   const { hasCopied, onCopy } = useClipboard(children);
 
   return (
-    <Highlight
-      {...defaultProps}
-      code={children}
-      language={language}
-      theme={theme}
-    >
+    <Highlight code={children} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Box position="relative" my={4}>
           <Code
@@ -53,9 +38,9 @@ export const CodeBlock: FC<CodeBlockProps> = ({ children, className }) => {
             zIndex={0}
           >
             {tokens.slice(0, -1).map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
+              <div key={i} {...getLineProps({ line })}>
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
+                  <span key={key} {...getTokenProps({ token })} />
                 ))}
               </div>
             ))}
