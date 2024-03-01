@@ -20,16 +20,16 @@
     "@chakra-ui/gatsby-plugin": "^3.1.3",
     "@chakra-ui/react": "^2.8.2",
     "@chakra-ui/theme-tools": "^2.1.2",
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@fontsource/alfa-slab-one": "^5.0.18",
     "@fontsource/fira-sans": "^5.0.18",
     "@fontsource/source-code-pro": "^5.0.16",
     "@giscus/react": "^2.4.0",
-    "@mdx-js/mdx": "^3.0.0",
-    "@mdx-js/react": "^3.0.0",
+    "@mdx-js/mdx": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
     "@sindresorhus/slugify": "^2.2.1",
-    "framer-motion": "^11.0.3",
+    "framer-motion": "^11.0.8",
     "gatsby": "^5.13.3",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-mdx": "^5.13.1",
@@ -51,12 +51,12 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "husky": "^9.0.10",
-    "lint-staged": "^15.2.1",
-    "prettier": "^3.2.4"
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5"
   },
   "overrides": {
-    "@babel/core": "7.23.9"
+    "@babel/core": "7.24.0"
   },
   "lint-staged": {
     "*": [
