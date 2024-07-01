@@ -29,7 +29,7 @@
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@sindresorhus/slugify": "^2.2.1",
-    "framer-motion": "^11.2.10",
+    "framer-motion": "^11.2.12",
     "gatsby": "^5.13.6",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-mdx": "^5.13.1",
@@ -52,11 +52,11 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.5",
-    "prettier": "^3.3.0"
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2"
   },
   "overrides": {
-    "@babel/core": "7.24.6"
+    "@babel/core": "7.24.7"
   },
   "lint-staged": {
     "*": [
