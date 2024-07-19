@@ -1,0 +1,39 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import "@fontsource-variable/inter";
+
+import { SITE_TITLE } from "@/consts";
+
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={new URL("rss.xml", Astro.site)}
+    />
+
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content="Astro description" />
+  </head>
+  <body class="bg-ctp-crust text-ctp-text">
+    <slot />
+  </body>
+</html>

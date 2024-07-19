@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "@/layouts/Layout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (lhs, rhs) => rhs.data.pubDate.valueOf() - lhs.data.pubDate.valueOf(),
+);
+---
+
+<Layout title="Blog">
+  <h2>Blog:</h2>
+  <ol>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ol>
+</Layout>
