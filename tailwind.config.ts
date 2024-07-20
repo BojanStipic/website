@@ -11,11 +11,10 @@ export default {
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
       },
-      colors: {},
     },
   },
   plugins: [
-    catppuccinTheme({ defaultFlavour: "mocha", prefix: "ctp" }) as {
+    catppuccinTheme({ prefix: "ctp" }) as {
       handler: PluginCreator;
       config: Partial<Config>;
     },
