@@ -1,0 +1,16 @@
+---
+import GithubIcon from "@/assets/GithubIcon.astro";
+import LinkedinIcon from "@/assets/LinkedinIcon.astro";
+import RssIcon from "@/assets/RssIcon.astro";
+import { GITHUB_PROFILE_URL, LINKEDIN_PROFILE_URL, RSS_URL } from "@/consts";
+---
+
+<a href={RSS_URL} target="_blank">
+  <RssIcon class="size-6 hover:fill-primary" />
+</a>
+<a href={GITHUB_PROFILE_URL} target="_blank">
+  <GithubIcon class="size-6 hover:fill-primary" />
+</a>
+<a href={LINKEDIN_PROFILE_URL} target="_blank">
+  <LinkedinIcon class="size-6 hover:fill-primary" />
+</a>

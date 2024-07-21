@@ -1,0 +1,24 @@
+---
+import { SITE_TITLE } from "@/consts";
+
+import HeaderLink from "./HeaderLink.astro";
+import Socials from "./Socials.astro";
+---
+
+<header class="flex items-center border-t-4 border-primary bg-base px-5 shadow">
+  <h1
+    class="flex flex-1 justify-start text-nowrap text-3xl font-extrabold tracking-tight"
+  >
+    <a href="/">{SITE_TITLE}</a>
+  </h1>
+
+  <nav class="flex flex-1 justify-center">
+    <HeaderLink href="/">Home</HeaderLink>
+    <HeaderLink href="/projects">Projects</HeaderLink>
+    <HeaderLink href="/blog">Blog</HeaderLink>
+  </nav>
+
+  <div class="flex flex-1 justify-end gap-4 fill-text">
+    <Socials />
+  </div>
+</header>
