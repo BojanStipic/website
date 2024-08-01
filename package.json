@@ -29,7 +29,7 @@
     "@mdx-js/mdx": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@sindresorhus/slugify": "^2.2.1",
-    "framer-motion": "^11.3.20",
+    "framer-motion": "^11.3.21",
     "gatsby": "^5.13.7",
     "gatsby-plugin-image": "^3.13.1",
     "gatsby-plugin-mdx": "^5.13.1",
