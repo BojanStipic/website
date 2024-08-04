@@ -5,14 +5,16 @@ import HeaderLink from "./HeaderLink.astro";
 import Socials from "./Socials.astro";
 ---
 
-<header class="flex items-center border-t-4 border-primary bg-base px-5 shadow">
+<header
+  class="flex flex-wrap items-center border-t-4 border-primary bg-base px-5 shadow"
+>
   <h1
-    class="flex flex-1 justify-start text-nowrap text-3xl font-extrabold tracking-tight"
+    class="flex flex-1 justify-start text-nowrap py-4 text-3xl font-extrabold tracking-tight"
   >
     <a href="/">{SITE_TITLE}</a>
   </h1>
 
-  <nav class="flex flex-1 justify-center">
+  <nav class="order-last flex w-full justify-center md:order-none md:flex-1">
     <HeaderLink href="/">Home</HeaderLink>
     <HeaderLink href="/projects">Projects</HeaderLink>
     <HeaderLink href="/blog">Blog</HeaderLink>
