@@ -43,7 +43,7 @@ export default typescript.config(
           message: "Don't use default exports. Use named exports instead.",
         },
       ],
-      "@typescript-eslint/array-type": "error",
+      "@typescript-eslint/array-type": ["error", { default: "generic" }],
       "@typescript-eslint/consistent-type-assertions": "error",
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
       "@typescript-eslint/prefer-for-of": "error",
