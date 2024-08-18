@@ -1,0 +1,15 @@
+erDiagram
+  accTitle: One to many relationship schema
+
+  Post {
+    bigint id PK
+    text content
+  }
+
+  Comment {
+    bigint id PK
+    text content
+    bigint post_id FK
+  }
+
+  Post ||--o{ Comment : ""

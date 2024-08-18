@@ -1,0 +1,20 @@
+erDiagram
+  accTitle: Many to many relationship schema
+
+  User {
+    bigint id PK
+    varchar name
+  }
+
+  Review {
+    bigint user_id FK
+    bigint movie_id FK
+  }
+
+  Movie {
+    bigint id PK
+    varchar title
+  }
+
+  User ||--o{ Review : ""
+  Movie ||--o{ Review : ""
