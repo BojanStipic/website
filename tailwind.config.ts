@@ -1,4 +1,5 @@
 import catppuccinTheme from "@catppuccin/tailwindcss";
+import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 import type { PluginCreator } from "tailwindcss/types/config";
@@ -26,6 +27,28 @@ export default {
         mantle: "rgba(var(--ctp-mantle), <alpha-value>)",
         crust: "rgba(var(--ctp-crust), <alpha-value>)",
       },
+      typography: ({ theme }: { theme: (path: string) => string }) => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": theme("colors.ctp-text.DEFAULT"),
+            "--tw-prose-headings": theme(`colors.ctp-text.DEFAULT`),
+            "--tw-prose-lead": theme("colors.ctp-text.DEFAULT"),
+            "--tw-prose-bold": theme(`colors.ctp-text.DEFAULT`),
+            "--tw-prose-links": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-counters": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-bullets": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-hr": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-quotes": theme(`colors.ctp-text.DEFAULT`),
+            "--tw-prose-quote-borders": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-captions": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-code": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-pre-code": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-pre-bg": theme(`colors.base.DEFAULT`),
+            "--tw-prose-th-borders": theme(`colors.ctp-mauve.DEFAULT`),
+            "--tw-prose-td-borders": theme(`colors.ctp-mauve.DEFAULT`),
+          },
+        },
+      }),
     },
   },
   plugins: [
@@ -33,5 +56,6 @@ export default {
       handler: PluginCreator;
       config: Partial<Config>;
     },
+    typography(),
   ],
 } satisfies Config;

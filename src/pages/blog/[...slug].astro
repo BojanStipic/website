@@ -2,6 +2,8 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { getCollection } from "astro:content";
 
+import Layout from "@/layouts/Layout.astro";
+
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
@@ -16,4 +18,44 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Content />
+<Layout title={post.data.title}>
+  <article class="prose mx-auto break-words px-4 md:prose-lg">
+    <Content />
+  </article>
+</Layout>
+
+<style is:global>
+  .prose {
+    h1,
+    h2,
+    h3,
+    h4 {
+      @apply leading-relaxed underline decoration-primary underline-offset-[8px];
+    }
+    h1,
+    h2 {
+      @apply decoration-8;
+    }
+    h3,
+    h4 {
+      @apply decoration-4;
+    }
+    strong {
+      @apply font-bold;
+    }
+    :not(pre) > code {
+      @apply bg-primary/10 px-1 before:content-none after:content-none;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .astro-code,
+    .astro-code span {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+      font-style: var(--shiki-dark-font-style) !important;
+      font-weight: var(--shiki-dark-font-weight) !important;
+      text-decoration: var(--shiki-dark-text-decoration) !important;
+    }
+  }
+</style>
