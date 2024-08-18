@@ -11,6 +11,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        mono: ["Iosevka", ...defaultTheme.fontFamily.mono],
       },
       colors: {
         primary: "rgba(var(--ctp-mauve), <alpha-value>)",
