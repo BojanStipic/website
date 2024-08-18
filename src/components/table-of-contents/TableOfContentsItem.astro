@@ -1,0 +1,21 @@
+---
+import type { TocItem } from "./TableOfContents.types";
+
+type Props = {
+  heading: TocItem;
+};
+const { heading } = Astro.props;
+---
+
+<li style={{ paddingLeft: `${(heading.depth - 2).toString()}rem` }}>
+  <a href=`#${heading.slug}` class="hover:underline">{heading.text}</a>
+  {
+    heading.subheadings.length > 0 && (
+      <ol>
+        {heading.subheadings.map((subheading) => (
+          <Astro.self heading={subheading} />
+        ))}
+      </ol>
+    )
+  }
+</li>

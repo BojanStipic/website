@@ -2,6 +2,7 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { getCollection } from "astro:content";
 
+import TableOfContents from "@/components/table-of-contents/TableOfContents.astro";
 import Layout from "@/layouts/Layout.astro";
 
 export const getStaticPaths = (async () => {
@@ -15,11 +16,12 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const post = Astro.props;
-const { Content } = await post.render();
+const { Content, headings } = await post.render();
 ---
 
 <Layout title={post.data.title}>
   <article class="prose mx-auto break-words px-4 md:prose-lg">
+    <TableOfContents headings={headings} class="not-prose" />
     <Content />
   </article>
 </Layout>
@@ -29,7 +31,9 @@ const { Content } = await post.render();
     h1,
     h2,
     h3,
-    h4 {
+    h4,
+    h5,
+    h6 {
       @apply leading-relaxed underline decoration-primary underline-offset-[8px];
     }
     h1,

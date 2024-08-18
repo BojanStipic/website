@@ -1,0 +1,24 @@
+---
+import type { MarkdownHeading } from "astro";
+
+import { generateToc } from "./generateToc";
+import TableOfContentsItem from "./TableOfContentsItem.astro";
+
+type Props = {
+  headings: Array<MarkdownHeading>;
+  class?: string;
+};
+const { headings, class: classNames } = Astro.props;
+const toc = generateToc(headings);
+---
+
+<nav
+  class:list={[
+    "rounded-xl bg-base p-8 text-lg font-medium leading-loose shadow",
+    classNames,
+  ]}
+>
+  <ol>
+    {toc.map((heading) => <TableOfContentsItem heading={heading} />)}
+  </ol>
+</nav>
