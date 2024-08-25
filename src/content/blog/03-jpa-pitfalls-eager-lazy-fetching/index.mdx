@@ -8,6 +8,8 @@ cover: "./jpa-logo.png"
 tags: ["Java", "JPA"]
 ---
 
+import erDiag from "./er-diag.svg?raw";
+
 <aside class="p-8 my-8 rounded-xl bg-base shdow">
     This article is part of the JPA Pitfalls series.
     JPA makes it really easy to do things the wrong way, and makes it really
@@ -27,9 +29,7 @@ tags: ["Java", "JPA"]
 
 Assuming we have the following database schema:
 
-<div class="mx-auto flex max-w-xs justify-center">
-  ![ER diagram](./er-diag.svg)
-</div>
+<div set:html={erDiag} class="mx-auto max-w-[224px]" />
 
 And assuming that we have the following corresponding JPA entities:
 
