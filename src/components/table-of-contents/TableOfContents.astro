@@ -14,10 +14,11 @@ const toc = generateToc(headings);
 
 <nav
   class:list={[
-    "rounded-xl bg-base p-8 text-lg font-medium leading-loose shadow",
+    "rounded-lg bg-base p-8 text-lg font-medium leading-loose shadow",
     classNames,
   ]}
 >
+  <h2 class="mb-4 text-2xl font-bold">Table of contents:</h2>
   <ol>
     {toc.map((heading) => <TableOfContentsItem heading={heading} />)}
   </ol>

@@ -24,27 +24,31 @@ const { Content, headings } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-  <article class="mx-auto box-content max-w-prose px-4 md:text-lg lg:text-xl">
-    <header class="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+  <article
+    class="mx-auto box-content flex max-w-prose flex-col gap-8 px-4 md:text-lg lg:text-xl"
+  >
+    <header class="grid grid-cols-1 gap-4 md:grid-cols-2">
       <Image src={post.data.cover} alt="Blog post's cover image" />
       <div class="flex flex-col gap-2">
-        <h1 class="mt-4 text-4xl font-bold">{post.data.title}</h1>
+        <h1 class="text-4xl font-bold md:mt-4">{post.data.title}</h1>
         <ul class="flex flex-wrap gap-2">
           {
             post.data.tags.map((tag) => (
-              <li class="rounded-md bg-primary/10 px-2 py-1 text-sm font-semibold uppercase text-primary">
+              <li class="rounded-lg bg-primary/10 px-2 py-1 text-sm font-semibold uppercase text-primary">
                 {tag}
               </li>
             ))
           }
         </ul>
-        <div class="flex gap-4 text-sm text-subtext0">
-          <Date date={post.data.pubDate} />
-          <span>{readingTime(post.body).text}</span>
+        <div class="flex divide-x divide-overlay0 text-sm text-subtext0">
+          <span class="pr-4">
+            Published on <Date date={post.data.pubDate} />
+          </span>
+          <span class="pl-4">{readingTime(post.body).text}</span>
         </div>
       </div>
     </header>
-    <p class="mb-8">{post.data.description}</p>
+    <p>{post.data.description}</p>
     <TableOfContents headings={headings} />
     <Prose>
       <Content />
