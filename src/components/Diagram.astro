@@ -1,0 +1,105 @@
+---
+type Props = {
+  svg: string;
+};
+const { svg } = Astro.props;
+---
+
+<div
+  class="diagram flex max-w-full justify-center rounded-lg bg-base px-6 py-5"
+>
+  <Fragment set:html={svg} />
+</div>
+
+<style is:global>
+  .diagram {
+    svg {
+      @apply max-w-full !important;
+    }
+
+    /* ER diagrams */
+    #ZERO_OR_ONE_START *,
+    #ZERO_OR_ONE_END *,
+    #ONLY_ONE_START *,
+    #ONLY_ONE_END *,
+    #ZERO_OR_MORE_START *,
+    #ZERO_OR_MORE_END *,
+    #ONE_OR_MORE_START *,
+    #ONE_OR_MORE_END *,
+    .er.relationshipLine,
+    .er.entityBox,
+    .er.attributeBoxOdd,
+    .er.attributeBoxEven {
+      @apply stroke-text !important;
+    }
+
+    .er.entityBox,
+    #ZERO_OR_ONE_START circle,
+    #ZERO_OR_ONE_END circle,
+    #ZERO_OR_MORE_START circle,
+    #ZERO_OR_MORE_END circle {
+      @apply fill-primary !important;
+    }
+    .er.entityBox + .er.entityLabel {
+      @apply fill-base !important;
+    }
+
+    .er.entityLabel {
+      @apply fill-text !important;
+    }
+    .er.attributeBoxOdd {
+      @apply fill-surface0 !important;
+    }
+    .er.attributeBoxEven {
+      @apply fill-surface1 !important;
+    }
+
+    /* Git graph */
+    .branch {
+      @apply stroke-text !important;
+    }
+    .label {
+      @apply fill-base !important;
+    }
+    .commit {
+      @apply fill-text !important;
+    }
+    .commit-label {
+      @apply fill-text !important;
+    }
+    .commit-label-bkg {
+      @apply fill-transparent !important;
+    }
+
+    .label0 {
+      @apply fill-ctp-red !important;
+    }
+    .arrow0 {
+      @apply stroke-ctp-red !important;
+    }
+    .label1 {
+      @apply fill-ctp-green !important;
+    }
+    .arrow1 {
+      @apply stroke-ctp-green !important;
+    }
+    .label2 {
+      @apply fill-ctp-mauve !important;
+    }
+    .arrow2 {
+      @apply stroke-ctp-mauve !important;
+    }
+    .label3 {
+      @apply fill-ctp-peach !important;
+    }
+    .arrow3 {
+      @apply stroke-ctp-peach !important;
+    }
+    .label4 {
+      @apply fill-ctp-blue !important;
+    }
+    .arrow4 {
+      @apply stroke-ctp-blue !important;
+    }
+  }
+</style>

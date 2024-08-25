@@ -8,6 +8,8 @@ cover: "./jpa-logo.png"
 tags: ["Java", "JPA"]
 ---
 
+import Diagram from "@/components/Diagram.astro";
+
 import erDiag from "./er-diag.svg?raw";
 
 <aside class="p-8 my-8 rounded-xl bg-base shdow">
@@ -29,7 +31,7 @@ import erDiag from "./er-diag.svg?raw";
 
 Assuming we have the following database schema:
 
-<div set:html={erDiag} class="mx-auto max-w-[224px]" />
+<Diagram svg={erDiag} />
 
 And assuming that we have the following corresponding JPA entities:
 

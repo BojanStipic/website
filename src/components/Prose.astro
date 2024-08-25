@@ -28,7 +28,10 @@
     }
   }
 
-  /* Shiki code highlighting */
+  /*
+  * Shiki code highlighting dual theme support
+  * https://shiki.matsu.io/guide/dual-themes#query-based-dark-mode
+  */
   @media (prefers-color-scheme: dark) {
     .astro-code,
     .astro-code span {
@@ -37,96 +40,6 @@
       font-style: var(--shiki-dark-font-style) !important;
       font-weight: var(--shiki-dark-font-weight) !important;
       text-decoration: var(--shiki-dark-text-decoration) !important;
-    }
-  }
-
-  /* Mermaid diagrams */
-  svg[id^="mermaid"] {
-    @apply max-w-full bg-transparent !important;
-
-    /* ER diagrams */
-    #ZERO_OR_ONE_START *,
-    #ZERO_OR_ONE_END *,
-    #ONLY_ONE_START *,
-    #ONLY_ONE_END *,
-    #ZERO_OR_MORE_START *,
-    #ZERO_OR_MORE_END *,
-    #ONE_OR_MORE_START *,
-    #ONE_OR_MORE_END *,
-    .er.relationshipLine,
-    .er.entityBox,
-    .er.attributeBoxOdd,
-    .er.attributeBoxEven {
-      @apply stroke-text !important;
-    }
-
-    .er.entityBox,
-    #ZERO_OR_ONE_START circle,
-    #ZERO_OR_ONE_END circle,
-    #ZERO_OR_MORE_START circle,
-    #ZERO_OR_MORE_END circle {
-      @apply fill-primary !important;
-    }
-    .er.entityBox + .er.entityLabel {
-      @apply fill-base !important;
-    }
-
-    .er.entityLabel {
-      @apply fill-text !important;
-    }
-    .er.attributeBoxOdd {
-      @apply fill-surface0 !important;
-    }
-    .er.attributeBoxEven {
-      @apply fill-surface1 !important;
-    }
-
-    /* Git graph */
-    .branch {
-      @apply stroke-text !important;
-    }
-    .label {
-      @apply fill-base !important;
-    }
-    .commit {
-      @apply fill-text !important;
-    }
-    .commit-label {
-      @apply fill-text !important;
-    }
-    .commit-label-bkg {
-      @apply fill-surface0/70 !important;
-    }
-
-    .label0 {
-      @apply fill-ctp-red !important;
-    }
-    .arrow0 {
-      @apply stroke-ctp-red !important;
-    }
-    .label1 {
-      @apply fill-ctp-green !important;
-    }
-    .arrow1 {
-      @apply stroke-ctp-green !important;
-    }
-    .label2 {
-      @apply fill-ctp-mauve !important;
-    }
-    .arrow2 {
-      @apply stroke-ctp-mauve !important;
-    }
-    .label3 {
-      @apply fill-ctp-peach !important;
-    }
-    .arrow3 {
-      @apply stroke-ctp-peach !important;
-    }
-    .label4 {
-      @apply fill-ctp-blue !important;
-    }
-    .arrow4 {
-      @apply stroke-ctp-blue !important;
     }
   }
 </style>

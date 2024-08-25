@@ -8,6 +8,8 @@ cover: "./jpa-logo.png"
 tags: ["Java", "JPA"]
 ---
 
+import Diagram from "@/components/Diagram.astro";
+
 import manyToManyDiag from "./many-to-many-diag.svg?raw";
 import oneToManyDiag from "./one-to-many-diag.svg?raw";
 
@@ -30,7 +32,7 @@ import oneToManyDiag from "./one-to-many-diag.svg?raw";
 
 Assuming we have the following database schema:
 
-<div set:html={oneToManyDiag} class="mx-auto max-w-[224px]" />
+<Diagram svg={oneToManyDiag} />
 
 We could create the following JPA entities:
 
@@ -115,7 +117,7 @@ Page<Comment> findByPost_id(Long postId, Pageable pageable);
 
 Assuming we have the following database schema:
 
-<div set:html={manyToManyDiag} class="mx-auto max-w-[572px]" />
+<Diagram svg={manyToManyDiag} />
 
 We could map it to the following JPA entities:
 

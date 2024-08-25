@@ -11,6 +11,8 @@ cover: "./cover.png"
 tags: ["Git"]
 ---
 
+import Diagram from "@/components/Diagram.astro";
+
 import crFixesCommit from "./cr-fixes-commit.svg?raw";
 import fixupCommit from "./fixup-commit.svg?raw";
 import gitAmend from "./git-amend.svg?raw";
@@ -25,7 +27,7 @@ You finish it up, write some tests, everything works.
 Since you care about commit messages, you decide to divide the work
 into multiple commits with meaningful messages:
 
-<div set:html={initialGitHistory} class="mx-auto max-w-fit" />
+<Diagram svg={initialGitHistory} />
 
 You create a pull request, and wait for your colleagues to review it.
 
@@ -35,12 +37,12 @@ _5 minutes later..._
 
 Not too bad, you just fix that little typo and push a new commit.
 
-<div set:html={crFixesCommit} class="mx-auto max-w-fit" />
+<Diagram svg={crFixesCommit} />
 
 Another colleague comes and suggests a few more changes.
 No problem, you say, let me just create a new commit real quick.
 
-<div set:html={moreCrFixesCommit} class="mx-auto max-w-fit" />
+<Diagram svg={moreCrFixesCommit} />
 
 You spent so much time crafting useful commits initially,
 but now you have a whole bunch of useless commits on top.
@@ -52,7 +54,7 @@ This is just noise that provides no value.
 
 Let's rewind the story a little bit:
 
-<div set:html={initialGitHistory} class="mx-auto max-w-fit" />
+<Diagram svg={initialGitHistory} />
 
 You just created a pull request, and a colleague spotted a typo.
 You fix the typo, but this time you run the following command:
@@ -63,7 +65,7 @@ git commit --amend
 
 Instead of creating a new commit, Git will modify the latest commit:
 
-<div set:html={gitAmend} class="mx-auto max-w-fit" />
+<Diagram svg={gitAmend} />
 
 <div class="alert">
   Git commits are immutable. When I say "modify", what actually happens is that
@@ -89,7 +91,7 @@ As we have seen in the previous section,
 amending a commit at the tip of the branch is a very simple process.
 Let's make it a bit more complicated this time.
 
-<div set:html={initialGitHistory} class="mx-auto max-w-fit" />
+<Diagram svg={initialGitHistory} />
 
 Say your colleague found a typo, but the typo is related to a change
 made in the commit `[0004] Generic rating component`.
@@ -134,7 +136,7 @@ and apply the specified rebase command to each commit.
 The `fixup` command will merge the commit with the one preceding it,
 creating a single commit:
 
-<div set:html={gitRebase} class="mx-auto max-w-fit" />
+<Diagram svg={gitRebase} />
 
 Once again, our beautiful commit history has been preserved.
 
@@ -160,7 +162,7 @@ git commit --fixup ":/Generic rating component"
 
 After we create a special fixup commit, the history will look like this:
 
-<div set:html={fixupCommit} class="mx-auto max-w-fit" />
+<Diagram svg={fixupCommit} />
 
 To apply the fixup, we can then run the following command:
 
