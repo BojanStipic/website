@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
+import BlogPostPreview from "@/components/BlogPostPreview.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const posts = (await getCollection("blog")).sort(
@@ -9,14 +10,9 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <Layout title="Blog">
-  <h2>Blog:</h2>
-  <ol>
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-        </li>
-      ))
-    }
-  </ol>
+  <section
+    class="container mx-auto grid grid-cols-1 gap-8 px-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+  >
+    {posts.map((post) => <BlogPostPreview post={post} />)}
+  </section>
 </Layout>
