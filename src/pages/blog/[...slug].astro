@@ -1,7 +1,11 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import readingTime from "reading-time";
 
+import Date from "@/components/Date.astro";
+import Prose from "@/components/Prose.astro";
 import TableOfContents from "@/components/table-of-contents/TableOfContents.astro";
 import Layout from "@/layouts/Layout.astro";
 
@@ -20,42 +24,30 @@ const { Content, headings } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-  <article class="prose mx-auto break-words px-4 md:prose-lg">
-    <TableOfContents headings={headings} class="not-prose" />
-    <Content />
+  <article class="mx-auto box-content max-w-prose px-4 md:text-lg lg:text-xl">
+    <header class="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <Image src={post.data.cover} alt="Blog post's cover image" />
+      <div class="flex flex-col gap-2">
+        <h1 class="mt-4 text-4xl font-bold">{post.data.title}</h1>
+        <ul class="flex flex-wrap gap-2">
+          {
+            post.data.tags.map((tag) => (
+              <li class="rounded-md bg-primary/10 px-2 py-1 text-sm font-semibold uppercase text-primary">
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="flex gap-4 text-sm text-subtext0">
+          <Date date={post.data.pubDate} />
+          <span>{readingTime(post.body).text}</span>
+        </div>
+      </div>
+    </header>
+    <p class="mb-8">{post.data.description}</p>
+    <TableOfContents headings={headings} />
+    <Prose>
+      <Content />
+    </Prose>
   </article>
 </Layout>
-
-<style is:global>
-  .prose {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply leading-relaxed underline decoration-primary underline-offset-[8px];
-    }
-    h1,
-    h2 {
-      @apply decoration-8;
-    }
-    strong {
-      @apply font-bold;
-    }
-    :not(pre) > code {
-      @apply bg-primary/10 px-1 font-normal before:content-none after:content-none;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .astro-code,
-    .astro-code span {
-      color: var(--shiki-dark) !important;
-      background-color: var(--shiki-dark-bg) !important;
-      font-style: var(--shiki-dark-font-style) !important;
-      font-weight: var(--shiki-dark-font-weight) !important;
-      text-decoration: var(--shiki-dark-text-decoration) !important;
-    }
-  }
-</style>

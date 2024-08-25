@@ -1,0 +1,12 @@
+---
+type Props = {
+  date: Date;
+  class?: string;
+};
+
+const { date, class: classNames } = Astro.props;
+---
+
+<time datetime={date.toISOString()} class={classNames}>
+  {date.toISOString().substring(0, 10)}
+</time>
