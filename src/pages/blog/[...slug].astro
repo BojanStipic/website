@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import readingTime from "reading-time";
 
+import Comments from "@/components/Comments.astro";
 import Date from "@/components/Date.astro";
 import Prose from "@/components/Prose.astro";
 import TableOfContents from "@/components/table-of-contents/TableOfContents.astro";
@@ -53,5 +54,6 @@ const { Content, headings } = await post.render();
     <Prose>
       <Content />
     </Prose>
+    <Comments title={post.data.title} />
   </article>
 </Layout>

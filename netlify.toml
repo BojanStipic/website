@@ -1,0 +1,4 @@
+[[headers]]
+    for = "/giscus-catppuccin-theme.css"
+    [headers.values]
+        access-control-allow-origin = "https://giscus.app"

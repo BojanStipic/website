@@ -1,0 +1,40 @@
+---
+import Link from "@/components/Link.astro";
+import { GITHUB_PROFILE_URL } from "@/consts";
+
+type Props = {
+  title: string;
+};
+const { title } = Astro.props;
+---
+
+<section class="rounded-lg bg-base p-8 shadow">
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo="BojanStipic/website"
+    data-repo-id="MDEwOlJlcG9zaXRvcnk0MDM0MDYzMTk="
+    data-category="Post Comments"
+    data-category-id="DIC_kwDOGAt9784CQkIw"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme=`${Astro.site?.origin ?? ''}/giscus-catppuccin-theme.css`
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async></script>
+
+  <div class="mt-4 text-sm text-subtext0">
+    Do you have a problem, want to share feedback, or discuss further ideas?
+    Feel free to leave a comment here! This comment thread directly maps to a
+    <Link
+      href={`${GITHUB_PROFILE_URL}/website/discussions/categories/post-comments?discussions_q=${encodeURIComponent(title)}`}
+    >
+      discussion on GitHub
+    </Link>
+    , so you can also comment there if you prefer.
+  </div>
+</section>
