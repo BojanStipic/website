@@ -8,6 +8,7 @@ import Comments from "@/components/Comments.astro";
 import Date from "@/components/Date.astro";
 import Prose from "@/components/Prose.astro";
 import TableOfContents from "@/components/table-of-contents/TableOfContents.astro";
+import Tags from "@/components/Tags.astro";
 import Layout from "@/layouts/Layout.astro";
 
 export const getStaticPaths = (async () => {
@@ -32,15 +33,7 @@ const { Content, headings } = await post.render();
       <Image src={post.data.cover} alt="Blog post's cover image" />
       <div class="flex flex-col gap-2">
         <h1 class="text-4xl font-bold md:mt-4">{post.data.title}</h1>
-        <ul class="flex flex-wrap gap-2">
-          {
-            post.data.tags.map((tag) => (
-              <li class="rounded-lg bg-primary/10 px-2 py-1 text-sm font-semibold uppercase text-primary">
-                {tag}
-              </li>
-            ))
-          }
-        </ul>
+        <Tags tags={post.data.tags} />
         <div class="flex divide-x divide-overlay0 text-sm text-subtext0">
           <span class="pr-4">
             Published on <Date date={post.data.pubDate} />

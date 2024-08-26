@@ -1,0 +1,29 @@
+---
+import CodeIcon from "@/assets/CodeIcon.astro";
+import ScaleIcon from "@/assets/ScaleIcon.astro";
+import Tags from "@/components/Tags.astro";
+import type { Project } from "@/content/projects";
+
+type Props = {
+  project: Project;
+};
+const { project } = Astro.props;
+---
+
+<a href={project.url} target="_blank">
+  <article class="flex flex-col gap-2 rounded-lg bg-base p-4 shadow">
+    <h2 class="text-xl font-bold">{project.title}</h2>
+    <p>{project.description}</p>
+    <Tags tags={project.tags} />
+    <div class="flex gap-4 fill-subtext0 text-sm text-subtext0">
+      <div class="flex items-center gap-1">
+        <CodeIcon class="size-4" />
+        {project.language}
+      </div>
+      <div class="flex items-center gap-1">
+        <ScaleIcon class="size-4" />
+        {project.license}
+      </div>
+    </div>
+  </article>
+</a>

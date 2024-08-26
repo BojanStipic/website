@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import readingTime from "reading-time";
 
 import Date from "@/components/Date.astro";
+import Tags from "@/components/Tags.astro";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -21,15 +22,7 @@ const { post } = Astro.props;
       <div class="line-clamp-3 text-subtext0">
         {post.data.description}
       </div>
-      <ul class="flex flex-wrap gap-2">
-        {
-          post.data.tags.map((tag) => (
-            <li class="rounded-lg bg-primary/10 px-2 py-1 text-sm font-semibold uppercase text-primary">
-              {tag}
-            </li>
-          ))
-        }
-      </ul>
+      <Tags tags={post.data.tags} />
       <div class="flex justify-between text-sm text-subtext0">
         <Date date={post.data.pubDate} />
         <span>{readingTime(post.body).text}</span>
