@@ -1,13 +1,19 @@
 ---
+import profileImage from "@/assets/profile.jpg";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import { RSS_URL, SITE_TITLE } from "@/consts";
+import { RSS_URL, SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 
 type Props = {
   title: string;
+  description?: string;
+  imageUrl?: string;
 };
 
-const { title } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const title = `${Astro.props.title} | ${SITE_TITLE}`;
+const description = Astro.props.description ?? SITE_DESCRIPTION;
+const imageUrl = Astro.props.imageUrl ?? profileImage.src;
 ---
 
 <!doctype html>
@@ -35,9 +41,22 @@ const { title } = Astro.props;
       href={RSS_URL}
     />
 
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(imageUrl, Astro.url)} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(imageUrl, Astro.url)} />
   </head>
 
   <body
