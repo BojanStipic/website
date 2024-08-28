@@ -1,5 +1,18 @@
 ---
-
+import Link from "@/components/Link.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-Mistakes were made.
+<Layout title="404">
+  <section
+    class="mx-auto mt-16 flex max-w-prose flex-col gap-4 px-4 text-center"
+  >
+    <h2 class="text-9xl font-bold text-primary">404</h2>
+    <p class="text-subtext1">
+      Oops! The page you're looking for could not be found.
+    </p>
+    <p class="text-subtext1">
+      Please check the URL or go back to the <Link href="/">homepage</Link>.
+    </p>
+  </section>
+</Layout>
