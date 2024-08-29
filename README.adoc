@@ -1,0 +1,61 @@
+= website
+:toc:
+:toc-placement!:
+:sectanchors:
+:sectnums:
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+Bojan Stipic's website.
+
+image:https://github.com/BojanStipic/website/actions/workflows/ci.yml/badge.svg[CI, link="https://github.com/BojanStipic/website/actions/workflows/ci.yml"]
+image:https://github.com/BojanStipic/website/actions/workflows/codeql.yml/badge.svg[CodeQL, link="https://github.com/BojanStipic/website/actions/workflows/codeql.yml"]
+image:https://api.netlify.com/api/v1/badges/9d2d9b69-e9aa-42c9-80f3-376a2df44722/deploy-status[Netlify Status, link="https://app.netlify.com/sites/bojanstipic/deploys"]
+
+toc::[]
+
+== Usage
+
+=== Run locally
+
+```bash
+npm ci
+npm start
+```
+
+=== Build for deployment
+
+```bash
+npm ci
+npm run build
+```
+
+== License
+
+This program is distributed under the terms of AGPL-3.0-or-later license,
+except for the blog posts that are under the `src/content/blog` directory.
+Blog post licenses are specified at the end of each blog post.
+
+....
+Copyright (C) 2021-2024 Bojan Stipic
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+....
