@@ -1,7 +1,36 @@
 ---
+import { getCollection } from "astro:content";
+
+import AboutMe from "@/components/AboutMe.astro";
+import BlogPostPreview from "@/components/BlogPostPreview.astro";
+import ProjectPreview from "@/components/ProjectPreview.astro";
+import Section from "@/components/Section.astro";
+import { projects } from "@/content/projects";
 import Layout from "@/layouts/Layout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (lhs, rhs) => rhs.data.pubDate.valueOf() - lhs.data.pubDate.valueOf(),
+);
 ---
 
-<Layout title="Welcome to Astro.">
-  <h1>Hello world</h1>
+<Layout title="Home">
+  <div class="container mx-auto flex flex-col gap-8 px-4">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <AboutMe />
+      <Section title="Top Projects:">
+        <div class="flex flex-col gap-4">
+          {
+            projects
+              .slice(0, 3)
+              .map((project) => <ProjectPreview project={project} />)
+          }
+        </div>
+      </Section>
+    </div>
+    <Section title="Latest Blog Posts:">
+      <div class="gird-cols-1 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        {posts.slice(0, 4).map((post) => <BlogPostPreview post={post} />)}
+      </div>
+    </Section>
+  </div>
 </Layout>

@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+
+import profileImage from "@/assets/profile.jpg";
+import Link from "@/components/Link.astro";
+import { GITHUB_PROFILE_URL } from "@/consts";
+---
+
+<section class="flex flex-col gap-8 rounded-xl bg-base p-8 shadow">
+  <Image
+    src={profileImage}
+    alt="Avatar"
+    loading="eager"
+    class="w-52 self-center rounded-full"
+  />
+  <p class="md:text-lg">
+    Hi! 👋 I'm <strong>Bojan</strong>. I'm a software engineer at <Link
+      href="https://symphony.is/"
+      target="_blank">Symphony</Link
+    >
+    and a general <Link href={GITHUB_PROFILE_URL} target="_blank"
+      >free software</Link
+    > enthusiast and advocate. I'm currently working as a full stack web developer,
+    but I used to be a teaching assistant at the University of Novi Sad, Serbia,
+    where my main focus was on lower level stuff like systems programming, programming
+    language research and design and compiler development. I use Neovim and ArchLinux
+    btw.
+  </p>
+  <p class="md:text-lg">
+    Welcome to my blog, where I ocasionally write about things I find
+    interesting.
+  </p>
+</section>
