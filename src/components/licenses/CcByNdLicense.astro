@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+import Link from "@/components/Link.astro";
+
+import ccByNd from "./cc-by-nd.svg";
+---
+
+<hr />
+
+<p class="text-center text-sm text-subtext1">
+  <a
+    href="http://creativecommons.org/licenses/by-nd/4.0/"
+    target="_blank"
+    rel="license"
+  >
+    <Image src={ccByNd} alt="CC-BY-ND license notice" class="mx-auto" />
+  </a>
+  This work is licensed under
+  <Link
+    href="https://creativecommons.org/licenses/by-nd/4.0/"
+    target="_blank"
+    rel="license"
+  >
+    Creative Commons Attribution-NoDerivatives 4.0 International
+  </Link>.
+</p>
+
+<hr />

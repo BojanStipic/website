@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+import Link from "@/components/Link.astro";
+
+import ccBySa from "./cc-by-sa.svg";
+---
+
+<hr />
+
+<p class="text-center text-sm text-subtext1">
+  <a
+    href="https://creativecommons.org/licenses/by-sa/4.0/"
+    target="_blank"
+    rel="license"
+  >
+    <Image src={ccBySa} alt="CC-BY-SA license notice" class="mx-auto" />
+  </a>
+  This work is licensed under
+  <Link
+    href="https://creativecommons.org/licenses/by-sa/4.0/"
+    target="_blank"
+    rel="license"
+  >
+    Creative Commons Attribution-ShareAlike 4.0 International License
+  </Link>.
+</p>
+
+<hr />
