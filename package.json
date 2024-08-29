@@ -9,7 +9,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
     "lint": "astro check && eslint --fix --max-warnings 0 .",
+    "lint:check": "astro check && eslint --max-warnings 0 .",
     "prepare": "husky"
   },
   "dependencies": {
