@@ -1,0 +1,46 @@
+---
+import CautionIcon from "@/assets/CautionIcon.astro";
+import NoteIcon from "@/assets/NoteIcon.astro";
+import TipIcon from "@/assets/TipIcon.astro";
+import WarningIcon from "@/assets/WarningIcon.astro";
+
+type Props = {
+  kind: "note" | "tip" | "warning" | "caution";
+};
+const { kind } = Astro.props;
+
+/* eslint-disable @typescript-eslint/no-unsafe-assignment --
+ * bug prevents importing astro components into ts/frontmatter
+ */
+const Icon = {
+  note: NoteIcon,
+  tip: TipIcon,
+  warning: WarningIcon,
+  caution: CautionIcon,
+}[kind];
+/* eslint-enable @typescript-eslint/no-unsafe-assignment */
+---
+
+<div
+  class:list={[
+    "not-prose my-8 flex flex-col gap-4 border-l-4 border-l-ctp-blue p-4 leading-normal",
+    { "border-l-ctp-blue": kind === "note" },
+    { "border-l-ctp-green": kind === "tip" },
+    { "border-l-ctp-peach": kind === "warning" },
+    { "border-l-ctp-red": kind === "caution" },
+  ]}
+>
+  <div
+    class:list={[
+      "flex gap-2 font-bold capitalize text-ctp-blue",
+      { "fill-ctp-blue text-ctp-blue": kind === "note" },
+      { "fill-ctp-green text-ctp-green": kind === "tip" },
+      { "fill-ctp-peach text-ctp-peach": kind === "warning" },
+      { "fill-ctp-red text-ctp-red": kind === "caution" },
+    ]}
+  >
+    <Icon class="size-6 flex-none" />
+    {kind}
+  </div>
+  <slot />
+</div>

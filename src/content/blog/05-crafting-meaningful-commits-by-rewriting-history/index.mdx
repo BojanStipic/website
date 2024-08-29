@@ -11,6 +11,7 @@ cover: "./cover.png"
 tags: ["Git"]
 ---
 
+import Alert from "@/components/Alert.astro";
 import Diagram from "@/components/Diagram.astro";
 import CcBySaLicense from "@/components/licenses/CcBySaLicense.astro";
 
@@ -68,11 +69,11 @@ Instead of creating a new commit, Git will modify the latest commit:
 
 <Diagram svg={gitAmend} />
 
-<div class="alert">
+<Alert kind="note">
   Git commits are immutable. When I say "modify", what actually happens is that
   Git replaces the commit at the tip of the current branch with a completely new
   commit.
-</div>
+</Alert>
 
 Now that the history has been modified,
 we now have to do a force-push instead of a normal push
