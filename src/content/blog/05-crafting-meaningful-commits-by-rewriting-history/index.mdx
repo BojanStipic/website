@@ -104,11 +104,12 @@ What you can do instead is to create a normal "fix typo" commit,
 and then start an interactive rebase:
 
 ```bash
-git commit "fix typo"
+git commit --message="fix typo"
 git rebase --interactive --keep-base main
 ```
 
-This will open up a special file in our text editor, prefilled with the following contents:
+This will open up a special file in your default text editor, prefilled with
+the following contents:
 
 ```git-rebase
 pick 0004 Generic rating component
@@ -117,10 +118,12 @@ pick 0006 Comment rating system
 pick 0007 fix typo
 ```
 
-We can see the list of commits on this feature branch,
-and a rebase command on the left of each commit.
-The default rebase command is `pick`, which just reapplies the commit without any changes.
-So if we were to leave the `pick` command on all commits, exactly _nothing_ would happen.
+We can see the list of commits on this feature branch, and a rebase command on
+the left of each commit.
+The default rebase command is `pick`, which just reapplies the commit without
+any changes.
+So if we were to leave the `pick` command on all commits, it would be a
+glorified no-op.
 
 As the name suggests, interactive rebase allows us to modify this file interactively.
 We can move the `fix typo` commit immediately below the commit `0004` we want to fix,
@@ -145,7 +148,8 @@ Once again, our beautiful commit history has been preserved.
 ## 4. Automate the Git Rebase
 
 We can even do one better, by automating the interactive rebase process.
-Instead of creating a new "fix typo" commit, we can create a special "fixup" commit:
+Instead of creating a standard new "fix typo" commit, we can create a special
+"fixup" commit:
 
 ```bash
 git commit --fixup 0004
@@ -185,7 +189,7 @@ pick 0006 Comment rating system
 
 We just have to save the file and close the editor, and Git will do all the magic for us.
 
-We can even make `git rebase` use the `--autosquash` flag by default, by changing our Git config:
+We can even make `git rebase` use the `--autosquash` flag by default, by changing our global Git config:
 
 ```bash
 git config --global rebase.autosquash true
@@ -202,7 +206,7 @@ they did a review.
 To get the best of both worlds, I suggest the following flow:
 
 1. Create a pull request.
-2. Make the necessary changes and create the fixup commits using `git commit --fixup`.
+2. Make the necessary changes and create fixup commits using `git commit --fixup`.
 3. Push the fixup commits so your colleagues can easily see what changes
    have been made since the last time they reviewed the pull request.
 4. Once the pull request is approved and ready to merge,

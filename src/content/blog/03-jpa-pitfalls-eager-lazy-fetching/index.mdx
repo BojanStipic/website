@@ -91,7 +91,7 @@ So with the eager fetching strategy, we would make the database do all that
 unnecessary work by joining the tables, returning a larger payload,
 and we would also waste our app's resources by holding all of that unnecessary
 data in memory.
-This is why I consider eager fetching a terrible default, and I think you should never use it.
+This is why many consider eager fetching a terrible default, and I think you should never use it.
 
 ## 3. Lazy Fetching
 
@@ -125,8 +125,9 @@ than a single query.
 It would be great if we could choose the fetching strategy per query at runtime.
 Fortunately, that is indeed possible!
 
-To make an eager fetch, even though our entity declares lazy loading,
-all we have to do is add `@EntityGraph` annotation to our query method:
+To opt into an eager fetch, even though our entity declares lazy loading by
+default, all we have to do is add `@EntityGraph` annotation to our query
+method:
 
 ```java
 @Repository

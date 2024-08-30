@@ -51,7 +51,7 @@ private Long id;
 
 As usual, JPA is trying to abstract all of the complex logic from us,
 so we don't have to worry about implementation details.
-Unfortunately, if we don't care about implementation details we can end up
+Unfortunately, if we don't care about the implementation details we can end up
 with a less performant implementation.
 This is something that is commonly known as a "leaky abstraction",
 and JPA is full of it.
@@ -67,7 +67,7 @@ ID generation strategies that JPA providers support are:
 - `GenerationType.AUTO`
 
 In order to specify our preferred strategy, we can pass the `GenerationType` as a
-`strategy` attribute of `@GeneratedValue` annotation.
+`strategy` attribute of the `@GeneratedValue` annotation.
 For example:
 
 ```java
@@ -307,7 +307,7 @@ On the other side, UUID is not without its drawbacks:
   the size of an `integer`.
   Since databases create a B-tree index for the primary key, this can cause
   the index to get bloated and less likely to fit into memory which would cause
-  more frequent memory swapping which is bad for performance.
+  more frequent memory swapping which is also bad for performance.
 
 ## 7. Conclusion
 
