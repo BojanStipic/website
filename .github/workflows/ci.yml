@@ -16,7 +16,7 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: "npm ci"
-      - run: "npm lint:check"
+      - run: "npm run lint:check"
   format:
     runs-on: "ubuntu-latest"
     steps:
@@ -26,7 +26,7 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: "npm ci"
-      - run: "npm format:check"
+      - run: "npm run fmt:check"
   build:
     runs-on: "ubuntu-latest"
     steps:
