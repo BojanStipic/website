@@ -7,7 +7,6 @@ import { defineConfig } from "astro/config";
 // eslint-disable-next-line no-restricted-syntax
 export default defineConfig({
   site: "https://bojanstipic.com",
-  trailingSlash: "always",
   integrations: [tailwind(), sitemap(), mdx()],
   markdown: {
     shikiConfig: {

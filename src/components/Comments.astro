@@ -32,7 +32,10 @@ const { title } = Astro.props;
     Do you have a problem, want to share feedback, or discuss further ideas?
     Feel free to leave a comment here! This comment thread directly maps to a
     <Link
-      href={`${GITHUB_PROFILE_URL}/website/discussions/categories/post-comments?discussions_q=${title}`}
+      href={new URL(
+        `website/discussions/categories/post-comments?discussions_q=${title}`,
+        GITHUB_PROFILE_URL,
+      )}
       target="_blank"
     >
       discussion on GitHub
