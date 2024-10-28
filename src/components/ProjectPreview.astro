@@ -1,6 +1,6 @@
 ---
-import CodeIcon from "@/assets/CodeIcon.astro";
-import ScaleIcon from "@/assets/ScaleIcon.astro";
+import { Icon } from "astro-icon/components";
+
 import Tags from "@/components/Tags.astro";
 import type { Project } from "@/content/projects";
 
@@ -17,11 +17,11 @@ const { project } = Astro.props;
     <Tags tags={project.tags} />
     <div class="flex gap-4 fill-subtext0 text-sm text-subtext0">
       <div class="flex items-center gap-1">
-        <CodeIcon class="size-4" />
+        <Icon name="tabler:code" size={16} />
         {project.language}
       </div>
       <div class="flex items-center gap-1">
-        <ScaleIcon class="size-4" />
+        <Icon name="tabler:license" size={16} />
         {project.license}
       </div>
     </div>
