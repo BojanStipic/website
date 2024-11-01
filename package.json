@@ -22,7 +22,7 @@
     "@astrojs/tailwind": "^5.1.2",
     "@astrojs/ts-plugin": "^1.10.4",
     "@catppuccin/tailwindcss": "^0.1.6",
-    "@eslint/js": "^9.13.0",
+    "@eslint/js": "^9.14.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@iconify-json/simple-icons": "^1.2.10",
     "@iconify-json/tabler": "^1.2.7",
