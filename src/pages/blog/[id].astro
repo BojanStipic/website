@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import readingTime from "reading-time";
 
 import Comments from "@/components/Comments.astro";
@@ -14,7 +14,7 @@ import Layout from "@/layouts/Layout.astro";
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: post,
   }));
 }) satisfies GetStaticPaths;
@@ -22,7 +22,7 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const post = Astro.props;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 ---
 
 <Layout
@@ -46,7 +46,7 @@ const { Content, headings } = await post.render();
           <span class="pr-4">
             Published on <Date date={post.data.pubDate} />
           </span>
-          <span class="pl-4">{readingTime(post.body).text}</span>
+          <span class="pl-4">{readingTime(post.body ?? "").text}</span>
         </div>
       </div>
     </header>

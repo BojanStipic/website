@@ -12,7 +12,7 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<a href={`/blog/${post.slug}/`}>
+<a href={`/blog/${post.id}/`}>
   <article class="flex h-full flex-col rounded-lg bg-base shadow">
     <Image src={post.data.cover} alt={post.data.title} />
     <div class="flex h-full flex-col gap-4 p-4">
@@ -25,7 +25,7 @@ const { post } = Astro.props;
       <Tags tags={post.data.tags} />
       <div class="flex justify-between text-sm text-subtext0">
         <Date date={post.data.pubDate} />
-        <span>{readingTime(post.body).text}</span>
+        <span>{readingTime(post.body ?? "").text}</span>
       </div>
     </div>
   </article>

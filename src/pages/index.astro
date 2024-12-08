@@ -5,7 +5,7 @@ import AboutMe from "@/components/AboutMe.astro";
 import BlogPostPreview from "@/components/BlogPostPreview.astro";
 import ProjectPreview from "@/components/ProjectPreview.astro";
 import Section from "@/components/Section.astro";
-import { projects } from "@/content/projects";
+import { projects } from "@/data/projects";
 import Layout from "@/layouts/Layout.astro";
 
 const posts = (await getCollection("blog")).sort(
