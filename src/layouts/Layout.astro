@@ -4,6 +4,8 @@ import Header from "@/components/Header.astro";
 import { RSS_URL, SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 import profileImage from "@/data/profile.jpg";
 
+import "@/global.css";
+
 type Props = {
   title: string;
   description?: string;
@@ -53,9 +55,7 @@ const imageUrl = Astro.props.imageUrl ?? profileImage.src;
     <meta property="og:image" content={new URL(imageUrl, Astro.url)} />
   </head>
 
-  <body
-    class="ctp-latte flex min-h-svh flex-col gap-8 bg-crust text-text dark:ctp-mocha"
-  >
+  <body class="flex min-h-svh flex-col gap-8 bg-crust text-text">
     <Header />
 
     <main class="flex-1">

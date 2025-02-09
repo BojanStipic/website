@@ -1,6 +1,6 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 
@@ -8,7 +8,8 @@ import { defineConfig } from "astro/config";
 // eslint-disable-next-line no-restricted-syntax
 export default defineConfig({
   site: "https://bojanstipic.com",
-  integrations: [tailwind(), sitemap(), mdx(), icon()],
+  integrations: [sitemap(), mdx(), icon()],
+  vite: { plugins: [tailwindcss()] },
   markdown: {
     shikiConfig: {
       themes: {

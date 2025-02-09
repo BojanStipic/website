@@ -13,7 +13,7 @@ const { post } = Astro.props;
 ---
 
 <a href={`/blog/${post.id}/`}>
-  <article class="flex h-full flex-col rounded-lg bg-base shadow">
+  <article class="flex h-full flex-col rounded-lg bg-base shadow-sm">
     <Image src={post.data.cover} alt={post.data.title} />
     <div class="flex h-full flex-col gap-4 p-4">
       <h2 class="mb-auto line-clamp-2 text-xl font-bold">

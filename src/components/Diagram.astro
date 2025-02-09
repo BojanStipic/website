@@ -12,9 +12,11 @@ const { svg } = Astro.props;
 </div>
 
 <style is:global>
+  @reference "@/global.css";
+
   .diagram {
     svg {
-      @apply max-w-full !important;
+      @apply max-w-full!;
     }
 
     /* ER diagrams */
@@ -30,7 +32,7 @@ const { svg } = Astro.props;
     .er.entityBox,
     .er.attributeBoxOdd,
     .er.attributeBoxEven {
-      @apply stroke-text !important;
+      @apply stroke-text!;
     }
 
     .er.entityBox,
@@ -38,68 +40,68 @@ const { svg } = Astro.props;
     #ZERO_OR_ONE_END circle,
     #ZERO_OR_MORE_START circle,
     #ZERO_OR_MORE_END circle {
-      @apply fill-primary !important;
+      @apply fill-primary!;
     }
     .er.entityBox + .er.entityLabel {
-      @apply fill-base !important;
+      @apply fill-base!;
     }
 
     .er.entityLabel {
-      @apply fill-text !important;
+      @apply fill-text!;
     }
     .er.attributeBoxOdd {
-      @apply fill-surface0 !important;
+      @apply fill-surface0!;
     }
     .er.attributeBoxEven {
-      @apply fill-surface1 !important;
+      @apply fill-surface1!;
     }
 
     /* Git graph */
     .branch {
-      @apply stroke-text !important;
+      @apply stroke-text!;
     }
     .label {
-      @apply fill-base !important;
+      @apply fill-base!;
     }
     .commit {
-      @apply fill-text !important;
+      @apply fill-text!;
     }
     .commit-label {
-      @apply fill-text !important;
+      @apply fill-text!;
     }
     .commit-label-bkg {
-      @apply fill-transparent !important;
+      @apply fill-transparent!;
     }
 
     .label0 {
-      @apply fill-ctp-red !important;
+      @apply fill-red!;
     }
     .arrow0 {
-      @apply stroke-ctp-red !important;
+      @apply stroke-red!;
     }
     .label1 {
-      @apply fill-ctp-green !important;
+      @apply fill-green!;
     }
     .arrow1 {
-      @apply stroke-ctp-green !important;
+      @apply stroke-green!;
     }
     .label2 {
-      @apply fill-ctp-mauve !important;
+      @apply fill-mauve!;
     }
     .arrow2 {
-      @apply stroke-ctp-mauve !important;
+      @apply stroke-mauve!;
     }
     .label3 {
-      @apply fill-ctp-peach !important;
+      @apply fill-peach!;
     }
     .arrow3 {
-      @apply stroke-ctp-peach !important;
+      @apply stroke-peach!;
     }
     .label4 {
-      @apply fill-ctp-blue !important;
+      @apply fill-blue!;
     }
     .arrow4 {
-      @apply stroke-ctp-blue !important;
+      @apply stroke-blue!;
     }
   }
 </style>

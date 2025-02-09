@@ -10,19 +10,19 @@ const { kind } = Astro.props;
 <div
   class:list={[
     "not-prose my-8 flex flex-col gap-4 border-l-4 p-4 leading-normal",
-    { "border-l-ctp-blue": kind === "note" },
-    { "border-l-ctp-green": kind === "tip" },
-    { "border-l-ctp-peach": kind === "warning" },
-    { "border-l-ctp-red": kind === "caution" },
+    { "border-l-blue": kind === "note" },
+    { "border-l-green": kind === "tip" },
+    { "border-l-peach": kind === "warning" },
+    { "border-l-red": kind === "caution" },
   ]}
 >
   <div
     class:list={[
-      "flex gap-2 font-bold capitalize text-ctp-blue",
-      { "text-ctp-blue": kind === "note" },
-      { "text-ctp-green": kind === "tip" },
-      { "text-ctp-peach": kind === "warning" },
-      { "text-ctp-red": kind === "caution" },
+      "flex gap-2 font-bold capitalize",
+      { "text-blue": kind === "note" },
+      { "text-green": kind === "tip" },
+      { "text-peach": kind === "warning" },
+      { "text-red": kind === "caution" },
     ]}
   >
     <Icon
