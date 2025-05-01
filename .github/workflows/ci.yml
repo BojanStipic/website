@@ -11,9 +11,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v4"
-      - uses: "actions/setup-node@v4.3.0"
+      - uses: "actions/setup-node@v4.4.0"
         with:
-          node-version: "22.14.0"
+          node-version: "22.15.0"
           cache: "npm"
       - run: "npm ci"
       - run: "npm run lint:check"
@@ -21,9 +21,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v4"
-      - uses: "actions/setup-node@v4.3.0"
+      - uses: "actions/setup-node@v4.4.0"
         with:
-          node-version: "22.14.0"
+          node-version: "22.15.0"
           cache: "npm"
       - run: "npm ci"
       - run: "npm run fmt:check"
@@ -31,9 +31,9 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v4"
-      - uses: "actions/setup-node@v4.3.0"
+      - uses: "actions/setup-node@v4.4.0"
         with:
-          node-version: "22.14.0"
+          node-version: "22.15.0"
           cache: "npm"
       - run: "npm ci"
       - run: "npm run build"
