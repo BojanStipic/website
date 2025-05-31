@@ -33,17 +33,27 @@ export const projects: Array<Project> = [
     title: "arch-install",
     url: "https://github.com/BojanStipic/arch-install",
     visibility: "public",
-    description: "Arch Linux installation script for my personal needs",
+    description: "Arch Linux installation guide",
     tags: ["archlinux"],
-    language: "Bash script",
+    language: "Asciidoctor",
     license: "GNU General Public License v3.0",
+  },
+
+  {
+    title: "self-hosted",
+    url: "https://github.com/BojanStipic/self-hosted",
+    visibility: "public",
+    description: "Configs for self-hosted apps on my homelab",
+    tags: ["docker", "self-hosting", "homelab"],
+    language: "Config files",
+    license: "GNU Affero General Public License v3.0",
   },
 
   {
     title: "react-skeleton",
     url: "https://github.com/BojanStipic/react-skeleton",
     visibility: "public",
-    description: "React skeleton to kick-start your new application.",
+    description: "React skeleton to kick-start your new application",
     tags: ["react", "vite", "template", "boilerplate", "skeleton", "starter"],
     language: "TypeScript",
     license: "GNU Affero General Public License v3.0",
@@ -53,7 +63,7 @@ export const projects: Array<Project> = [
     title: "spring-skeleton",
     url: "https://github.com/BojanStipic/spring-skeleton",
     visibility: "public",
-    description: "Spring Boot skeleton to kick-start your new application.",
+    description: "Spring Boot skeleton to kick-start your new application",
     tags: [
       "spring",
       "spring-boot",
@@ -77,6 +87,16 @@ export const projects: Array<Project> = [
       "string-similarity",
       "code-similarity",
     ],
+    language: "Rust",
+    license: "GNU General Public License v3.0",
+  },
+
+  {
+    title: "micko-rs",
+    url: "https://github.com/BojanStipic/micko-rs",
+    visibility: "public",
+    description: "miniC compiler implemented in Rust",
+    tags: ["compiler"],
     language: "Rust",
     license: "GNU General Public License v3.0",
   },
@@ -139,36 +159,6 @@ export const projects: Array<Project> = [
     tags: ["eiffel", "asciidoctor", "bachelor-thesis"],
     language: "Asciidoctor",
     license: "CC BY-ND 4.0",
-  },
-
-  {
-    title: "micko-rs",
-    url: "https://github.com/BojanStipic/micko-rs",
-    visibility: "public",
-    description: "miniC compiler implemented in Rust",
-    tags: ["compiler"],
-    language: "Rust",
-    license: "GNU General Public License v3.0",
-  },
-
-  {
-    title: "micko-peg",
-    url: "https://github.com/BojanStipic/micko-peg",
-    visibility: "public",
-    description: "miniC compiler implementation that uses PEG parser",
-    tags: ["compiler"],
-    language: "Rust",
-    license: "GNU General Public License v3.0",
-  },
-
-  {
-    title: "mend",
-    url: "https://github.com/BojanStipic/mend",
-    visibility: "public",
-    description: "GTK GUI frontend for GDB debugger",
-    tags: ["gdb", "gdb-mi", "gtk3", "gui"],
-    language: "Rust",
-    license: "GNU General Public License v3.0",
   },
 
   {
