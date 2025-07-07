@@ -10,6 +10,10 @@ export default defineConfig({
   site: "https://bojanstipic.com",
   integrations: [sitemap(), mdx(), icon()],
   vite: { plugins: [tailwindcss()] },
+  image: {
+    responsiveStyles: true,
+    layout: "constrained",
+  },
   markdown: {
     shikiConfig: {
       themes: {
