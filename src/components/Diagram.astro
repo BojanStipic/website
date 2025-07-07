@@ -2,13 +2,13 @@
 type Props = {
   svg: string;
 };
-const { svg } = Astro.props;
+const { svg: Svg } = Astro.props;
 ---
 
 <div
   class="diagram flex max-w-full justify-center rounded-lg bg-base px-6 py-5"
 >
-  <Fragment set:html={svg} />
+  <Svg />
 </div>
 
 <style is:global>
