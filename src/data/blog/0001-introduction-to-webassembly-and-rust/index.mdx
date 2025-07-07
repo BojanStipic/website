@@ -674,7 +674,6 @@ Prerequisites:
    ```
 
    This does a number of things in the background:
-
    - Compiles Rust code to WebAssembly.
    - Runs wasm-bindgen on that WebAssembly, generating a JavaScript file that
      wraps up that WebAssembly file into a module the browser can understand.
@@ -947,7 +946,6 @@ This is how it's implemented:
    ```
 
    The most important methods of `Component` trait are `create`, `update` and `view`.
-
    - `create` method -- used as a constructor, to initialize component's state.
      In this example, we are initializing `value` to `0`.
    - `view` method -- used to define the UI of the component.
