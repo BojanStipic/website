@@ -12,7 +12,7 @@
     "fmt:check": "prettier --check .",
     "lint": "astro check && eslint --fix --max-warnings 0 .",
     "lint:check": "astro check && eslint --max-warnings 0 .",
-    "prepare": "git config set core.hookspath .githooks"
+    "prepare": "git config set core.hookspath .githooks || true"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
