@@ -43,7 +43,7 @@ except for the blog posts that are under the `src/content/blog` directory.
 Blog post licenses are specified at the end of each blog post.
 
 ....
-Copyright (C) 2021-2024 Bojan Stipic
+Copyright (C) 2021-2025 Bojan Stipic
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
