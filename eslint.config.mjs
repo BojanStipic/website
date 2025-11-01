@@ -1,11 +1,12 @@
 import javascript from "@eslint/js";
 import prettier from "eslint-config-prettier";
 import astro from "eslint-plugin-astro";
+import { defineConfig } from "eslint/config";
 import globals from "globals";
 import typescript from "typescript-eslint";
 
 // eslint-disable-next-line no-restricted-syntax
-export default typescript.config(
+export default defineConfig(
   {
     ignores: [
       "dist/",
@@ -17,9 +18,9 @@ export default typescript.config(
   },
 
   javascript.configs.recommended,
-  ...typescript.configs.strictTypeChecked,
-  ...astro.configs.recommended,
-  ...astro.configs["jsx-a11y-recommended"],
+  typescript.configs.strictTypeChecked,
+  astro.configs.recommended,
+  astro.configs["jsx-a11y-recommended"],
   prettier,
 
   {
