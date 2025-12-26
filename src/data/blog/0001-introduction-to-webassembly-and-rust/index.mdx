@@ -34,7 +34,7 @@ as a compilation target.
 Wasm is designed to be portable, compact, and execute at or near native speeds.
 WebAssembly, as the name suggests, was first meant to be used on the Web,
 but because of the above characteristics and its open specification,
-today it can used pretty much anywhere.
+today it can be used pretty much anywhere.
 
 Wasm is available on:
 
@@ -247,7 +247,7 @@ executable Rust program.
 In the example above, all that `main` function does is call the `println` macro.
 We can tell that `println` is a macro and not a normal function because it
 was entered as `println!` (with the `!`).
-Macros are out of scope of this article, but for know you just need to know that
+Macros are out of scope of this article, but for now you just need to know that
 using a `!` means that you are calling a macro instead of a normal function,
 and that macros don't always follow the same rules as functions.
 
@@ -632,7 +632,7 @@ Prerequisites:
    for us that is required in order to be able to use `factorial` from the browser.
 
    I intentionally chose to show `factorial` function, so that we can see
-   how Rut provides some nice abstractions that makes it possible to write
+   how Rust provides some nice abstractions that makes it possible to write
    concise and easy to read code.
    `(1..=n)` construct creates an inclusive range of unsigned integers from `1` to `n`.
    Ranges are iterable so we can use on them any method available in
