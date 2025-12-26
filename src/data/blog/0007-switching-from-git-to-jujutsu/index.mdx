@@ -1,0 +1,197 @@
+---
+title: "Switching from Git to Jujutsu"
+slug: "switching-from-git-to-jujutsu"
+description: >-
+  After using Jujutsu for 3 months, I am not going back to Git.
+  Jujutsu is simpler to learn, more powerful to use, and has completely
+  changed the way I work with version control.
+pubDate: 2025-12-26
+cover: "./cover.webp"
+tags: ["Git", "Jujutsu"]
+---
+
+import CcByNdLicense from "@/components/licenses/CcByNdLicense.astro";
+
+## 1. Introduction
+
+I have been using [Jujutsu](https://github.com/jj-vcs/jj) (also known as `jj`)
+as my version control system for the past 3 months.
+Jujutsu is a Git-compatible VCS, meaning you can use it on existing Git
+repositories and your colleagues will not even notice you are using a different
+tool.
+After this trial period, I can confidently say that I will not be switching
+back to Git.
+
+In this article, I will share what I like about Jujutsu, some downsides I have
+encountered, and why I think it is worth trying out.
+
+## 2. Jujutsu is Simple
+
+One of the first things I noticed when starting with Jujutsu is how much
+simpler the mental model is compared to Git.
+
+### 2.1. Everything is a Commit
+
+In Git, you have to juggle multiple concepts: the working copy, the staging
+area (index), stashes, commits, and so on.
+In Jujutsu, there is only one concept: **commits**.
+Your working copy is automatically tracked as a commit.
+There is no staging area.
+There are no stashes.
+
+This simplification has a nice side effect: changes cannot be lost.
+Since everything is automatically committed, there is no way to accidentally
+lose work with a misplaced `git reset --hard` or by forgetting to stash changes
+before switching branches.
+
+### 2.2. Focused Commands
+
+Git commands are notoriously overloaded.
+`git checkout` can switch branches, restore files, or create new branches
+depending on the arguments you pass.
+`git reset` can unstage changes, move branch pointers, or discard commits
+depending on which flags you use.
+
+Jujutsu commands are focused and do one thing well.
+Each command has a clear purpose, making them easier to learn and remember.
+You do not need to memorize which combination of flags turns a command into
+something completely different.
+
+## 3. Jujutsu is Powerful
+
+Despite its simplicity, Jujutsu is incredibly powerful.
+In fact, the simplified model enables features that would be much harder to
+implement with Git's complexity.
+
+### 3.1. Operation Log and Undo
+
+Every action you perform in Jujutsu is recorded in an operation log.
+Think of it as a more powerful version of Git's reflog.
+At any point, you can run `jj undo` to undo your last action, or `jj redo` to
+redo it.
+You can even view the entire operation history with `jj op log` and restore
+your repository to any previous state.
+
+This makes experimentation completely safe.
+Messed up a rebase? Just `jj undo`.
+Accidentally deleted a branch? `jj undo`.
+The operation log ensures nothing is ever lost.
+
+### 3.2. Powerful History Rewriting
+
+I always liked Git's staging area and used it extensively to craft meaningful
+commits.
+When I first heard that Jujutsu does not have a staging area, I thought I would
+hate it.
+It turns out I was wrong.
+Jujutsu provides much more powerful (and at the same time easier to use)
+commands for rewriting history, so you do not have to get each commit just
+right the first time you create it -- you can always go back and edit it.
+
+- **`jj squash`** allows you to move changes from one commit into another.
+  You can interactively select which changes to move, making it easy to split
+  your work-in-progress into logical commits.
+
+- **`jj split`** allows you to split a single commit into multiple commits.
+  Again, you can interactively select which changes go into each commit.
+
+- **`jj rebase`** works similarly to `git rebase`, but is more powerful.
+  You do not need to checkout a branch before rebasing it -- you can rebase any
+  set of revisions from anywhere.
+  All descendant commits are automatically rebased as well by default, which
+  makes working with stacked diffs much easier.
+
+- **`jj absorb`** is the most mind-blowing command of them all.
+  Let me give you an example.
+  Say you create 5 commits and open a pull request.
+  Your colleagues leave some comments suggesting changes.
+  Instead of carefully amending each relevant commit, you can just create a new
+  commit on top with all the requested changes.
+  When you run `jj absorb`, Jujutsu will automatically analyze your changes and
+  move each hunk to the appropriate ancestor commit that originally introduced
+  that code.
+  It is like magic.
+
+  If you have read [my previous article about crafting meaningful commits with
+  Git](/blog/crafting-meaningful-commits-by-rewriting-history/), you will
+  appreciate how much simpler this workflow is.
+  `jj absorb` is easily one of the best productivity improvements to my workflow.
+
+## 4. Downsides
+
+No tool is perfect, and Jujutsu does have some rough edges worth mentioning.
+
+### 4.1. No Pre-commit Hooks
+
+Jujutsu does not support pre-commit hooks.
+This makes sense when you think about it -- commits are created automatically
+and need to be as fast as possible.
+Running linters or formatters on every automatic commit would defeat the
+purpose.
+
+At first I thought this would be a major downside, but I have grown to like
+this workflow.
+I simply run my formatters and linters at the end when I am ready to push, and
+then use `jj absorb` to automatically apply the fixes to each relevant commit.
+It actually ends up being less friction than dealing with pre-commit hooks.
+
+### 4.2. No Git LFS Support
+
+If your project uses Git LFS, you will not be able to use Jujutsu.
+This is not an issue for me personally, but it can be a deal-breaker depending
+on your project.
+Git LFS is very popular in game development, for example, for handling large
+binary assets.
+
+This is not a permanent limitation though.
+There is an open issue on the Jujutsu repository and the maintainers are
+willing to implement it.
+It is on their roadmap, it just has not happened yet.
+
+### 4.3. Unintuitive Gitignore Handling
+
+The way gitignored files are handled can be unintuitive.
+If you add a file to `.gitignore` and then create it, it will not be committed
+as expected.
+However, if you then switch to another branch that does not have the file in
+`.gitignore`, the file will be automatically committed without any warning.
+
+This is a UX problem that will probably be improved in the future.
+There are multiple issues open on the Jujutsu repository about this, and the
+maintainers acknowledge it.
+For now, it is something to be aware of.
+
+### 4.4. Pre-1.0 Breaking Changes
+
+Jujutsu is still on a pre-1.0 version, so breaking changes are to be expected.
+They do happen in almost every new release.
+The CLI syntax has changed several times during my 3 months of usage.
+
+This is not a long term problem since the project will eventually stabilize,
+but it is important to note if you prefer stability.
+That said, the breaking changes have all been reasonable and the migration path
+is usually straightforward.
+
+## 5. Conclusion
+
+After 3 months of daily use, I am convinced that Jujutsu is a better version
+control experience than Git.
+It is simpler to learn with fewer concepts to juggle, yet more powerful with
+features like the operation log and `jj absorb`.
+
+The downsides are real but manageable:
+
+- No pre-commit hooks, but `jj absorb` makes this workflow actually pleasant.
+- No Git LFS support, but this is on the roadmap.
+- Some UX quirks with gitignored files that will likely be fixed.
+- Breaking changes in new releases, but this is expected for a pre-1.0 project.
+
+If you are curious about Jujutsu, I encourage you to give it a try.
+I recommend [Steve Klabnik's Jujutsu
+tutorial](https://steveklabnik.github.io/jujutsu-tutorial/introduction/introduction.html)
+as a good starting point.
+Since Jujutsu is Git-compatible, you can start using it on your existing
+repositories today without any commitment.
+Your teammates can keep using Git and will not see any difference.
+
+<CcByNdLicense />
