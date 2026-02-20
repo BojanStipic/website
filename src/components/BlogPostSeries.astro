@@ -1,0 +1,34 @@
+---
+import { getEntries, getEntry, type CollectionEntry } from "astro:content";
+
+import Link from "@/components/Link.astro";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+};
+
+const { post } = Astro.props;
+
+if (post.data.series == null) return;
+
+const series = await getEntry(post.data.series);
+const entries = await getEntries(series.data.posts);
+---
+
+<aside class="rounded-lg bg-base p-8 shadow-sm">
+  <p>
+    This article is part of the {series.data.title} series.{" "}
+    {series.data.description}
+  </p>
+  <p class="mt-4">Articles that are part of this series:</p>
+  <ol class="mt-2 list-decimal pl-6">
+    {
+      entries.map((entry) => (
+        <li>
+          <Link href={`/blog/${entry.id}/`}>{entry.data.title}</Link>
+          {entry.id === post.id && " (this article)"}
+        </li>
+      ))
+    }
+  </ol>
+</aside>

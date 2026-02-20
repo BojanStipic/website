@@ -1,0 +1,9 @@
+{
+  "title": "JPA Pitfalls",
+  "description": "JPA makes it really easy to do things the wrong way, and makes it really unintuitive to do things right. In this blog post series I go over some common JPA pitfalls and show how to avoid them.",
+  "posts": [
+    "jpa-pitfalls-relationship-mapping",
+    "jpa-pitfalls-eager-lazy-fetching",
+    "jpa-pitfalls-generating-ids"
+  ]
+}

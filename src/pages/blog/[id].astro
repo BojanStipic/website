@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 import readingTime from "reading-time";
 
+import BlogPostSeries from "@/components/BlogPostSeries.astro";
 import Comments from "@/components/Comments.astro";
 import Date from "@/components/Date.astro";
 import Prose from "@/components/Prose.astro";
@@ -47,6 +48,7 @@ const { Content, headings } = await render(post);
       </div>
     </header>
     <p>{post.data.description}</p>
+    <BlogPostSeries post={post} />
     <TableOfContents headings={headings} />
     <Prose>
       <Content />
