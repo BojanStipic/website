@@ -3,3 +3,11 @@
 
 /giscus-catppuccin-theme.css
     Access-Control-Allow-Origin: https://giscus.app
+
+/.well-known/openpgpkey/*
+    Access-Control-Allow-Origin: *
+    Cache-Control: public, max-age=3600
+
+/.well-known/openpgpkey/hu/*
+    Content-Type: application/octet-stream
+    X-Content-Type-Options: nosniff
