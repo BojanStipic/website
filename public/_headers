@@ -1,7 +1,7 @@
 /_astro/*
     Cache-Control: public, max-age=31536000, immutable
 
-/giscus-catppuccin-theme.css
+/_astro/giscus-catppuccin-theme.*.css
     Access-Control-Allow-Origin: https://giscus.app
 
 /.well-known/openpgpkey/*
