@@ -1,3 +1,4 @@
+import { satteri } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
@@ -15,6 +16,14 @@ export default defineConfig({
     layout: "constrained",
   },
   markdown: {
+    processor: satteri({
+      features: {
+        math: true,
+        smartPunctuation: true,
+        subscript: true,
+        superscript: true,
+      },
+    }),
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",

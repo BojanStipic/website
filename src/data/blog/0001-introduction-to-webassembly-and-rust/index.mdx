@@ -58,7 +58,7 @@ Wasm is available on:
 
   Because of this, Wasm can be used to implement a plugin system.
 
-  Take extensible text editor Vim as an example -- in order to
+  Take extensible text editor Vim as an example --- in order to
   write a plugin in Vim, user is required to use Vimscript, which is a language
   only used in Vim.
   This makes writing plugins for Vim not very accessible.
@@ -67,7 +67,7 @@ Wasm is available on:
   plugins in JavaScript;
   Since these languages have much wider usage, writing plugins for these editors
   becomes more accessible.
-  But, we can go a step further by allowing plugins to be written in Wasm --
+  But, we can go a step further by allowing plugins to be written in Wasm ---
   now users can use _any_ programming language that can be compiled to Wasm to write plugins.
   This makes the barrier to entry very low, and allows for a thriving plugin ecosystem.
 
@@ -99,7 +99,7 @@ The following are the use cases to use Wasm on the Web:
 
 - **Write frontend apps in any programming language that can compile to Wasm**
 
-  To do any kind of frontend programming, previously there was no choice --
+  To do any kind of frontend programming, previously there was no choice ---
   JavaScript had to be used as that was the only programming language
   understood by browsers.
   With the introduction of Wasm on the Web, it is now possible to use any programming
@@ -108,7 +108,7 @@ The following are the use cases to use Wasm on the Web:
   they can now choose to use a different programming language they like.
 
 Alright, so now that we know what is WebAssembly and why it is important,
-let's now switch over to the other main topic of this article -- Rust.
+let's now switch over to the other main topic of this article --- Rust.
 After introducing Rust, we will see how these 2 technologies piece together.
 
 ## 3. Why Rust?
@@ -157,7 +157,7 @@ it to write parts of Firefox browser.
 ### 3.1. So What Does Rust Have to Do with WebAssembly?
 
 Rust is great because we don't have to choose between performance, reliability,
-and productivity -- we can have all three!
+and productivity --- we can have all three!
 
 Performance and memory efficiency is especially important for Wasm,
 because Wasm does not provide any runtime out of the box.
@@ -200,7 +200,7 @@ Additionally, Rust has a concept of "editions" which makes it possible to introd
 backwards incompatible changes when needed.
 
 Aside from that, developer **productivity** is also lacking in C++.
-Tooling is not great -- there is no standard package manager, or code formatter,
+Tooling is not great --- there is no standard package manager, or code formatter,
 and compiler messages can be unreadable when templates are involved.
 
 ### 3.3. But Why Not Python?
@@ -230,7 +230,7 @@ Now that I explained the reasons why I think Rust is a great language and a good
 for WebAssembly, in this section I will give a quick introduction to Rust.
 
 For the purposes of this article, we will focus only on 1 feature that is
-unique to Rust -- ownership and borrowing.
+unique to Rust --- ownership and borrowing.
 
 But first, let's see the obligatory "hello world" example:
 
@@ -241,7 +241,7 @@ fn main() {
 ```
 
 Rust has a C-like syntax. Functions are defined using the `fn` keyword.
-Function named `main` is special -- it is the first code that runs in every
+Function named `main` is special --- it is the first code that runs in every
 executable Rust program.
 
 In the example above, all that `main` function does is call the `println` macro.
@@ -286,7 +286,7 @@ This way, there is no need for garbage collector.
 If it was possible to create multiple owners to a single value,
 it would not be clear which owner would be responsible to release resources.
 If they would both try to release same resources, that would be one of the
-memory safety bugs -- double free bug.
+memory safety bugs --- double free bug.
 
 The most important thing is that all of the rules above are **enforced by the compiler**,
 and if any of these rules are violated, the program will not compile.
@@ -321,7 +321,7 @@ deep copy, so now `s1` and `s2` would be owners of 2 completely unrelated string
 This would solve the 2 owners problem, but the problem is that deep copy
 can be a very expensive operation, depending on how large the value is.
 
-Rust decided to do a different thing -- assignment has move semantics by default.
+Rust decided to do a different thing --- assignment has move semantics by default.
 When we write `s2 = s1` we state that `s1` is _moved_ to `s2`.
 In other words, `s1` gives ownership of string `"hello"` to `s2`.
 After giving ownership, `s1` is no longer valid and compiler forbids using `s1`
@@ -335,12 +335,12 @@ error[E0382]: borrow of moved value: `s1`
 
 To better understand what _moving_ means, let's see what happens under the hood:
 
-![Rust move semantics -- before move](./rust-move-before.png)
+![Rust move semantics --- before move](./rust-move-before.png)
 
 `s1` is stored on stack and contains a pointer to the heap allocated string,
 a length, and a capacity.
 
-![Rust move semantics -- after move](./rust-move-after.png)
+![Rust move semantics --- after move](./rust-move-after.png)
 
 Moving `s1` to `s2` will just copy the value on the stack.
 Now `s1` and `s2` both point to the same heap allocated string.
@@ -411,7 +411,7 @@ Now, this is all great, but it would be very tiresome to program in Rust if all
 functions would just "eat" all of their arguments.
 If a function should just calculate the length of a given string, there is no need
 for it to take ownership and deallocate that string.
-Luckily, there is a solution to this problem -- Rust has a feature for using
+Luckily, there is a solution to this problem --- Rust has a feature for using
 a value without transferring ownership, called references.
 
 ### 4.4. References and Borrowing
@@ -582,7 +582,7 @@ Prerequisites:
 2. Install [wasm-pack](https://github.com/rustwasm/wasm-pack)
 
    We are going to need wasm-pack in order to compile programs to Wasm.
-   We can install it using `cargo` -- the Rust's package manager:
+   We can install it using `cargo` --- the Rust's package manager:
 
    ```bash
    $ cargo install wasm-pack
@@ -605,7 +605,7 @@ Prerequisites:
        +-- lib.rs
    ```
 
-   `Cargo.toml` is analogous to `package.json` -- here we can specify some
+   `Cargo.toml` is analogous to `package.json` --- here we can specify some
    metadata about our package, and also declare dependencies.
 
    In `src` directory, `lib.rs` file was created, which is the root source file.
@@ -799,7 +799,7 @@ export function length(s) {
 ```
 
 In the snippet above we can see that the generated code first calls `passStringToWasm0`
-helper function, which does exactly that -- it copies the JS string to the Wasm heap,
+helper function, which does exactly that --- it copies the JS string to the Wasm heap,
 and then returns a pointer `ptr0` and a length `len0`.
 These 2 values are then passed to the Wasm `length` function.
 
@@ -882,7 +882,7 @@ using [**Yew**](https://yew.rs/) framework.
 Developers who have experience with frameworks like **React** and **Elm** should feel
 quite at home when using **Yew**.
 
-As an introduction to Yew, we are going write a simple app -- there will be a
+As an introduction to Yew, we are going write a simple app --- there will be a
 `+1` button and a counter initialized to `0`.
 Every time user clicks the `+1` button, the counter will be incremented by `1`.
 
@@ -910,7 +910,7 @@ This is how it's implemented:
 
    `Msg` enum declares all events that can occur inside of a component,
    such as user clicking a button, completing a form, etc.
-   In this example, there is only 1 event -- `AddOne`, which is triggered
+   In this example, there is only 1 event --- `AddOne`, which is triggered
    when user clicks the `+1` button.
 
 2. Implement `Component` trait (interface) for the `Model` struct:
@@ -946,20 +946,20 @@ This is how it's implemented:
    ```
 
    The most important methods of `Component` trait are `create`, `update` and `view`.
-   - `create` method -- used as a constructor, to initialize component's state.
+   - `create` method --- used as a constructor, to initialize component's state.
      In this example, we are initializing `value` to `0`.
-   - `view` method -- used to define the UI of the component.
+   - `view` method --- used to define the UI of the component.
      Yew provides `html!` macro which enables us to define the UI
      using a special syntax, in similar fashion to JSX.
      To display a state value, we use the curly braces and access the value through
      `self`.
      When the button is clicked, a callback function is called, which returns
      `AddOne` message from our `Msg` enum we created earlier.
-   - `update` method -- handles events and updates the component state.
+   - `update` method --- handles events and updates the component state.
      Update method receives the event as a `msg` parameter.
      We can then match on that enum and handle different events.
      In case of `AddOne` event, we just increment the state `value` by `1`.
-     After the state is updated, we return `true` from the `update` function --
+     After the state is updated, we return `true` from the `update` function ---
      this tells Yew that the state has change and that it should trigger a rerender.
      Yew will then call the `view` method again and display the updated value.
 
@@ -990,27 +990,27 @@ The purpose of this list is just to highlight some real world use cases for usin
 
 ![Companies using Wasm](./companies-using-wasm.png)
 
-- **Figma** -- vector graphics editor and prototyping tool.
+- **Figma** --- vector graphics editor and prototyping tool.
   They claim that
   [WebAssembly cut Figma's load time by 3x](https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/).
-- **Unity** -- cross platform game engine.
+- **Unity** --- cross platform game engine.
   It supports [exporting games to the Web using Wasm](https://blog.unity.com/technology/webassembly-is-here).
-- **1Password** -- password manager.
+- **1Password** --- password manager.
   They claim that they were able to achieve [up to 39x performance increase by
   switching to Wasm](https://blog.1password.com/1password-x-may-2019-update/).
-- **AutoCAD** -- computer-aided design and drafting software.
+- **AutoCAD** --- computer-aided design and drafting software.
   Legacy C/C++ codebase was [ported to the Web using C++ to Wasm compiler emscripten](https://www.youtube.com/watch?v=BfkL3WgOPdI).
-- **Google Earth** -- 3D representation of Earth based on satellite imagery.
+- **Google Earth** --- 3D representation of Earth based on satellite imagery.
   Pieces of the old C/C++ application code were [ported to the Web
   using emscripten](https://web.dev/earth-webassembly/).
-- **Disney+** -- streaming service.
+- **Disney+** --- streaming service.
   [Client app written in Rust and compiled to Wasm](https://medium.com/disney-streaming/introducing-the-disney-application-development-kit-adk-ad85ca139073).
-- **Amazon Prime Video** -- streaming service.
+- **Amazon Prime Video** --- streaming service.
   Parts of app were [written in Rust and compiled to Wasm for improved performance](https://www.amazon.science/blog/how-prime-video-updates-its-app-for-more-than-8-000-device-types).
 
 Some interesting free software projects using Wasm:
 
-- [**uBlock Origin**](https://github.com/gorhill/uBlock) -- content blocker
+- [**uBlock Origin**](https://github.com/gorhill/uBlock) --- content blocker
   by [Raymond Hill](https://github.com/gorhill) under GPLv3 license.
 
   Performance sensitive parts were written in Wasm.
@@ -1020,7 +1020,7 @@ Some interesting free software projects using Wasm:
 
   ![uBlock Origin benchmark](./ublock-origin-benchmark.png)
 
-- [**ffmpeg.wasm**](https://github.com/ffmpegwasm/ffmpeg.wasm) -- FFmpeg for
+- [**ffmpeg.wasm**](https://github.com/ffmpegwasm/ffmpeg.wasm) --- FFmpeg for
   browser and node, powered by Wasm.
   Created by [Jerome Wu](https://github.com/jeromewu) under Expat license.
 
@@ -1029,35 +1029,35 @@ Some interesting free software projects using Wasm:
   FFmpeg in order to convert user submitted files into a desired audio format.
   With FFmpeg being ported to Wasm, we could've moved that transcoding
   logic to the frontend, achieving infinite scalability of that service,
-  without costing us anything -- every user would do their own transcoding
+  without costing us anything --- every user would do their own transcoding
   in their own browser, and just send us the file in the desired format.
 
   ![ffmpeg.wasm demo](./ffmpeg-wasm-demo.png)
 
-- [**vim.wasm**](https://github.com/rhysd/vim.wasm) -- Vim ported to Wasm.
+- [**vim.wasm**](https://github.com/rhysd/vim.wasm) --- Vim ported to Wasm.
   Created by https://github.com/rhysd under Vim license.
 
   ![vim.wasm demo](./vim-demo.png)
 
-- [**D3wasm**](https://wasm.continuation-labs.com/d3demo/) -- Doom 3 ported to
+- [**D3wasm**](https://wasm.continuation-labs.com/d3demo/) --- Doom 3 ported to
   Wasm and WebGL.
   Created by Gabriel Cuvillier under GPLv3 license.
 
   ![D3wasm demo](./doom3-demo.png)
 
-- [**Ruffle**](https://github.com/ruffle-rs) -- Flash Player emulator built in
+- [**Ruffle**](https://github.com/ruffle-rs) --- Flash Player emulator built in
   the Rust programming language.
   Created by Ruffle LLC under either Apache 2.0 or Expat license.
 
   ![Ruffle demo](./ruffle-demo.png)
 
-- [**Wasmboy**](https://github.com/torch2424/wasmboy) --
+- [**Wasmboy**](https://github.com/torch2424/wasmboy) ---
   Game Boy/Game Boy Color Emulator Library written for Wasm.
   Created by [Aaron Turner](https://github.com/torch2424) under Apache 2.0 license.
 
   ![Wasmboy demo](./wasmboy-demo.png)
 
-- [**v86**](https://github.com/copy/v86) -- x86 virtualization in your browser,
+- [**v86**](https://github.com/copy/v86) --- x86 virtualization in your browser,
   recompiling x86 to Wasm on the fly.
   Created by [Fabian Hemmer](https://github.com/copy)
   under BSD 2-Clause "Simplified" License.
@@ -1074,7 +1074,7 @@ Wasm is a relatively new standard.
 It was initially released as a minimal viable product, with the intention of
 extending and improving it incrementally.
 Many new features are being worked on, but the most important one in my opinion
-is WASI -- WebAssembly System Interface.
+is WASI --- WebAssembly System Interface.
 
 WASI is a specification for the universal API and ABI that all Wasm runtimes
 should support.

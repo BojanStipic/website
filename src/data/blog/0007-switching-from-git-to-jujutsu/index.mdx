@@ -86,7 +86,7 @@ hate it.
 It turns out I was wrong.
 Jujutsu provides much more powerful (and at the same time easier to use)
 commands for rewriting history, so you do not have to get each commit just
-right the first time you create it -- you can always go back and edit it.
+right the first time you create it --- you can always go back and edit it.
 
 - **`jj squash`** allows you to move changes from one commit into another.
   You can interactively select which changes to move, making it easy to split
@@ -96,7 +96,7 @@ right the first time you create it -- you can always go back and edit it.
   Again, you can interactively select which changes go into each commit.
 
 - **`jj rebase`** works similarly to `git rebase`, but is more powerful.
-  You do not need to checkout a branch before rebasing it -- you can rebase any
+  You do not need to checkout a branch before rebasing it --- you can rebase any
   set of revisions from anywhere.
   All descendant commits are automatically rebased as well by default, which
   makes working with stacked diffs much easier.
@@ -124,7 +124,7 @@ No tool is perfect, and Jujutsu does have some rough edges worth mentioning.
 ### 4.1. No Pre-commit Hooks
 
 Jujutsu does not support pre-commit hooks.
-This makes sense when you think about it -- commits are created automatically
+This makes sense when you think about it --- commits are created automatically
 and need to be as fast as possible.
 Running linters or formatters on every automatic commit would defeat the
 purpose.
