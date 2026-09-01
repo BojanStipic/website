@@ -27,7 +27,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
     "@typescript-eslint/parser": "^8.68.0",
-    "astro": "^7.2.6",
+    "astro": "^7.2.7",
     "astro-icon": "^1.2.0",
     "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
