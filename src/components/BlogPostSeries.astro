@@ -22,13 +22,11 @@ const entries = await getEntries(series.data.posts);
   </p>
   <p class="mt-4">Articles that are part of this series:</p>
   <ol class="mt-2 list-decimal pl-6">
-    {
-      entries.map((entry) => (
-        <li>
-          <Link href={`/blog/${entry.id}/`}>{entry.data.title}</Link>
-          {entry.id === post.id && " (this article)"}
-        </li>
-      ))
-    }
+    {entries.map((entry) => (
+      <li>
+        <Link href={`/blog/${entry.id}/`}>{entry.data.title}</Link>
+        {entry.id === post.id && " (this article)"}
+      </li>
+    ))}
   </ol>
 </aside>

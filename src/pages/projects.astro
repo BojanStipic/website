@@ -6,6 +6,8 @@ import Layout from "@/layouts/Layout.astro";
 
 <Layout title="Projects">
   <section class="mx-auto flex max-w-prose flex-col gap-8 px-4">
-    {projects.map((project) => <ProjectPreview project={project} />)}
+    {projects.map((project) => (
+      <ProjectPreview project={project} />
+    ))}
   </section>
 </Layout>

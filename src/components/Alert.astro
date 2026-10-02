@@ -26,12 +26,14 @@ const { kind } = Astro.props;
     ]}
   >
     <Icon
-      name={{
-        note: "tabler:info-circle-filled",
-        tip: "tabler:bulb-filled",
-        warning: "tabler:alert-triangle-filled",
-        caution: "tabler:alert-hexagon-filled",
-      }[kind]}
+      name={
+        {
+          note: "tabler:info-circle-filled",
+          tip: "tabler:bulb-filled",
+          warning: "tabler:alert-triangle-filled",
+          caution: "tabler:alert-hexagon-filled",
+        }[kind]
+      }
       size={28}
     />
     {kind}

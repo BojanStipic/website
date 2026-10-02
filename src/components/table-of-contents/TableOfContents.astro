@@ -20,6 +20,8 @@ const toc = generateToc(headings);
 >
   <h2 class="mb-4 text-2xl font-bold">Table of contents:</h2>
   <ol>
-    {toc.map((heading) => <TableOfContentsItem heading={heading} />)}
+    {toc.map((heading) => (
+      <TableOfContentsItem heading={heading} />
+    ))}
   </ol>
 </nav>
