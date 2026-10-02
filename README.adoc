@@ -25,15 +25,15 @@ toc::[]
 === Run locally
 
 ```bash
-npm ci
-npm start
+pnpm ci
+pnpm start
 ```
 
 === Build for deployment
 
 ```bash
-npm ci
-npm run build
+pnpm ci
+pnpm run build
 ```
 
 == License
