@@ -31,9 +31,7 @@ const { Content, headings } = await render(post);
   description={post.data.description}
   imageUrl={post.data.cover.src}
 >
-  <article
-    class="mx-auto box-content flex max-w-prose flex-col gap-8 px-4 md:text-lg"
-  >
+  <article class="mx-auto box-content flex max-w-prose flex-col gap-8 px-4 md:text-lg">
     <header class="grid grid-cols-1 gap-4 md:grid-cols-2">
       <Image src={post.data.cover} alt="Blog post's cover art" priority />
       <div class="flex flex-col gap-2">

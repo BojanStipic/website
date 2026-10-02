@@ -16,12 +16,8 @@ const { post } = Astro.props;
   <article class="flex h-full flex-col rounded-lg bg-base shadow-sm">
     <Image src={post.data.cover} alt={post.data.title} />
     <div class="flex h-full flex-col gap-4 p-4">
-      <h2 class="mb-auto line-clamp-2 text-xl font-bold">
-        {post.data.title}
-      </h2>
-      <div class="line-clamp-3 text-subtext0">
-        {post.data.description}
-      </div>
+      <h2 class="mb-auto line-clamp-2 text-xl font-bold">{post.data.title}</h2>
+      <div class="line-clamp-3 text-subtext0">{post.data.description}</div>
       <Tags tags={post.data.tags} />
       <div class="flex justify-between text-sm text-subtext0">
         <Date date={post.data.pubDate} />
