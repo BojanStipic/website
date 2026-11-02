@@ -15,40 +15,40 @@
     "prepare": "git config set core.hookspath .githooks || true"
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "^0.4.2",
-    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/markdown-satteri": "^0.4.5",
+    "@astrojs/mdx": "^8.1.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "@iconify-json/simple-icons": "^1.2.97",
-    "@iconify-json/tabler": "^1.2.40",
+    "@iconify-json/simple-icons": "^1.2.101",
+    "@iconify-json/tabler": "^1.2.42",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.5",
+    "astro": "^7.4.2",
     "astro-icon": "^1.2.0",
     "reading-time": "^1.5.0",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "^0.9.12",
     "@astrojs/ts-plugin": "^1.10.12",
     "@eslint/js": "^10.0.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
-    "@typescript-eslint/parser": "^8.70.1",
-    "eslint": "^10.11.0",
+    "@typescript-eslint/parser": "^8.72.0",
+    "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^3.2.1",
     "eslint-plugin-jsx-a11y-x": "^0.2.0",
-    "globals": "^17.12.0",
-    "lint-staged": "^17.5.1",
-    "prettier": "^3.9.9",
-    "prettier-plugin-astro": "^1.1.0",
+    "globals": "^17.13.0",
+    "lint-staged": "^17.6.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.70.1"
+    "typescript-eslint": "^8.72.0"
   },
   "engines": {
-    "node": "^24.0.0"
+    "node": "^24.22.1"
   },
-  "packageManager": "pnpm@12.8.1"
+  "packageManager": "pnpm@12.15.0"
 }
