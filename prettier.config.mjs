@@ -32,6 +32,6 @@ export default {
     "",
     "^\\./",
   ],
-  importOrderTypeScriptVersion: "5.5.3",
+  importOrderTypeScriptVersion: "6.0.3",
   tailwindStylesheet: "./src/global.css",
 };
